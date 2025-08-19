@@ -1,0 +1,29 @@
+/* ===============================
+   CSS Color Variables
+   Define all primary colors for the website
+   =============================== */
+:root {
+    /* Primary color: used for highlights and H1 headings */
+    --color-primary: #999ac6;
+
+    /* Secondary color: used for secondary highlights and H4 & H5 headings */
+    --color-secondary: #0b3954;
+
+    /* Light color: used for card backgrounds */
+    --color-light: #fff9ec;
+
+    /* Dark color: used for subdued elements */
+    --color-dark: #798071;
+
+    /* Bright color: used for buttons and warning text */
+    --color-bright: #ff5a5f;
+
+    /* Background color: page background */
+    --color-background: #fcfafa;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-dark); /* Default text color for subdued elements */
+}
+
