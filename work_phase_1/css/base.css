@@ -25,5 +25,39 @@
 body {
     background-color: var(--color-background);
     color: var(--color-dark); /* Default text color for subdued elements */
+    font-family: "Urbanist", sans-serif;
 }
 
+body, p, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5; /* unitless for scalability */
+}
+
+h1 {
+    font-size: 4rem; /* 64px */
+    color: var(--color-primary);
+}
+
+h2 {
+    font-size: 3rem; /* 48px */
+}
+
+h3 {
+    font-size: 1.5rem; /* 24px */
+}
+
+h4 {
+    font-size: 1rem; /* 16px */
+}
+
+h5 {
+    font-size: 0.75rem; /* 16px */
+}
+
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+p {
+    font-size: 1rem; /* 16px */
+}
