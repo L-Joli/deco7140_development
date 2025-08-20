@@ -1,0 +1,160 @@
+/* ---------------------------------------------
+   Blank-Slate CSS Reset (v1, 2025-08)
+   - Aggressively neutralizes UA defaults
+   - Disables animations & transitions by default
+   - Keeps accessibility-friendly focus behavior
+   --------------------------------------------- */
+
+/* 1) Universal element reset + box sizing */
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+
+/* 2) Disable animations & transitions globally
+   (Re-enable with the .enable-animations helper below) */
+:where(*, *::before, *::after) {
+  animation: none !important;
+  transition: none !important;
+  /* Avoid surprise scroll snapping/behavior differences */
+  scroll-behavior: auto !important;
+}
+
+/* 3) Root + document defaults */
+html, body {
+  height: 100%;
+}
+
+html {
+  /* Prevent iOS font size adjustments */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.5;
+  /* Opt-in font smoothing; comment out if undesired */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Let text wrap by default to avoid overflow */
+  overflow-wrap: anywhere;
+}
+
+/* 4) Media elements */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  /* Make inline SVG inherit current text color by default */
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* 5) Lists */
+ul, ol, menu {
+  list-style: none;
+}
+
+/* 6) Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: left;
+  font-weight: inherit;
+  vertical-align: middle;
+}
+
+/* 7) Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 8) Forms & interactive controls */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;            /* start blank */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+textarea {
+  resize: vertical;         /* allow resize but keep it minimal */
+}
+
+button, [type="button"], [type="submit"], [type="reset"], [role="button"] {
+  cursor: pointer;
+}
+
+label, button, input, select, textarea {
+  /* Prevent iOS zoom on form fields by defaulting to 16px
+     (override in your own typography scale) */
+  font-size: 16px;
+}
+
+/* 9) Quotes & misc */
+blockquote, q {
+  quotes: none;
+}
+
+/* 10) Hidden attribute consistently hides */
+[hidden] {
+  display: none !important;
+}
+
+/* 11) Accessibility helpers
+   - Provide a neutral, visible focus style you can theme later.
+   - Because we nuked outlines above, restore a minimal baseline.
+*/
+:where(:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* 12) Motion preference safe-guard
+   If user prefers reduced motion, keep animations off even when
+   the .enable-animations helper is used.
+*/
+@media (prefers-reduced-motion: reduce) {
+  :where(*, *::before, *::after) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 13) Utilities
+   - Re-enable animations/transitions selectively by wrapping
+     your app or a subtree with .enable-animations
+   - Example: <body class="enable-animations"> once you add them.
+*/
+.enable-animations :where(*, *::before, *::after) {
+  animation: initial !important;
+  transition: initial !important;
+  scroll-behavior: initial !important;
+}
+
+/* Optional: a scoped helper to restore default button styles
+   when you actually want them (customize as needed) */
+.button-default {
+  background: ButtonFace;
+  color: ButtonText;
+  border: 1px solid;
+  padding: 0.5em 1em;
+  border-radius: 0.375rem;
+  outline: revert;
+}
