@@ -132,3 +132,71 @@ tooltip numbers) */
 .flip-card:active .flip-card-inner {
     transform: rotateY(180deg);
 }
+
+/* using an emoji for a bullet point (marker) */
+.interview ul li::marker {
+content: "🥕";
+font-size: 1.5em;
+display: inline-block;
+}
+/* using a colour variable but changing the opacity/transparency */
+.response {
+border-left: 2px solid var(--secondary-color);
+font-style: italic;
+background-color: color-mix(in srgb, var(--secondary-color) 10%, transparent); /* color
+variable transparency */
+}
+
+
+ /* INTERACTIVE HIGHLIGHTING - USER STORIES */
+ .interactive-highlight-stories {
+    position: relative; /* Allows for positioning of extra elements (e.g.,
+tooltip numbers) */
+    background-color: rgba(255, 215, 0, 0.3); /* Light yellow highlight with 30% transparency */
+    cursor: pointer; /* Changes cursor to indicate interactivity */
+    padding: 2px 5px; /* Adds small space inside the highlight for better readability */
+    border-radius: 5px; /* Rounds the corners slightly for a softer look */
+    transition: background 0.3s ease; /* Smooth transition effect when background changes */
+}
+
+/* Tooltip Styling for Highlighted Text */
+.interactive-highlight-stories::after {
+    content: attr(data-userstory); 
+    position: absolute; /* Positions the tooltip relative to the highlighted text */
+    top: -5px; /* Moves the tooltip slightly above the highlighted text */
+    right: -15px; /* Moves the tooltip slightly to the right of the highlighted text */
+    background: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 300px; /* Sets a fixed width for the tooltip */
+    height: 100px; /* Sets a fixed height, making the tooltip a perfect circle */
+    padding: 0 10px;
+    display: flex; /* Uses Flexbox to center the text inside the circle */
+    align-items: center; /* Vertically centers the text inside the tooltip */
+    justify-content: center; /* Horizontally centers the text inside the tooltip */
+    border-radius: 5px; /* Creates rounded corners */
+    opacity: 0; /* Initially hides the tooltip */
+    transition: opacity 0.3s ease; /* Smoothly fades in the tooltip by changing the opacity */
+}
+
+/* Show Number on Hover (Desktop) */
+@media (hover: hover) {
+    .interactive-highlight-stories:hover::after {
+        opacity: 1;
+    }
+}
+/* Show Number on Tap (Mobile) */
+.interactive-highlight-stories:focus::after,
+.interactive-highlight-stories:active::after {
+    opacity: 1;
+}
+
+.user-story-box {
+    background-color: white;
+    border-left: 6px solid var(--secondary-color);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
