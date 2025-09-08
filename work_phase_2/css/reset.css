@@ -28,7 +28,8 @@
 }
 
 /* 3) Root + document defaults */
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -48,7 +49,11 @@ body {
 }
 
 /* 4) Media elements */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
@@ -61,7 +66,9 @@ svg {
 }
 
 /* 5) Lists */
-ul, ol, menu {
+ul,
+ol,
+menu {
   list-style: none;
 }
 
@@ -70,7 +77,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-caption, th, td {
+caption,
+th,
+td {
   text-align: left;
   font-weight: inherit;
   vertical-align: middle;
@@ -83,32 +92,44 @@ a {
 }
 
 /* 8) Forms & interactive controls */
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  outline: none;            /* start blank */
+  outline: none; /* start blank */
   appearance: none;
   -webkit-appearance: none;
 }
 
 textarea {
-  resize: vertical;         /* allow resize but keep it minimal */
+  resize: vertical; /* allow resize but keep it minimal */
 }
 
-button, [type="button"], [type="submit"], [type="reset"], [role="button"] {
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+[role="button"] {
   cursor: pointer;
 }
 
-label, button, input, select, textarea {
+label,
+button,
+input,
+select,
+textarea {
   /* Prevent iOS zoom on form fields by defaulting to 16px
      (override in your own typography scale) */
   font-size: 16px;
 }
 
 /* 9) Quotes & misc */
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
