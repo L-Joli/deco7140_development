@@ -168,11 +168,11 @@ tooltip numbers) */
 
 /* Tooltip Styling for Highlighted Text */
 .interactive-highlight-stories::after {
-    content: attr(data-userStory);
+    content: attr(data-userstory);
     position: absolute; /* Positions the tooltip relative to the highlighted text */
     top: -5px; /* Moves the tooltip slightly above the highlighted text */
     right: -15px; /* Moves the tooltip slightly to the right of the highlighted text */
-    background: var(--accent-color);
+    background: var(--secondary-color);
     color: white;
     font-size: 0.8rem;
     font-weight: bold;
