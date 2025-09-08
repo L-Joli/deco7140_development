@@ -41,9 +41,215 @@
             <header>
                 <h1>Accessibility Assessment</h1>
             </header>
-            <section>
-                <h2>What's in this website?</h2>
-                <p>This page is about the Accessibility Assessment.</p>
+            <section class="assessment accessibility">
+                <h2>Success Criteria</h2>
+
+                <div class="criteria">
+                    <div class="p-y-3">
+                        <h3>Principle: Perceivable</h3>
+
+                        <h4 class="m-t-1">1.1 Text Alternatives</h4>
+                        <h5>
+                            <strong
+                                >1.1.1 Alternative Text for Non-text
+                                Content</strong
+                            >
+                        </h5>
+                        <p>
+                            All non-text content that is presented to the user
+                            has a text alternative that serves the equivalent
+                            purpose, except for the situations listed below.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Community stories and
+                            cultural images will include descriptive alt text
+                            and aria-label so that users with visual impairments
+                            can fully engage with the content.
+                        </p>
+
+                        <h4 class="m-t-1">1.3 Adaptable</h4>
+                        <h5><strong>1.3.2 Meaningful Sequence</strong></h5>
+                        <p>
+                            When the sequence in which content is presented
+                            affects its meaning, a correct reading sequence can
+                            be programmatically determined.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> The site uses semantic
+                            HTML to ensure a logical reading order.
+                        </p>
+
+                        <h4 class="m-t-1">1.4 Distinguishable</h4>
+                        <h5><strong>1.4.1 Avoid Color-only Cues</strong></h5>
+                        <p>
+                            Color is not used as the only visual means of
+                            conveying information, indicating an action,
+                            prompting a response, or distinguishing a visual
+                            element.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong>
+                            Add icons or text labels along with colour.
+                        </p>
+                        <h5><strong>1.4.3 Contrast (Minimum)</strong></h5>
+                        <p>
+                            The visual presentation of text and images of text
+                            has a contrast ratio of at least 4.5:1, except Large
+                            Text, Incidental and Logotypes.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> High-contrast colours are
+                            applied to all text and buttons to ensure resources
+                            and events are perceivable for older users and those
+                            with vision impairments.
+                        </p>
+
+                        <h5><strong>1.4.4 Resize Text</strong></h5>
+                        <p>
+                            Except for captions and images of text, text can be
+                            resized without assistive technology up to 200
+                            percent without loss of content or functionality.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> The site uses responsive
+                            design so text and layouts adjust seamlessly when
+                            resized, supporting accessibility on mobile and
+                            desktop.
+                        </p>
+                    </div>
+                    <div class="p-y-3">
+                        <h3>Principle: Operable</h3>
+
+                        <h4 class="m-t-1">2.1 Keyboard Accessible</h4>
+                        <h5><strong>2.1.1 Keyboard Navigability</strong></h5>
+                        <p>
+                            All functionality of the content is operable through
+                            a keyboard interface without requiring specific
+                            timings for individual keystrokes, except where the
+                            underlying function requires input that depends on
+                            the path of the user's movement and not just the
+                            endpoints.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Navigation menus and event
+                            links can be reached and activated through keyboard
+                            inputs.
+                        </p>
+
+                        <h4 class="m-t-1">2.4 Navigable</h4>
+                        <h5><strong>2.4.7 Focus Visible</strong></h5>
+                        <p>
+                            Any keyboard operable user interface has a mode of
+                            operation where the keyboard focus indicator is
+                            visible.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Buttons, forms, and links
+                            include clear focus outlines, helping users with
+                            motor impairments know where they are on the page.
+                        </p>
+                    </div>
+                    <div class="p-y-3">
+                        <h3>Principle: Understandable</h3>
+
+                        <h4 class="m-t-1">3.1 Readable</h4>
+                        <h5><strong>3.1.5 Reading Level</strong></h5>
+                        <p>
+                            When text requires reading ability more advanced
+                            than the lower secondary education level after
+                            removal of proper names and titles, supplemental
+                            content, or a version that does not require reading
+                            ability more advanced than the lower secondary
+                            education level, is available.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Content avoids jargon and
+                            uses simple, inclusive language so diverse community
+                            members, including those with different literacy
+                            levels, can understand resources and stories.
+                        </p>
+                        <h4 class="m-t-1">3.2 Predictable</h4>
+                        <h5><strong>3.2.3 Consistent Navigation</strong></h5>
+                        <p>
+                            Navigational mechanisms that are repeated on
+                            multiple web pages within a set of web pages occur
+                            in the same relative order each time they are
+                            repeated, unless a change is initiated by the user.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Place navigation bar at
+                            the top of every page with the same order.
+                        </p>
+                        <h5>
+                            <strong>
+                                3.2.4 Consistent Identification (Layout & UI
+                                Behaviour)
+                            </strong>
+                        </h5>
+                        <p>
+                            Components that have the same functionality within a
+                            set of web pages are identified consistently.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong>Use consistent naming
+                            across pages for similar features(e.g. Discussion
+                            Board, Profile).
+                        </p>
+
+                        <h4 class="m-t-1">3.3 Input Assistance</h4>
+                        <h5>
+                            <strong
+                                >3.3.1 Error Identification (&
+                                Suggestions)</strong
+                            >
+                        </h5>
+                        <p>
+                            If an input error is automatically detected, the
+                            item that is in error is identified and the error is
+                            described to the user in text.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Forms highlight specific
+                            errors and explain how to fix them.
+                        </p>
+                        <h5><strong>3.3.2 Labels (& Instructions)</strong></h5>
+                        <p>
+                            Labels or instructions are provided when content
+                            requires user input.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Add visible labels for all
+                            form fields; Use aria labels or aria-describedby for
+                            screen reader
+                        </p>
+                        <h5>
+                            <strong>3.3.4 Error Prevention and Recovery</strong>
+                        </h5>
+                        <p>
+                            For web pages that cause legal commitments or
+                            financial transactions for the user to occur, that
+                            modify or delete user-controllable data in data
+                            storage systems, or that submit user test responses.
+                        </p>
+                        <p>
+                            <strong>Actions:</strong> Confirmation steps and
+                            clear error prevention messages reduce mistakes and
+                            ensure users feel confident contributing to the
+                            site.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-y-3">
+                    <h2>Rationale</h2>
+                    <p>
+                        These accessibility features support the client’s values
+                        of inclusivity and accessibility. By delivering a
+                        user-friendly, accessible, and mobile-responsive
+                        platform, the website enables all community members to
+                        share resources, join events, and connect with others
+                        without barriers.
+                    </p>
+                </div>
             </section>
         </div>
         <script type="module" src="js/accessibility.js"></script>
