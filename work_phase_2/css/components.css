@@ -49,7 +49,13 @@ tooltip numbers) */
     padding: 20px;
     margin: 15px 0;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.value-box:hover,
+.value-box:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* Flip Cards - Client Needs analysis*/
@@ -141,7 +147,16 @@ tooltip numbers) */
     background-color: #fff;
     padding: 2rem 3rem;
     border-radius: 10px;
-    box-shadow: 5px 5px 18px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.interview:hover,
+.interview:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .question {
