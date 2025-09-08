@@ -39,8 +39,6 @@
         <div class="container">
             <header>
                 <h1>Ethics Analysis</h1>
-            </header>
-            <section class="assessment ethics">
                 <p>
                     The client’s brief includes the addition of a
                     <strong>Newsletter Subscription Feature</strong>. Although
@@ -48,56 +46,82 @@
                     ethical concerns that need to be managed in accordance with
                     the Australian Computer Society (ACS) Code of Ethics.
                 </p>
+            </header>
 
-                <h2>Potential Harms</h2>
-                <ul>
-                    <li>
-                        <strong>Privacy Risks:</strong> Collecting personal
-                        information (like name, address) can risk users’ privacy
-                        if not properly secured.
-                    </li>
-                    <li><strong>ACS Related Values:</strong> Respect</li>
-                    <li>
-                        <strong>Consent Risks:</strong>Users might be signed up
-                        without fully understanding what they are agreeing to.
-                    </li>
-                    <li><strong>ACS Related Values:</strong>Honesty</li>
-                    <li>
-                        <strong>Data Security Risks:</strong> Leaked emails
-                        could be exploited for phishing or identity theft.
-                    </li>
-                    <li><strong>ACS Related Values:</strong>Trustworthiness</li>
-                </ul>
+            <section class="cards-wrapper">
+                <!-- Potential Harms Card -->
+                <article class="card" aria-labelledby="harms-heading">
+                    <h2 id="harms-heading">Potential Harms</h2>
+                    <ul class="harms-list">
+                        <li>
+                            <strong>Privacy Risks:</strong> Collecting personal
+                            information (like name, address) can risk users’
+                            privacy if not properly secured.
+                            <ul class="acs-value-list">
+                                <li>
+                                    <strong>ACS Related Values:</strong> Respect
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Consent Risks:</strong> Users might be
+                            signed up without fully understanding what they are
+                            agreeing to.
+                            <ul class="acs-value-list">
+                                <li>
+                                    <strong>ACS Related Values:</strong> Honesty
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Data Security Risks:</strong> Leaked emails
+                            could be exploited for phishing or identity theft.
+                            <ul class="acs-value-list">
+                                <li>
+                                    <strong>ACS Related Values:</strong>
+                                    Trustworthiness
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
 
-                <h2>Proposed Solutions</h2>
-                <ul>
-                    <li>
-                        Use <strong>data minimisation</strong> (collect only
-                        emails).
-                    </li>
-                    <li>
-                        Provide <strong>clear consent</strong> forms in plain
-                        language explaining how data will be used.
-                    </li>
-                    <li>
-                        Apply <strong>secure storage</strong> and never share
-                        with third parties.
-                    </li>
-                </ul>
+                <!-- Proposed Solutions Card -->
+                <article class="card" aria-labelledby="solutions-heading">
+                    <h2 id="solutions-heading">Proposed Solutions</h2>
+                    <ul>
+                        <li>
+                            Use <strong>data minimisation</strong> (collect only
+                            emails).
+                        </li>
+                        <li>
+                            Provide <strong>clear consent</strong> forms in
+                            plain language explaining how data will be used.
+                        </li>
+                        <li>
+                            Apply <strong>secure storage</strong> and never
+                            share with third parties.
+                        </li>
+                    </ul>
+                </article>
 
-                <h2>Managing Client Tensions</h2>
-                <p>
-                    While the client seeks stronger engagement through a
-                    newsletter subscription, this must be balanced with ethical
-                    responsibilities. I would communicate with the client to
-                    ensure adherence to the ACS Code of Ethics, making certain
-                    that users feel respected and their privacy protected. This
-                    approach allows the feature to be implemented in a way that
-                    meets the client’s goals while remaining aligned with the
-                    ACS ethical framework.
-                </p>
+                <!-- Managing Client Tensions Card -->
+                <article class="card" aria-labelledby="tensions-heading">
+                    <h2 id="tensions-heading">Managing Client Tensions</h2>
+                    <p>
+                        While the client seeks stronger engagement through a
+                        newsletter subscription, this must be balanced with
+                        ethical responsibilities. I would communicate with the
+                        client to ensure adherence to the ACS Code of Ethics,
+                        making certain that users feel respected and their
+                        privacy protected. This approach allows the feature to
+                        be implemented in a way that meets the client’s goals
+                        while remaining aligned with the ACS ethical framework.
+                    </p>
+                </article>
             </section>
         </div>
+
         <script type="module" src="js/ethics.js"></script>
     </body>
 </html>

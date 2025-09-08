@@ -295,3 +295,85 @@ tooltip numbers) */
         border-top: none;
     }
 }
+
+/* Cards Wrapper */
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Individual Card */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    border: 1px solid #e0e0e0;
+}
+
+/* Card Hover Effects */
+.card:hover,
+.card:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Headings */
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+/* Card Paragraphs & Lists */
+.card p,
+.card li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Lists inside Cards */
+.card ul {
+    list-style: disc inside;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* Strong text emphasis */
+.card strong {
+    color: var(--secondary-color); /* Accent color */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .cards-wrapper {
+        gap: 1rem;
+    }
+    .card {
+        padding: 1rem;
+    }
+}
+
+/* Nested ACS Related Values bullets */
+.acs-value-list {
+    list-style: disc;
+    margin-left: 1.5rem; /* Indent nested list */
+    margin-top: 0.25rem; /* Small spacing from parent point */
+}
+
+.acs-value-list li {
+    font-style: italic;
+    color: #555555; /* Slightly muted for hierarchy */
+    font-size: 0.95rem; /* Slightly smaller for visual hierarchy */
+}
+
+.acs-value-list strong {
+    color: var(--accent-color);
+}
