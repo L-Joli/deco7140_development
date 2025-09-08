@@ -298,11 +298,11 @@ tooltip numbers) */
 
 /* Cards Wrapper */
 .cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 /* Individual Card */
@@ -376,4 +376,32 @@ tooltip numbers) */
 
 .acs-value-list strong {
     color: var(--accent-color);
+}
+
+/* Criteria list (sub-principle) */
+.criteria-list > li {
+    margin-bottom: 1rem;
+}
+
+/* Subcriteria (Success Criterion) */
+.subcriteria-list {
+    margin-left: 1.5rem; /* Indent success criterion */
+    margin-top: 0.5rem;
+}
+
+.subcriteria-list > li {
+    margin-bottom: 0.5rem;
+}
+
+/* Actions list */
+.actions-list {
+    margin-left: 1.5rem; /* Further indent Actions under Success Criterion */
+    margin-top: 0.25rem;
+    list-style-type: disc;
+}
+
+.actions-list li {
+    font-style: italic;
+    color: #555555; /* Slightly muted for hierarchy */
+    font-size: 0.95rem;
 }
