@@ -6,7 +6,7 @@ export function setupMenu() {
     // Initialize ARIA attributes
     toggleBtn.setAttribute("aria-expanded", "false");
     toggleBtn.setAttribute("aria-controls", "menu"); // ID reference for screen readers
-    menu.setAttribute("aria-hidden", "true");
+    menu.setAttribute("aria-hidden", "true"); // TODO: remove in desktop mode
     menu.id = "menu"; // Make sure menu has an ID
 
     toggleBtn.addEventListener("click", () => {
