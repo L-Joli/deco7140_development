@@ -1,0 +1,59 @@
+/* MENUS */
+/* Base styles */
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* Responsive control */
+/* Media query should be below here */
+
+#nav-mobile {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: var(--color-surface);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#nav-mobile ul li a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+#nav-desktop {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: var(--color-surface);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#nav-desktop ul li a {
+    display: block;
+    padding: 1rem 0.5rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+#nav-desktop ul li a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+/* MENUS */
+/* Responsive control */
+@media screen and (min-width: 768px) {
+    #nav-desktop {
+        display: block;
+    }
+    #nav-mobile {
+        display: none;
+    }
+}
