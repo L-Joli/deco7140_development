@@ -1,5 +1,5 @@
 body {
-      font-family: "Grandstander", cursive;
+    font-family: "Grandstander", cursive;
     color: var(--color-primary); /* color applies to text */
     background-color: var(--color-background);
 }
@@ -19,7 +19,8 @@ h3 {
     color: var(--color-primary);
 }
 
-h4, h5 {
+h4,
+h5 {
     font-size: 1.1rem;
     color: var(--color-primary);
 }
