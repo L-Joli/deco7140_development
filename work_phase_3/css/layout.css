@@ -2,7 +2,7 @@
     /* Base */
     --color-primary: #111111; /* Primary text color */
     --color-secondary: #555555; /* Secondary text / muted */
-    --color-background: #F0F0F0; /* Main background */
+    --color-background: #F5F5F5; /* Main background */
     --color-surface: #ffffff; /* Card / surface */
     --color-border: #e5e5e5; /* Dividers / borders */
 }
