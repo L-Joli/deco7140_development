@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/components.css" />
+        <link rel="stylesheet" href="css/page_css/style_guide.css" />
 
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
@@ -18,7 +19,7 @@
             rel="stylesheet"
         />
 
-        <title>Work Phase 3</title>
+        <title>Style Guide</title>
     </head>
     <body>
         <nav id="nav-mobile" aria-label="Main Navigation">
@@ -30,7 +31,9 @@
                     <a href="site_map.html"><span class="icon">🗺️</span></a>
                 </li>
                 <li>
-                    <a href="style_guide.html"><span class="icon">💅🏻</span></a>
+                    <a href="style_guide.html" aria-current="page"
+                        ><span class="icon">💅🏻</span></a
+                    >
                 </li>
                 <li>
                     <a href="ethical_response.html"
@@ -49,20 +52,35 @@
             <ul>
                 <li><a href="index.html">WP3 Home</a></li>
                 <li><a href="site_map.html">Site Map</a></li>
-                <li><a href="style_guide.html">Style Guide</a></li>
+                <li>
+                    <a href="style_guide.html" aria-current="page"
+                        >Style Guide</a
+                    >
+                </li>
                 <li><a href="ethical_response.html">Ethics Response</a></li>
                 <li><a href="genai_mt_acknowledgement.html">GenAI</a></li>
             </ul>
         </nav>
         <main>
             <div class="container">
-                <h1>Joli's Work Phase 3</h1>
+                <h1>Style Guide</h1>
                 <p>Style Guide for the Website.</p>
-                <section>
-                    <h2>Links</h2>
-                    <a href="../index.html">Home</a>
-                </section>
+                <div class="card-container">
+                    <div class="card style-guide">
+                        <h3>Card 1</h3>
+                        <p>This is a page-specific styled card.</p>
+                    </div>
+                    <div class="card style-guide">
+                        <h3>Card 2</h3>
+                        <p>This is another card.</p>
+                    </div>
+                    <div class="card style-guide">
+                        <h3>Card 3</h3>
+                        <p>This is yet another card.</p>
+                    </div>
+                </div>
             </div>
         </main>
+        <script type="module" src="js/style_guide.js"></script>
     </body>
 </html>

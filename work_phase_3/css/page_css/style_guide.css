@@ -1,0 +1,14 @@
+@import "../component_skeletons/card.css";
+
+
+@media (max-width: 768px) {
+    .card.style-guide {
+        width: 100%; /* full width on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .card.style-guide {
+        width: calc((100% / 3) - 1rem); /* 3 cards per row with spacing */
+    }
+}
