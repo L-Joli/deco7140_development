@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/components.css" />
+        <link rel="stylesheet" href="css/page_css/site_map.css" />
 
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
@@ -27,7 +28,9 @@
                     <a href="index.html"><span class="icon">🏠</span></a>
                 </li>
                 <li>
-                    <a href="site_map.html"><span class="icon">🗺️</span></a>
+                    <a href="site_map.html" aria-current="page"
+                        ><span class="icon">🗺️</span></a
+                    >
                 </li>
                 <li>
                     <a href="style_guide.html"><span class="icon">💅🏻</span></a>
@@ -48,7 +51,9 @@
         <nav id="nav-desktop" aria-label="Main Navigation">
             <ul>
                 <li><a href="index.html">WP3 Home</a></li>
-                <li><a href="site_map.html">Site Map</a></li>
+                <li>
+                    <a href="site_map.html" aria-current="page">Site Map</a>
+                </li>
                 <li><a href="style_guide.html">Style Guide</a></li>
                 <li><a href="ethical_response.html">Ethics Response</a></li>
                 <li><a href="genai_mt_acknowledgement.html">GenAI</a></li>
@@ -56,13 +61,100 @@
         </nav>
         <main>
             <div class="container">
-                <h1>Joli's Work Phase 3</h1>
-                <p>Style Guide for the Website.</p>
-                <section>
-                    <h2>Links</h2>
-                    <a href="../index.html">Home</a>
+                <h1>Website Site Map</h1>
+                <p>This is the site map for the Tech Hub Website.</p>
+
+                <img
+                    src="assets/site_map.png"
+                    alt="Site map cards"
+                    class="responsive-img"
+                />
+                <section class="accordion m-y-5">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Connect</button>
+                        <div class="accordion-content">
+                            <p class="m-y-3">
+                                Central hub for users to see and share inspiring
+                                content. Supports the client's goal of
+                                empowering users with knowledge and User story
+                                'As a ...'. Note: this should be your content!
+                                These are your annotations (see L08 for
+                                details).
+                            </p>
+                            <div class="accordion nested">
+                                <!-- Nested item (sub-page) HTML will go here-->
+                                <div class="accordion-item">
+                                    <button class="accordion-header">
+                                        Connect
+                                    </button>
+                                    <div class="accordion-content">
+                                        <p class="m-y-3">
+                                            Central hub for users to see and
+                                            share inspiring content. Supports
+                                            the client's goal of empowering
+                                            users with knowledge and User story
+                                            'As a ...'. Note: this should be
+                                            your content! These are your
+                                            annotations (see L08 for details).
+                                        </p>
+                                        <div class="accordion second-nested p-b-3">
+                                            <!-- Nested item (sub-page) HTML will go here-->
+                                            <div class="accordion-item">
+                                                <button
+                                                    class="accordion-header"
+                                                >
+                                                    Connect
+                                                </button>
+                                                <div class="accordion-content">
+                                                    <p class="m-y-3">
+                                                        Central hub for users to
+                                                        see and share inspiring
+                                                        content. Supports the
+                                                        client's goal of
+                                                        empowering users with
+                                                        knowledge and User story
+                                                        'As a ...'. Note: this
+                                                        should be your content!
+                                                        These are your
+                                                        annotations (see L08 for
+                                                        details).
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion second-nested">
+                                            <!-- Nested item (sub-page) HTML will go here-->
+                                            <div class="accordion-item">
+                                                <button
+                                                    class="accordion-header"
+                                                >
+                                                    Connect
+                                                </button>
+                                                <div class="accordion-content">
+                                                    <p class="m-y-3">
+                                                        Central hub for users to
+                                                        see and share inspiring
+                                                        content. Supports the
+                                                        client's goal of
+                                                        empowering users with
+                                                        knowledge and User story
+                                                        'As a ...'. Note: this
+                                                        should be your content!
+                                                        These are your
+                                                        annotations (see L08 for
+                                                        details).
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </main>
+        <script type="module" src="js/site_map.js"></script>
     </body>
 </html>

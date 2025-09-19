@@ -1,0 +1,6 @@
+@import "../component_skeletons/accordion.css";
+
+.accordion-header {
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+}

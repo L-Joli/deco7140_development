@@ -57,3 +57,9 @@ nav ul {
         display: none;
     }
 }
+
+.responsive-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
