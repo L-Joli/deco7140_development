@@ -1,6 +1,7 @@
 .accordion {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .accordion-item {
@@ -32,7 +33,7 @@
 
 .accordion-item.open .accordion-content {
     padding: 1rem;
-    max-height: 500px;
+    max-height: max-content;
 }
 
 .accordion.nested {
