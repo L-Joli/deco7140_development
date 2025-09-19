@@ -57,8 +57,59 @@
         </nav>
         <main>
             <div class="container">
-                <h1>Visceral Design</h1>
+                <div class="page-header">
+                    <nav class="breadcrumbs">
+                        <ul>
+                            <li><a href="style_guide.html">Style Guide</a></li>
+                            <li><span>Visceral Design</span></li>
+                        </ul>
+                    </nav>
+                    <h1>Visceral Design</h1>
+                </div>
                 <p>Visceral Design for the Website.</p>
+                <article>
+                    <h2 class="m-t-3">Page Layouts</h2>
+                    <section class="gallery m-t-3">
+                        <img
+                            src="assets/HomeDesktop.jpg"
+                            alt="Home Page Desktop Wireframe"
+                        />
+                        <img
+                            src="assets/HomeMobile.jpg"
+                            alt="Home Page Mobile Wireframe"
+                        />
+                        <img
+                            src="assets/MenuMobile.jpg"
+                            alt="Mobile Menu Wireframe"
+                        />
+                        <img
+                            src="assets/ExploreDesktop.jpg"
+                            alt="Explore Page Desktop Wireframe"
+                        />
+                        <img
+                            src="assets/ExploreMobile.jpg"
+                            alt="Explore Page Mobile Wireframe"
+                        />
+                        <img
+                            src="assets/SettingsHome.jpg"
+                            alt="Settings Page Desktop Wireframe"
+                        />
+                        <img
+                            src="assets/SettingsMobile.jpg"
+                            alt="Settings Page Mobile Wireframe"
+                        />
+                    </section>
+                    <aside class="viewer" id="viewer" aria-hidden="true">
+                        <button
+                            id="close-viewer"
+                            aria-label="Close image viewer"
+                        >
+                            ✖
+                        </button>
+                        <img id="viewer-img" src="" alt="" />
+                        <p id="viewer-caption"></p>
+                    </aside>
+                </article>
             </div>
         </main>
         <script type="module" src="js/visceral_design.js"></script>
