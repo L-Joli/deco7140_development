@@ -1,5 +1,25 @@
 @import "../component_skeletons/card.css";
 
+.learn-more {
+    display: inline-block;
+    background-color: var(--color-gray-600);
+    color: var(--color-text-white);
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    margin: 0 1rem 1rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: var(--color-gray-700);
+}
+
+.card-description {
+    height: 100%;
+}
 
 @media (max-width: 768px) {
     .card.style-guide {
