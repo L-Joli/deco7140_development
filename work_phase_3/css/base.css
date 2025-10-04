@@ -4,6 +4,7 @@ body {
     background-color: var(--color-background);
 }
 
+/* Typography styles using golden ratio */
 h1 {
     font-size: 4.2rem; /* 2.6 × 1.618 rounded */
     color: var(--color-primary);
@@ -13,22 +14,26 @@ h1 {
 h2 {
     font-size: 2.6rem; /* 4.2 ÷ 1.618 */
     color: var(--color-primary);
+    margin-bottom: 1rem;
 }
 
 h3 {
     font-size: 1.6rem; /* 2.6 ÷ 1.618 */
     color: var(--color-primary);
+    margin-bottom: 0.8rem;
 }
 
 h4,
 h5 {
     font-size: 1.1rem;
     color: var(--color-primary);
+    margin-bottom: 0.5rem;
 }
 
 p {
     font-size: 1rem; /* 1.6 ÷ 1.618 */
     line-height: 1.618; /* golden ratio for readability */
+    color: var(--color-primary);
 }
 
 h1 + p {
