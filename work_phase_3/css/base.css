@@ -7,6 +7,7 @@ body {
 h1 {
     font-size: 4.2rem; /* 2.6 × 1.618 rounded */
     color: var(--color-primary);
+    margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -28,4 +29,8 @@ h5 {
 p {
     font-size: 1rem; /* 1.6 ÷ 1.618 */
     line-height: 1.618; /* golden ratio for readability */
+}
+
+h1 + p {
+    margin-bottom: 2rem;
 }
