@@ -15,10 +15,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
-
         <title>Work Phase 3</title>
     </head>
     <body>
@@ -81,7 +80,12 @@
                     <h2>Buttons</h2>
                     <div class="button-showcase">
                         <div class="button-example">
-                            <button class="btn btn-primary" aria-label="Join Now">Join Now</button>
+                            <button
+                                class="btn btn-primary"
+                                aria-label="Join Now"
+                            >
+                                Join Now
+                            </button>
                             <p class="button-caption">
                                 This button uses strong color contrast and a
                                 clear label. It serves as the primary
@@ -91,7 +95,11 @@
                         </div>
 
                         <div class="button-example">
-                            <button class="btn btn-disabled" disabled  aria-label="Next">
+                            <button
+                                class="btn btn-disabled"
+                                disabled
+                                aria-label="Next"
+                            >
                                 Next
                             </button>
                             <p class="button-caption">
@@ -103,7 +111,10 @@
                         </div>
 
                         <div class="button-example">
-                            <button class="btn btn-primary-outline"  aria-label="Read More">
+                            <button
+                                class="btn btn-primary-outline"
+                                aria-label="Read More"
+                            >
                                 Read More
                             </button>
                             <p class="button-caption">
@@ -114,7 +125,10 @@
                         </div>
 
                         <div class="button-example">
-                            <button class="btn btn-secondary btn-menu"  aria-label="Menu">
+                            <button
+                                class="btn btn-secondary btn-menu"
+                                aria-label="Menu"
+                            >
                                 <span class="hamburger"></span>
                             </button>
                             <p class="button-caption">
@@ -126,7 +140,10 @@
                         </div>
 
                         <div class="button-example">
-                            <button class="btn btn-accent-teal btn-profile"  aria-label="Profile">
+                            <button
+                                class="btn btn-accent-teal btn-profile"
+                                aria-label="Profile"
+                            >
                                 <img
                                     src="assets/profile-icon.png"
                                     alt="Profile"
@@ -145,13 +162,18 @@
                 <!-- Forms Section -->
                 <section class="m-t-5">
                     <h2>Forms</h2>
-                    <form class="form-showcase">
+                    <form
+                        id="community-form"
+                        class="form-showcase"
+                        enctype="multipart/form-data"
+                    >
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input
                                 type="text"
                                 id="name"
                                 placeholder="Enter your name"
+                                required
                             />
                         </div>
                         <div class="form-group">
@@ -160,19 +182,41 @@
                                 type="email"
                                 id="email"
                                 placeholder="Enter your email"
+                                required
                             />
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea
                                 id="message"
-                                placeholder="Your message"
+                                name="message"
+                                rows="4"
+                                placeholder="Type your message here"
                             ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photo">Photo (optional)</label>
+                            <input
+                                type="file"
+                                id="photo"
+                                name="photo"
+                                accept="image/*"
+                            />
+                            <p class="form-hint">
+                                Acceptable image files only. Max size: 10MB.
+                            </p>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             Submit
                         </button>
+                        <p id="form-feedback" aria-live="polite"></p>
                     </form>
+                    <p class="form-caption">
+                        This form is designed for accessibility, with clearly
+                        associated labels, descriptive placeholders, and an
+                        aria-live region for feedback.
+                    </p>
                 </section>
             </div>
         </main>

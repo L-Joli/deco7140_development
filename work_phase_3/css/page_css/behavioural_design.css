@@ -180,17 +180,17 @@
 
 [data-theme="tech"] .btn-disabled {
     background-color: var(--color-gray-400); /* muted background */
-    color: var(--color-gray-700);           /* muted text */
-    cursor: not-allowed;                     /* indicate non-clickable */
-    opacity: 0.6;                            /* subtle transparency */
-    border-color: transparent;               /* remove hover border effect */
+    color: var(--color-gray-700); /* muted text */
+    cursor: not-allowed; /* indicate non-clickable */
+    opacity: 0.6; /* subtle transparency */
+    border-color: transparent; /* remove hover border effect */
 }
 
 /* Container for all buttons */
 .button-showcase {
     display: flex;
-    flex-wrap: wrap;        /* allow wrapping on smaller screens */
-    gap: var(--spacing-5);  /* space between buttons */
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    gap: var(--spacing-5); /* space between buttons */
     justify-content: flex-start; /* align items to start; can center if needed */
 }
 
@@ -200,8 +200,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 140px;           /* fixed width for consistent layout */
-    gap: var(--spacing-3)
+    width: 140px; /* fixed width for consistent layout */
+    gap: var(--spacing-3);
 }
 
 /* Caption under each button */
@@ -221,10 +221,9 @@
     }
 
     .button-example {
-        width: auto;           /* take available width */
+        width: auto; /* take available width */
     }
 }
-
 
 /* ===========================
    Responsive
@@ -256,4 +255,15 @@
         transform: scale(1.05); /* slight scale for touch feedback */
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle shadow */
     }
+}
+
+.form-caption {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-2);
+    max-width: 600px;
+}
+
+.community-form {
+      font-family: "Google Sans Code", monospace;
 }
