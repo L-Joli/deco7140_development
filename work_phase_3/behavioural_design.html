@@ -31,7 +31,9 @@
                     <a href="site_map.html"><span class="icon">🗺️</span></a>
                 </li>
                 <li>
-                    <a href="style_guide.html"  aria-current="page"><span class="icon">💅🏻</span></a>
+                    <a href="style_guide.html" aria-current="page"
+                        ><span class="icon">💅🏻</span></a
+                    >
                 </li>
                 <li>
                     <a href="ethical_response.html"
@@ -50,12 +52,16 @@
             <ul>
                 <li><a href="index.html">WP3 Home</a></li>
                 <li><a href="site_map.html">Site Map</a></li>
-                <li><a href="style_guide.html"  aria-current="page">Style Guide</a></li>
+                <li>
+                    <a href="style_guide.html" aria-current="page"
+                        >Style Guide</a
+                    >
+                </li>
                 <li><a href="ethical_response.html">Ethics Response</a></li>
                 <li><a href="genai_mt_acknowledgement.html">GenAI</a></li>
             </ul>
         </nav>
-        <main>
+        <main data-theme="tech">
             <div class="container">
                 <div class="page-header">
                     <nav class="breadcrumbs">
@@ -65,11 +71,112 @@
                         </ul>
                     </nav>
                     <h1>Behavioural Design</h1>
-                    <p>Behavioural Design for the Website.</p>
+                    <p>
+                        Behavioural Design for the Website using the Tech Theme.
+                    </p>
                 </div>
-          
+
+                <!-- Buttons Section -->
+                <section class="m-t-5">
+                    <h2>Buttons</h2>
+                    <div class="button-showcase">
+                        <div class="button-example">
+                            <button class="btn btn-primary" aria-label="Join Now">Join Now</button>
+                            <p class="button-caption">
+                                This button uses strong color contrast and a
+                                clear label. It serves as the primary
+                                call-to-action. Hover and pressed states provide
+                                clear feedback to the user.
+                            </p>
+                        </div>
+
+                        <div class="button-example">
+                            <button class="btn btn-disabled" disabled  aria-label="Next">
+                                Next
+                            </button>
+                            <p class="button-caption">
+                                This button is disabled to indicate an
+                                unavailable action. The muted colors and
+                                not-allowed cursor clearly signal that it cannot
+                                be interacted with.
+                            </p>
+                        </div>
+
+                        <div class="button-example">
+                            <button class="btn btn-primary-outline"  aria-label="Read More">
+                                Read More
+                            </button>
+                            <p class="button-caption">
+                                This outline button maintains visibility while
+                                appearing less dominant. Hover and pressed
+                                states provide subtle feedback to the user.
+                            </p>
+                        </div>
+
+                        <div class="button-example">
+                            <button class="btn btn-secondary btn-menu"  aria-label="Menu">
+                                <span class="hamburger"></span>
+                            </button>
+                            <p class="button-caption">
+                                This circular menu button is designed for mobile
+                                use. Its shape and icon afford tap interaction,
+                                while hover and pressed states provide feedback
+                                to the user.
+                            </p>
+                        </div>
+
+                        <div class="button-example">
+                            <button class="btn btn-accent-teal btn-profile"  aria-label="Profile">
+                                <img
+                                    src="assets/profile-icon.png"
+                                    alt="Profile"
+                                />
+                            </button>
+                            <p class="button-caption">
+                                This circular accent button highlights a profile
+                                action. Its vibrant color and hover effects give
+                                clear interactive feedback while maintaining
+                                focus on the icon.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Forms Section -->
+                <section class="m-t-5">
+                    <h2>Forms</h2>
+                    <form class="form-showcase">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                placeholder="Your message"
+                            ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </form>
+                </section>
             </div>
         </main>
+
         <script type="module" src="js/behavioural_design.js"></script>
     </body>
 </html>
