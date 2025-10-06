@@ -1,8 +1,8 @@
 /* Breadcrumbs container */
 .breadcrumbs {
   font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  margin: 1rem 0;
+  font-size: 1rem;
+  margin: 2rem 0;
 }
 
 .breadcrumbs ul {
@@ -28,12 +28,12 @@
 /* Links */
 .breadcrumbs a {
   text-decoration: none;
-  color: #007BFF; /* link color */
+  color: var(--color-accent-teal); /* link color */
   transition: color 0.3s;
 }
 
 .breadcrumbs a:hover {
-  color: #0056b3; /* hover color */
+  color: var(--color-accent-teal-hover); /* hover color */
 }
 
 /* Current page */
