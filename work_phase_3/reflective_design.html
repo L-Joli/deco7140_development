@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/components.css" />
+        <link rel="stylesheet" href="css/page_css/reflective_design.css" />
 
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
@@ -30,7 +31,9 @@
                     <a href="site_map.html"><span class="icon">🗺️</span></a>
                 </li>
                 <li>
-                    <a href="style_guide.html"><span class="icon">💅🏻</span></a>
+                    <a href="style_guide.html" aria-current="page"
+                        ><span class="icon">💅🏻</span></a
+                    >
                 </li>
                 <li>
                     <a href="ethical_response.html"
@@ -49,20 +52,307 @@
             <ul>
                 <li><a href="index.html">WP3 Home</a></li>
                 <li><a href="site_map.html">Site Map</a></li>
-                <li><a href="style_guide.html">Style Guide</a></li>
+                <li>
+                    <a href="style_guide.html" aria-current="page"
+                        >Style Guide</a
+                    >
+                </li>
                 <li><a href="ethical_response.html">Ethics Response</a></li>
                 <li><a href="genai_mt_acknowledgement.html">GenAI</a></li>
             </ul>
         </nav>
         <main>
             <div class="container">
-                <h1>Joli's Work Phase 3</h1>
-                <p>Style Guide for the Website.</p>
-                <section>
-                    <h2>Links</h2>
-                    <a href="../index.html">Home</a>
-                </section>
+                <div class="page-header">
+                    <nav class="breadcrumbs">
+                        <ul>
+                            <li><a href="style_guide.html">Style Guide</a></li>
+                            <li><span>Reflective Design</span></li>
+                        </ul>
+                    </nav>
+                    <h1>Reflective Design</h1>
+                    <p>Reflective Design for the Website.</p>
+                </div>
+                <!-- VALUES MAPPING -->
+               <article class="values-mapping">
+          <h3>Values Mapping</h3>
+          <p>
+            This table highlights core values and their relevance to the design
+            decisions.
+          </p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Value</th>
+                  <th>Design Implication</th>
+                  <th>Specific Element</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Social Cohesion</strong></td>
+                  <td>
+                    <ul>
+                      <li>
+                        Empower diverse communities to share their stories,
+                        connect with others, and access resources that enhance
+                        their visibility and influence.
+                        <em
+                          >Annotation: Sharing stories and resources (like
+                          projects, tutorials, and experiences) builds bonds
+                          across a tech community. Features like forums and
+                          event calendars create spaces for collaboration and
+                          visibility, reducing fragmentation.</em
+                        >
+                      </li>
+                      <li>
+                        Celebrate the identity of the chosen community by
+                        highlighting diversity within it.
+                        <em
+                          >Annotation: Tech communities are rarely homogeneous.
+                          Highlighting different roles, skills, and journeys in
+                          profile pages and event showcases prevents stereotypes
+                          and strengthens the sense of belonging.</em
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Discussion Forum to post, share and view contents
+                        <em
+                          >Annotation: Acts as the central hub for code
+                          discussions, troubleshooting, and sharing experiences.
+                          By enabling open conversation, it strengthens bonds
+                          and supports ongoing peer learning.</em
+                        >
+                      </li>
+                      <li>
+                        Event Calendars
+                        <em
+                          >Annotation: Transforms the calendar into an
+                          interactive hub. Commenting fosters dialogue, sharing
+                          expands reach, and rating ensures quality, creating a
+                          more engaging, user-driven event ecosystem.</em
+                        >
+                      </li>
+                      <li>
+                        Profiles page to connect with people
+                        <em
+                          >Annotation: Helps members connect over shared skills,
+                          interests, and experiences. Personalised profiles
+                          increase visibility and recognition, making it easier
+                          to find collaborators or mentors.</em
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Inclusivity</strong></td>
+                  <td>
+                    <ul>
+                      <li>
+                        Represent and support different communities.
+                        <em
+                          >Annotation: A tech community contains subgroups:
+                          front-end developers, back-end specialists, data
+                          scientists and students. Representing them in design
+                          through profiles and resource hubs ensures all members
+                          feel seen.</em
+                        >
+                      </li>
+                      <li>
+                        Support meaningful interaction and engagement.
+                        <em
+                          >Annotation: Inclusivity isn’t just presence, it’s
+                          participation. Features like code sharing and
+                          discussion threads allow everyone to contribute
+                          knowledge, regardless of experience level.</em
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Code Resources Sharing to represent their own work
+                        <em
+                          >Annotation: Allows members to showcase diverse
+                          technical contributions, from beginner tutorials to
+                          advanced projects. This prevents a single “type” of
+                          expertise from dominating and makes the platform more
+                          welcoming.</em
+                        >
+                      </li>
+                      <li>
+                        Multi-language Support to welcome global members and
+                        reduce barriers
+                        <em
+                          >Annotation: Lowers language barriers that often
+                          exclude non-English-speaking developers. By enabling
+                          broader participation, the platform embraces a truly
+                          global and diverse community.</em
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Accessibility</strong></td>
+                  <td>
+                    <ul>
+                      <li>
+                        Be accessible and mobile-friendly.
+                        <em
+                          >Annotation: Accessibility ensures all community
+                          members can participate, regardless of device or
+                          ability. Mobile-friendly layouts and responsive design
+                          allow seamless access for developers on the go.</em
+                        >
+                      </li>
+                      <li>
+                        Develop a dynamic, user-friendly website.
+                        <em
+                          >Annotation: Accessibility is not just about
+                          compliance. It is about usability. Keyboard
+                          navigation, focus indicators, and dynamic interfaces
+                          reduce barriers for users with assistive technologies
+                          and improve usability for everyone.</em
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Keyboard-friendly Integration
+                        <em
+                          >Annotation: Ensures that developers using assistive
+                          devices can navigate the platform without difficulty.
+                          This not only supports users with disabilities but
+                          also improves efficiency for power users.</em
+                        >
+                      </li>
+                      <li>
+                        Focus indicators
+                        <em
+                          >Annotation: Vital for users navigating via keyboard
+                          or screen readers, as it highlights the active point
+                          of interaction. This small feature significantly
+                          reduces confusion and frustration.</em
+                        >
+                      </li>
+                      <li>
+                        Responsive Design
+                        <em
+                          >Annotation: Critical for a tech community where
+                          members access resources on laptops, tablets, and
+                          phones. Ensures that usability and readability are
+                          consistent across devices, supporting accessibility
+                          and mobility.</em
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+
+                <!-- MEANING THROUGH IMAGERY AND TONE -->
+                <article class="imagery-tone">
+                    <h3>Meaning through Imagery and Tone</h3>
+                    <div class="tone-section">
+                        <h4>Identity</h4>
+                        <p>
+                            A professional yet inclusive tech hub that brings
+                            diverse people together to learn, share, and grow in
+                            technology.
+                        </p>
+
+                        <h4>Emotional Tone</h4>
+                        <p>
+                            The site feels modern, innovative, and professional,
+                            encouraging curiosity, confidence, and a genuine
+                            sense of belonging.
+                        </p>
+                    </div>
+
+                    <div class="image-gallery">
+                        <figure>
+                            <img
+                                src="images/home_hero.jpg"
+                                alt="Hero banner representing community unity"
+                            />
+                            <figcaption>
+                                Hero imagery showcasing togetherness and local
+                                environment.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img
+                                src="images/community_event.jpg"
+                                alt="Local community event"
+                            />
+                            <figcaption>
+                                Images support the emotional tone of
+                                authenticity and belonging.
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <blockquote>
+                        “Welcome to Our Community — a space where your voice
+                        helps shape our shared story.”
+                    </blockquote>
+                    <p class="annotation">
+                        Annotation: The imagery and tone reinforce the brand’s
+                        emotional and reflective goals.
+                    </p>
+                </article>
+
+                <!-- LANGUAGE AND EXPRESSION -->
+                <article class="language-expression">
+                    <h3>Reflective Language and Expression</h3>
+                    <div class="text-comparison">
+                        <div>
+                            <h4>Original Text</h4>
+                            <p>“Join us to make a difference.”</p>
+                        </div>
+                        <div>
+                            <h4>Revised Text</h4>
+                            <p>
+                                “Together, we grow and create lasting change in
+                                our community.”
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="language-checklist">
+                        <li>✔ Inclusive and community-oriented language</li>
+                        <li>✔ Accessible readability (Grade 7 level)</li>
+                        <li>✔ Positive and empathetic tone</li>
+                    </ul>
+                    <p class="annotation">
+                        Annotation: Revised phrasing strengthens emotional
+                        resonance and reflects inclusivity.
+                    </p>
+                </article>
+
+                <!-- DYNAMIC CONTENT (API EXAMPLE) -->
+                <article class="api-demo">
+                    <h3>Seeing Ourselves in the Interface (Dynamic Content)</h3>
+                    <p>
+                        This section dynamically displays community members who
+                        recently joined.
+                    </p>
+                    <div id="community-profiles" class="profiles"></div>
+                </article>
             </div>
         </main>
+        <script type="module" src="js/reflective_design.js"></script>
     </body>
 </html>
