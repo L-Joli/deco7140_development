@@ -81,7 +81,7 @@
   color: #333;
 }
 
-table {
+.values-mapping table {
   line-height: 1.6;
   width: 100%;
   border-collapse: collapse;
@@ -89,30 +89,30 @@ table {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   background-color: var(--color-surface);
 }
-th,
-td {
+.values-mapping th,
+.values-mapping td {
   border: 1px solid var(--color-border);
   padding: 12px;
   text-align: left;
   vertical-align: top;
 }
-th {
+.values-mapping  th {
   background-color: var(--color-gray-100);
   font-weight: bold;
 }
-tr:nth-child(even) {
+.values-mapping tr:nth-child(even) {
   background-color: var(--color-gray-100);
 }
-ul {
+.values-mapping ul {
   margin: 0;
 }
-li {
+.values-mapping li {
   margin-bottom: 15px;
 }
-li:last-child {
+.values-mapping li:last-child {
   margin-bottom: 0;
 }
-em {
+.values-mapping em {
   color: var(--color-secondary);
   display: block;
   margin-top: 5px;
