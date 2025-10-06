@@ -15,7 +15,7 @@
 
 [data-theme="tech"] .btn-primary {
     background-color: var(--color-accent-orange);
-    color: var(--color-white);
+    color: #000;
 }
 
 [data-theme="tech"] .btn-primary:hover {
@@ -24,7 +24,7 @@
 
 [data-theme="tech"] .btn-primary-outline {
     background-color: var(--color-white);
-    color: var(--color-accent-orange);
+    color: #000;
     border-color: var(--color-accent-orange);
 }
 

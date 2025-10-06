@@ -570,6 +570,86 @@
                     </p>
                     <section id="community-list"></section>
                 </article>
+
+                <article>
+                    <h2>Accessibility Issues Report</h2>
+                    <div class="accessibility-issues">
+                        <p>
+                            This section outlines the main accessibility issues
+                            identified in the behavioural_design.html.
+                        </p>
+                        <section id="summary">
+                            <p>
+                                <strong>Summary:</strong> The issues identified
+                                by the accessibility tool are similar: the
+                                “Name,” “Message,” and “Photos” inputs are not
+                                grouped with &lt;fieldset&gt;, meaning they lack
+                                semantic grouping.
+                            </p>
+                            <p>
+                                <strong>Impact on Users:</strong> Screen reader
+                                users may not understand that each input is part
+                                of a logical form section, which can cause
+                                confusion and reduce the clarity and usability
+                                of the form.
+                            </p>
+                            <p>
+                                <strong>Proposed Fix:</strong> Wrap each input
+                                and its label in a &lt;fieldset&gt; with an
+                                appropriate &lt;legend&gt; (e.g., “Personal
+                                Information,” “Your Message,” “Upload Photos”)
+                                to clearly indicate grouping and improve
+                                accessibility.
+                            </p>
+                        </section>
+                        <section id="issues-list">
+                            <div class="issue">
+                                <h3>
+                                    Issue 1: Name input not grouped with
+                                    &lt;fieldset&gt;
+                                </h3>
+                                <p>
+                                    <strong>WCAG Success Criteria:</strong>
+                                    1.3.1 Info and Relationships
+                                </p>
+                                <p>
+                                    <strong>Affected Element:</strong> &lt;input
+                                    id="name"&gt; in the form
+                                </p>
+                            </div>
+
+                            <div class="issue">
+                                <h3>
+                                    Issue 2: Message input not grouped with
+                                    &lt;fieldset&gt;
+                                </h3>
+                                <p>
+                                    <strong>WCAG Success Criteria:</strong>
+                                    1.3.1 Info and Relationships
+                                </p>
+                                <p>
+                                    <strong>Affected Element:</strong>
+                                    &lt;textarea id="message"&gt; in the form
+                                </p>
+                            </div>
+
+                            <div class="issue">
+                                <h3>
+                                    Issue 3: Photos input not grouped with
+                                    &lt;fieldset&gt;
+                                </h3>
+                                <p>
+                                    <strong>WCAG Success Criteria:</strong>
+                                    1.3.1 Info and Relationships
+                                </p>
+                                <p>
+                                    <strong>Affected Element:</strong> &lt;input
+                                    id="photo"&gt; in the form
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </article>
             </div>
         </main>
         <script type="module" src="js/reflective_design.js"></script>
