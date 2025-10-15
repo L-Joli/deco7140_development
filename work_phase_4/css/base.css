@@ -1,0 +1,36 @@
+body {
+    font-family: var(--font-family);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+}
+
+h1 {
+    font-size: 2.986rem; 
+    color: var(--color-text-primary);
+    margin-bottom: 3.4rem; /* golden ratio spacing */
+}
+
+h2 {
+    font-size: 1.85rem;
+    color: var(--color-text-primary);
+    margin-bottom: 2.1rem;
+}
+
+h3 {
+    font-size: 1.14rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1.3rem;
+}
+
+h4,
+h5 {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.81rem;
+}
+
+p {
+    font-size: 1rem; 
+    line-height: 1.618; 
+    color: var(--color-text-primary);
+}
