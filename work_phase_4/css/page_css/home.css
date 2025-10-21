@@ -1,7 +1,7 @@
 @import "../component_skeletons/nav_bar.css";
 @import "../component_skeletons/news_card.css";
-/* News Card */
-#news-container {
+
+.items-container {
     display: grid;
     gap: var(--spacing-5);
 }
