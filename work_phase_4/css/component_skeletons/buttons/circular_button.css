@@ -1,0 +1,14 @@
+.circular-button {
+    inline-size: 48px;
+    block-size: 48px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast);
+}
+.circular-button:active {
+    transform: translateY(1px);
+}

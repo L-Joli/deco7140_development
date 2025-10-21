@@ -1,3 +1,5 @@
+@import "../component_skeletons/buttons/circular_button.css";
+
 /* --- Accessibility helpers --- */
 .nav-visually-hidden {
     position: absolute !important;
@@ -40,20 +42,9 @@
     font-size: var(--font-size-lg);
     color: var(--color-accent-orange);
 }
-
-/* ≥44×44 touch target */
 .nav-hamburger {
-    inline-size: 48px;
-    block-size: 48px;
-    border-radius: 50%;
-    border: 0;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    background: var(--color-gray-700);
+    background: var(--color-gray-800);
     color: var(--color-white);
-    box-shadow: var(--shadow-md);
-    transition: transform var(--transition-fast);
 }
 .nav-hamburger:active {
     transform: translateY(1px);
@@ -181,25 +172,11 @@
     color: var(--color-white);
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
     .nav-sidebar {
         display: block;
     }
-    .nav-offset-left {
-        margin-left: 76px;
-    } /* push content/header when rail is visible */
     .nav-hide-desktop {
-        display: none !important;
-    }
-}
-
-/* High contrast support */
-@media (forced-colors: active) {
-    .nav-hamburger,
-    .nav-card-link {
-        border: 1px solid CanvasText;
-    }
-    :where(.nav a, .nav button):focus-visible {
-        outline-color: Highlight;
+        display: none;
     }
 }
