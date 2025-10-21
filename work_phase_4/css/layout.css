@@ -49,6 +49,7 @@
    --color-gray-600: #666666;
    --color-gray-700: #444444;
    --color-gray-800: #333333;
+   --color-gray-900: #222222;
 
    /* ===========================
        TYPOGRAPHY
@@ -65,6 +66,7 @@
    --font-weight-medium: 500;
    --font-weight-semi-bold: 600;
    --font-weight-bold: 700;
+   --font-weight-bolder: 800;
 
    /* ===========================
        SPACING SCALE
@@ -111,8 +113,7 @@
 }
 
 .container {
-   padding: 0 var(--spacing-4);
-   margin: 0 auto;
+   margin: 4rem;
 }
 
 ul,

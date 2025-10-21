@@ -122,7 +122,7 @@
 .nav-sidebar {
     position: fixed;
     inset: 0 auto 0 0;
-    background: var(--color-gray-700);
+    background: var(--color-gray-800);
     color: var(--color-white);
     display: none;
     width: 4rem;
@@ -144,7 +144,7 @@
 }
 .nav-initials {
     font-family: var(--font-family);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bolder);
     font-size: var(--font-size-2xl);
     line-height: 1;
     color: var(--color-accent-teal);
@@ -170,10 +170,10 @@
     border-radius: 5px;
 }
 .nav-rail-link:hover {
-    background-color: var(--color-gray-600);
+    background-color: var(--color-gray-700);
 }
 .nav-rail-link[aria-current="page"] {
-    background-color: var(--color-gray-800);
+    background-color: var(--color-gray-900);
 }
 .nav-icon {
     width: 36px;
