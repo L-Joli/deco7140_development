@@ -1,0 +1,205 @@
+/* --- Accessibility helpers --- */
+.nav-visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    white-space: nowrap;
+    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .nav * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ===========================
+   Mobile header / hamburger
+=========================== */
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-3) var(--spacing-4);
+    background: var(--color-background);
+    color: var(--color-accent-orange);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-2);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    color: var(--color-accent-orange);
+}
+
+/* ≥44×44 touch target */
+.nav-hamburger {
+    inline-size: 48px;
+    block-size: 48px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    background: var(--color-gray-700);
+    color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast);
+}
+.nav-hamburger:active {
+    transform: translateY(1px);
+}
+.nav-hamburger > span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    position: relative;
+}
+.nav-hamburger > span::before,
+.nav-hamburger > span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+}
+.nav-hamburger > span::before {
+    top: -7px;
+}
+.nav-hamburger > span::after {
+    top: 7px;
+}
+
+/* ===========================
+   Mobile menu (card list)
+=========================== */
+.nav-mobile {
+    padding: var(--spacing-2) var(--spacing-4) var(--spacing-4);
+    background-color: color-mix(in srgb, var(--color-background) 80%, transparent);
+    width: 100%;
+    position: absolute;
+}
+.nav-cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--spacing-3);
+}
+.nav-card-link {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-3) var(--spacing-4);
+    box-shadow: var(--shadow-md);
+}
+.nav-card-link:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+.nav-card-text {
+    font-size: var(--font-size-md);
+    letter-spacing: 0.2px;
+}
+
+/* ===========================
+   Desktop sidebar (rail)
+=========================== */
+.nav-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    background: var(--color-gray-700);
+    color: var(--color-white);
+    display: none;
+    width: 4rem;
+    padding: 0.5rem;
+    overflow-x: auto;
+}
+.nav-sidebar-brand {
+    height: 6em;
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.nav-sidebar-brand a {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-initials {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-2xl);
+    line-height: 1;
+    color: var(--color-accent-teal);
+    letter-spacing: 1px;
+}
+.nav-rail {
+    padding-block: var(--spacing-5);
+}
+.nav-rail ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+.nav-rail-link {
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    min-block-size: 54px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+.nav-rail-link:hover {
+    background-color: var(--color-gray-600);
+}
+.nav-rail-link[aria-current="page"] {
+    background-color: var(--color-gray-800);
+}
+.nav-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--color-white);
+}
+
+@media (min-width: 64rem) {
+    .nav-sidebar {
+        display: block;
+    }
+    .nav-offset-left {
+        margin-left: 76px;
+    } /* push content/header when rail is visible */
+    .nav-hide-desktop {
+        display: none !important;
+    }
+}
+
+/* High contrast support */
+@media (forced-colors: active) {
+    .nav-hamburger,
+    .nav-card-link {
+        border: 1px solid CanvasText;
+    }
+    :where(.nav a, .nav button):focus-visible {
+        outline-color: Highlight;
+    }
+}

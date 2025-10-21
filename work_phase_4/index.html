@@ -7,13 +7,119 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
-        <link rel="stylesheet" href="css/home.css" />
+        <link rel="stylesheet" href="css/page_css/home.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
 
         <title>Work Phase 4</title>
     </head>
     <body>
         <header>
-            <h1>Joli's Work Phase 4</h1>
+            <!-- Mobile Header -->
+            <div class="nav-header nav-hide-desktop">
+                <button
+                    id="navToggle"
+                    class="nav-hamburger"
+                    aria-label="Open menu"
+                    aria-controls="mobileNav"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <nav
+                id="mobileNav"
+                class="nav-mobile nav-hide-desktop"
+                aria-label="Primary"
+                hidden
+            >
+                <ul class="nav-cards" role="list">
+                    <li>
+                        <a class="nav-card-link" href="#news"
+                            ><span class="nav-card-text">News</span></a
+                        >
+                    </li>
+                    <li>
+                        <a class="nav-card-link" href="#explore"
+                            ><span class="nav-card-text">Explore</span></a
+                        >
+                    </li>
+                    <li>
+                        <a class="nav-card-link" href="#discuss"
+                            ><span class="nav-card-text">Discuss</span></a
+                        >
+                    </li>
+                    <li>
+                        <a class="nav-card-link" href="#connect"
+                            ><span class="nav-card-text">Connect</span></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Desktop Sidebar -->
+            <aside class="nav-sidebar" aria-label="Primary">
+                <div class="nav-sidebar-brand" aria-label="Site initials">
+                    <a href="#news" aria-label="Home Logo">
+                        <span class="nav-initials" aria-hidden="true">TH</span>
+                    </a>
+                </div>
+                <nav class="nav-rail" aria-label="Primary">
+                    <ul role="list">
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="#news"
+                                aria-label="News"
+                                aria-current="page"
+                                title="News"
+                            >
+                                <i class="fa-regular fa-newspaper"></i>
+                                <span class="nav-visually-hidden">News</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="#explore"
+                                aria-label="Explore"
+                                title="Explore"
+                            >
+                                <i class="fa-regular fa-folder-open"></i>
+                                <span class="nav-visually-hidden">Explore</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="#discuss"
+                                aria-label="Discuss"
+                                title="Discuss"
+                            >
+                                <i class="fa-regular fa-message"></i>
+                                <span class="nav-visually-hidden">Discuss</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="#connect"
+                                aria-label="Connect"
+                                title="Connect"
+                            >
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span class="nav-visually-hidden">Connect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
         </header>
         <section>
             <h2>What's in this website?</h2>
@@ -22,6 +128,8 @@
         <section>
             <h2>Links</h2>
             <a href="../index.html">Home</a>
+            <i class="fa-solid fa-house"></i>
         </section>
+        <script type="module" src="js/home.js"></script>
     </body>
 </html>
