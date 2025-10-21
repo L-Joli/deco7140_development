@@ -14,71 +14,118 @@ import { getEvents } from "./modules/event/getEvents.js";
  * FUNCTIONS
  * Group code into functions to make it reusable
  * */
-const initNews = async () => {
+
+const formatDate = (iso) =>
+    new Date(iso).toLocaleString(undefined, {
+        dateStyle: "medium",
+        timeStyle: "short",
+    });
+
+const makeMessage = (cls, title, body, ariaRole, live) => {
+    const box = document.createElement("div");
+    box.className = cls;
+    box.setAttribute("role", ariaRole);
+    box.setAttribute("aria-live", live);
+    box.innerHTML = `<p><strong>${title}</strong></p><p>${body}</p>`;
+    return box;
+};
+
+const makeCard = (item) => {
+    const card = document.createElement("article");
+    card.className = "news-card";
+    card.setAttribute("tabindex", "0");
+
+    const imageUrl = item.genericevent_photo || "images/placeholder.jpg";
+    const formattedDate = item.date_time ? formatDate(item.date_time) : "";
+
+    card.innerHTML = `
+    <img src="${imageUrl}" alt="${
+        item.event_name || "Event image"
+    }" class="news-image" />
+    <div class="news-overlay">
+      <span class="news-category">${item.event_type || "Update"}</span>
+      <h2 class="news-title">${item.event_name || "Untitled"}</h2>
+      <span class="news-author">${
+          item.organiser || "—"
+      } · ${formattedDate}</span>
+    </div>
+  `;
+    return card;
+};
+
+const renderList = (items, container, emptyTitle, emptyBody) => {
+    if (!container) return;
+    container.innerHTML = ""; // Clear existing content
+
+    if (!items || items.length === 0) {
+        container.appendChild(
+            makeMessage("news-empty", emptyTitle, emptyBody, "status", "polite")
+        );
+        return;
+    }
+
+    items.forEach((it) => container.appendChild(makeCard(it)));
+};
+
+/* ---------- Section initializers ---------- */
+export const initNews = async () => {
     const newsContainer = document.getElementById("news-container");
 
     try {
-        const events = await getEvents();
-        console.log(events, "EVENT");
+        const data = await getEvents();
+        const news = data
+            .filter((e) => e.event_type === "News")
+            .sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
 
-        if (!events || events.length === 0) {
-            const message = document.createElement("div");
-            message.className = "news-empty";
-            message.setAttribute("role", "status");
-            message.setAttribute("aria-live", "polite");
-            message.innerHTML = `
-            <p><strong>No news yet.</strong></p>
-            <p>Check back soon for the latest updates.</p>
-        `;
-            newsContainer.appendChild(message);
-            return;
-        }
-
-        events.forEach((event) => {
-            const card = document.createElement("article");
-            card.className = "news-card";
-            card.setAttribute("tabindex", "0");
-
-            const imageUrl =
-                event.genericevent_photo || "images/placeholder.jpg";
-
-            const date = new Date(event.date_time);
-            const formattedDate = date.toLocaleString("en-AU", {
-                dateStyle: "medium",
-                timeStyle: "short",
-            });
-
-            card.innerHTML = `
-                <img
-                    src="${imageUrl}"
-                    alt="${event.event_name || "Event image"}"
-                    class="news-image"
-                />
-                <div class="news-overlay">
-                    <span class="news-category">${event.event_type}</span>
-                    <h2 class="news-title">${event.event_name}</h2>
-                    <span class="news-author">${
-                        event.organiser
-                    } · ${formattedDate}</span>
-                </div>
-            `;
-
-            newsContainer.appendChild(card);
-        });
-    } catch (error) {
-        console.error("Error loading events:", error);
-
-        const errorMsg = document.createElement("div");
-        errorMsg.className = "news-error";
-        errorMsg.setAttribute("role", "alert");
-        errorMsg.setAttribute("aria-live", "assertive");
-        errorMsg.innerHTML = `
-            <p><strong>Sorry!</strong> We couldn’t load the latest news.</p>
-            <p>Please try again later or check your connection.</p>
-        `;
-        newsContainer.appendChild(errorMsg);
+        renderList(
+            news,
+            newsContainer,
+            "No news yet.",
+            "Check back soon for the latest updates."
+        );
+    } catch (err) {
+        console.error("News load error:", err);
+        newsContainer?.appendChild(
+            makeMessage(
+                "news-error",
+                "Sorry! We couldn’t load the latest news.",
+                "Please try again later or check your connection.",
+                "alert",
+                "assertive"
+            )
+        );
     }
 };
+
+export const initEvents = async () => {
+    const eventsContainer = document.getElementById("events-container");
+
+    try {
+        const data = await getEvents();
+        const events = data
+            .filter((e) => e.event_type === "Event")
+            .sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
+
+        renderList(
+            events,
+            eventsContainer,
+            "No upcoming events.",
+            "Check back soon to see what’s next."
+        );
+    } catch (err) {
+        console.error("Events load error:", err);
+        eventsContainer?.appendChild(
+            makeMessage(
+                "news-error",
+                "Sorry! We couldn’t load the upcoming events.",
+                "Please try again later or check your connection.",
+                "alert",
+                "assertive"
+            )
+        );
+    }
+};
+
 /**
  * EVENT LISTENERS
  * The code that runs when a user interacts with the page
@@ -87,4 +134,5 @@ const initNews = async () => {
 document.addEventListener("DOMContentLoaded", async () => {
     initNavBar();
     initNews();
+    initEvents();
 });
