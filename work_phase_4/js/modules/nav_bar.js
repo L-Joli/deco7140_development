@@ -1,4 +1,4 @@
-function initNavBar() {
+const initNavBar = () => {
     const navToggle = document.getElementById("navToggle");
     const mobileNav = document.getElementById("mobileNav");
 
