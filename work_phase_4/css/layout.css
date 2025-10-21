@@ -108,12 +108,18 @@
 /* ===========================
        SPACING
     =========================== */
-.section {
-   margin-bottom: var(--spacing-6);
+section {
+   margin: var(--spacing-5);
 }
 
 .container {
-   margin: 4rem;
+   margin: auto 2rem;
+} 
+
+@media (min-width: 48rem) {
+   .container {
+      margin: 4rem;
+   }
 }
 
 ul,
