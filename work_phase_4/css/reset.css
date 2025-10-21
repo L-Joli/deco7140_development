@@ -167,3 +167,10 @@ table {
 [hidden] {
     display: none;
 }
+
+:where(a, button):focus-visible {
+    border: 3px solid var(--color-accent-orange);
+    border-radius: var(--radius-sm);
+    outline: none;
+    box-shadow: 0 0 0 2px #fffffff4;
+}
