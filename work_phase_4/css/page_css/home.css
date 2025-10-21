@@ -1,5 +1,6 @@
 @import "../component_skeletons/nav_bar.css";
 @import "../component_skeletons/news_card.css";
+@import "../component_skeletons/footer.css";
 
 .items-container {
     display: grid;
