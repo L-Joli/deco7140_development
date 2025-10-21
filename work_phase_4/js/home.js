@@ -15,6 +15,17 @@ import { getEvents } from "./modules/event/getEvents.js";
  * Group code into functions to make it reusable
  * */
 
+window.addEventListener("scroll", () => {
+    const profile = document.querySelector(".user-profile");
+    if (!profile) return;
+
+    if (window.scrollY > 10) {
+        profile.classList.add("scrolled");
+    } else {
+        profile.classList.remove("scrolled");
+    }
+});
+
 const formatDate = (iso) =>
     new Date(iso).toLocaleString(undefined, {
         dateStyle: "medium",

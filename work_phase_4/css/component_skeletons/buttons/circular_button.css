@@ -6,7 +6,7 @@
     cursor: pointer;
     display: grid;
     place-items: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     transition: transform var(--transition-fast);
 }
 .circular-button:active {

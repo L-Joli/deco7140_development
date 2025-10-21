@@ -151,6 +151,7 @@
     margin: 0;
     padding: 0;
     display: grid;
+    gap: var(--spacing-1)
 }
 .nav-rail-link {
     display: grid;

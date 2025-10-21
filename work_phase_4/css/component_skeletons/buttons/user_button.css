@@ -1,0 +1,49 @@
+.user-profile {
+    position: fixed;
+    top: var(--spacing-3);
+    right: var(--spacing-3);
+    z-index: 1000;
+}
+
+/* Profile button inherits circular-button dimensions */
+.profile-button {
+    background-color: var(--color-accent-teal);
+    border: 2px solid var(--color-accent-teal);
+    overflow: hidden;
+    padding: 0;
+}
+
+.profile-photo {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Hover/focus states */
+.profile-button:hover,
+.profile-button:focus {
+    background-color: var(--color-accent-teal-hover);
+    border-color: var(--color-accent-teal-hover);
+}
+
+.profile-button:focus-visible {
+    outline: 2px solid var(--color-accent-orange);
+    outline-offset: 3px;
+}
+
+@media (min-width: 48rem) {
+    .user-profile {
+        background-color: var(--color-background);
+        padding: var(--spacing-4);
+        top: var(--spacing-4);
+        right: 0;
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        transition: box-shadow var(--transition-medium);
+    }
+
+    /* Shadow appears only when scrolling */
+    .user-profile.scrolled {
+        box-shadow: var(--shadow-md);
+    }
+}
