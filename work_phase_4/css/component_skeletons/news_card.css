@@ -1,0 +1,106 @@
+.news-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.news-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    color: var(--color-text-inverse);
+}
+
+.news-card:hover {
+    opacity: 1;
+    transform: scale(1.01);
+}
+
+.news-category {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.news-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0.2rem 0 0.8rem;
+    color: var(--color-text-inverse);
+}
+
+.news-card:hover .news-title {
+    text-decoration: underline;
+}
+
+.news-author {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Error State */
+.news-empty {
+    background-color: var(--color-info-light);
+    color: var(--color-info);
+    border: 1px solid var(--color-info);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+    margin: var(--spacing-4) 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.news-empty p {
+    margin: var(--spacing-1) 0;
+    line-height: 1.5;
+}
+
+.news-empty strong {
+    font-weight: var(--font-weight-semi-bold);
+}
+
+/* Error State */
+.news-error {
+    background-color: var(--color-error-light);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+    margin: var(--spacing-4) 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    box-shadow: var(--shadow-sm);
+    transition:
+        background-color var(--transition-medium),
+        color var(--transition-medium);
+}
+
+.news-error p {
+    margin: var(--spacing-1) 0;
+    line-height: 1.5;
+}
+
+.news-error strong {
+    font-weight: var(--font-weight-semi-bold);
+}
