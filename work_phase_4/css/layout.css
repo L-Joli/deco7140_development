@@ -108,6 +108,10 @@
 /* ===========================
        SPACING
     =========================== */
+section {
+   margin-bottom: var(--spacing-5);
+}
+
 .container {
    margin: auto 2rem;
 }
@@ -119,15 +123,4 @@
    .container {
       margin: 2rem 4rem 4rem 8rem;
    }
-}
-
-ul,
-ol {
-   margin-top: 0;
-   margin-bottom: var(--spacing-3);
-   padding-left: var(--spacing-4);
-}
-
-li + li {
-   margin-top: var(--spacing-2);
 }
