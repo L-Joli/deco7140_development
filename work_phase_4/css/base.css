@@ -7,26 +7,27 @@ body {
 h1 {
     font-size: 2.986rem; 
     color: var(--color-text-primary);
-    margin-bottom: 3.4rem; /* golden ratio spacing */
+    margin-bottom: 1.2rem;
+    font-weight: var(--font-weight-bolder);
 }
 
 h2 {
     font-size: 1.85rem;
     color: var(--color-text-primary);
-    margin-bottom: 2.1rem;
+    margin-bottom: 1.1rem;
 }
 
 h3 {
     font-size: 1.14rem;
     color: var(--color-text-primary);
-    margin-bottom: 1.3rem;
+    margin-bottom: 0.65rem;
 }
 
 h4,
 h5 {
     font-size: 1.1rem;
     color: var(--color-text-primary);
-    margin-bottom: 0.81rem;
+    margin-bottom: 0.45rem;
 }
 
 p {

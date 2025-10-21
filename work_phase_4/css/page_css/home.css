@@ -3,5 +3,5 @@
 /* News Card */
 #news-container {
     display: grid;
-    gap: var(--spacing-3);
+    gap: var(--spacing-5);
 }

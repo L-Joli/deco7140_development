@@ -108,17 +108,16 @@
 /* ===========================
        SPACING
     =========================== */
-section {
-   margin: var(--spacing-5);
-}
-
 .container {
    margin: auto 2rem;
-} 
+}
 
 @media (min-width: 48rem) {
+   section {
+      margin-bottom: var(--spacing-6);
+   }
    .container {
-      margin: 4rem;
+      margin: 2rem 4rem 4rem 8rem;
    }
 }
 
