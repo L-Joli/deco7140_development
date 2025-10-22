@@ -1,0 +1,35 @@
+.btn-outline-orange-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    min-block-size: 44px;
+    border: 3px solid var(--color-accent-orange);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    line-height: 1;
+    box-shadow: var(--shadow-sm);
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.btn-outline-orange-inline:hover,
+.btn-outline-orange-inline:focus {
+    background-color: var(--color-accent-orange-light);
+    border-color: var(--color-accent-orange-hover);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    outline: none;
+}
+
+.btn-outline-orange-inline:focus-visible {
+    outline: 2px solid var(--color-accent-orange);
+    outline-offset: 3px;
+    border-radius: var(--radius-md);
+}

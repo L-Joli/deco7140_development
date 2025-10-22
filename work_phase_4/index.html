@@ -65,22 +65,34 @@
             >
                 <ul class="nav-cards" role="list">
                     <li>
-                        <a class="nav-card-link" href="./index.html"
+                        <a
+                            class="nav-card-link"
+                            href="./index.html"
+                            aria-label="Go to news page"
                             ><span class="nav-card-text">News</span></a
                         >
                     </li>
                     <li>
-                        <a class="nav-card-link" href="./explore.html"
+                        <a
+                            class="nav-card-link"
+                            href="./explore.html"
+                            aria-label="Go to explore page"
                             ><span class="nav-card-text">Explore</span></a
                         >
                     </li>
                     <li>
-                        <a class="nav-card-link" href="./discuss.html"
+                        <a
+                            class="nav-card-link"
+                            href="./discuss.html"
+                            aria-label="Go to discuss page"
                             ><span class="nav-card-text">Discuss</span></a
                         >
                     </li>
                     <li>
-                        <a class="nav-card-link" href="./connect.html"
+                        <a
+                            class="nav-card-link"
+                            href="./connect.html"
+                            aria-label="Go to connect page"
                             ><span class="nav-card-text">Connect</span></a
                         >
                     </li>
@@ -147,7 +159,16 @@
         </header>
         <main class="container">
             <section>
-                <h1>Latest News</h1>
+                <div class="section-header-inline">
+                    <h1>Latest News</h1>
+                    <a
+                        href="#"
+                        class="btn-outline-orange-inline"
+                        aria-label="View more news"
+                        >View all news</a
+                    >
+                </div>
+
                 <div id="news-container" class="items-container">
                     <!-- 
                     News Card Template
@@ -169,7 +190,15 @@
                 </div>
             </section>
             <section>
-                <h1>Events</h1>
+                <div class="section-header-inline">
+                    <h1>Events</h1>
+                    <a
+                        href="#"
+                        class="btn-outline-orange-inline"
+                        aria-label="View more events"
+                        >View all events</a
+                    >
+                </div>
                 <div id="events-container" class="items-container">
                     <!-- 
                     News Card Template
@@ -197,20 +226,38 @@
         <footer class="site-footer" role="contentinfo">
             <nav class="footer-nav" aria-label="Footer navigation">
                 <ul class="footer-links" role="list">
-                    <li><a href="./about.html">About</a></li>
                     <li>
-                        <a href="./genai_mt_acknowledgement.html"
+                        <a href="./about.html" aria-label="About Us">About</a>
+                    </li>
+                    <li>
+                        <a
+                            href="./genai_mt_acknowledgement.html"
+                            aria-label="GenAI & MT Acknowledgement"
                             >GenAI & MT Acknowledgement</a
                         >
                     </li>
                     <li>
-                        <a href="./implementation_rationale.html"
+                        <a
+                            href="./implementation_rationale.html"
+                            aria-label="Implementation Rationale"
                             >Implementation Rationale</a
                         >
                     </li>
-                    <li><a href="./contact.html">Contact</a></li>
-                    <li><a href="./privacy.html">Privacy Policy</a></li>
-                    <li><a href="./terms.html">Terms of Use</a></li>
+                    <li>
+                        <a href="./contact.html" aria-label="Contact Us"
+                            >Contact</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./privacy.html" aria-label="Privacy Policy"
+                            >Privacy Policy</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./terms.html" aria-label="Terms of Use"
+                            >Terms of Use</a
+                        >
+                    </li>
                 </ul>
             </nav>
 
