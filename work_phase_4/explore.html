@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- style Linking -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/page_css/explore.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>Explore</title>
+    </head>
+    <body>
+        <header>
+            <!-- User Profile Button -->
+            <div class="user-profile">
+                <a
+                    href="./preferences.html"
+                    class="circular-button profile-button"
+                    aria-label="Go to user preferences"
+                    title="User preferences"
+                >
+                    <img
+                        src="assets/user_default_icon.png"
+                        alt="User profile photo"
+                        class="profile-photo"
+                    />
+                </a>
+            </div>
+
+            <!-- Mobile Header -->
+            <div class="nav-header nav-hide-desktop">
+                <button
+                    id="navToggle"
+                    class="circular-button nav-hamburger"
+                    aria-label="Open menu"
+                    aria-controls="mobileNav"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <nav
+                id="mobileNav"
+                class="nav-mobile nav-hide-desktop"
+                aria-label="Primary"
+                hidden
+            >
+                <ul class="nav-cards" role="list">
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./index.html"
+                            aria-label="Go to news page"
+                            ><span class="nav-card-text">News</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./explore.html"
+                            aria-label="Go to explore page"
+                            aria-current="page"
+                            ><span class="nav-card-text">Explore</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./discuss.html"
+                            aria-label="Go to discuss page"
+                            ><span class="nav-card-text">Discuss</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./connect.html"
+                            aria-label="Go to connect page"
+                            ><span class="nav-card-text">Connect</span></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Desktop Sidebar -->
+            <aside class="nav-sidebar" aria-label="Primary">
+                <div class="nav-sidebar-brand" aria-label="Site initials">
+                    <a href="./index.html" aria-label="Home Logo">
+                        <span class="nav-initials" aria-hidden="true">TH</span>
+                    </a>
+                </div>
+                <nav class="nav-rail" aria-label="Primary">
+                    <ul role="list">
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./index.html"
+                                aria-label="News"
+                                title="News"
+                            >
+                                <i class="fa-regular fa-newspaper"></i>
+                                <span class="nav-visually-hidden">News</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./explore.html"
+                                aria-label="Explore"
+                                aria-current="page"
+                                title="Explore"
+                            >
+                                <i class="fa-regular fa-folder-open"></i>
+                                <span class="nav-visually-hidden">Explore</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./discuss.html"
+                                aria-label="Discuss"
+                                title="Discuss"
+                            >
+                                <i class="fa-regular fa-message"></i>
+                                <span class="nav-visually-hidden">Discuss</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./connect.html"
+                                aria-label="Connect"
+                                title="Connect"
+                            >
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span class="nav-visually-hidden">Connect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </header>
+
+        <script type="module" src="js/explore.js"></script>
+
+        <footer class="site-footer" role="contentinfo">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul class="footer-links" role="list">
+                    <li>
+                        <a href="./about.html" aria-label="About Us">About</a>
+                    </li>
+                    <li>
+                        <a
+                            href="./genai_mt_acknowledgement.html"
+                            aria-label="GenAI & MT Acknowledgement"
+                            >GenAI & MT Acknowledgement</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="./implementation_rationale.html"
+                            aria-label="Implementation Rationale"
+                            >Implementation Rationale</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./contact.html" aria-label="Contact Us"
+                            >Contact</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./privacy.html" aria-label="Privacy Policy"
+                            >Privacy Policy</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./terms.html" aria-label="Terms of Use"
+                            >Terms of Use</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Team CCI. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
