@@ -1,19 +1,20 @@
 import { initNavBar } from "./modules/nav_bar.js";
 import { getEvents } from "./modules/event/getEvents.js";
+
 /**
  * CONSTANTS
  * Define values that don't change e.g. page titles, URLs, etc.
- * */
+ */
 
 /**
  * VARIABLES
  * Define values that will change e.g. user inputs, counters, etc.
- * */
+ */
 
 /**
  * FUNCTIONS
  * Group code into functions to make it reusable
- * */
+ */
 
 window.addEventListener("scroll", () => {
     const profile = document.querySelector(".user-profile");
@@ -78,9 +79,40 @@ const renderList = (items, container, emptyTitle, emptyBody) => {
     items.forEach((it) => container.appendChild(makeCard(it)));
 };
 
-/* ---------- Section initializers ---------- */
+const buildSkeletonCard = () => {
+    const card = document.createElement("article");
+    card.className = "news-card skeleton-card";
+    card.setAttribute("aria-hidden", "true");
+    card.innerHTML = `
+    <div class="skeleton-img"></div>
+    <div class="news-overlay">
+      <span class="skeleton-badge"></span>
+      <div class="skeleton-line w-80"></div>
+      <div class="skeleton-line w-60"></div>
+      <div class="skeleton-line w-40"></div>
+    </div>
+  `;
+    return card;
+};
+
+const startLoading = (container, count = 4) => {
+    if (!container) return;
+    container.setAttribute("aria-busy", "true"); // a11y: mark region busy
+    container.setAttribute("aria-live", "polite");
+    container.innerHTML = "";
+    for (let i = 0; i < count; i++) container.appendChild(buildSkeletonCard());
+};
+
+const stopLoading = (container) => {
+    if (!container) return;
+    container.removeAttribute("aria-busy");
+    // renderList() will clear content on success; in error paths, clear skeletons explicitly
+    container.querySelectorAll(".skeleton-card").forEach((el) => el.remove());
+};
+
 export const initNews = async () => {
     const newsContainer = document.getElementById("news-container");
+    startLoading(newsContainer, 4);
 
     try {
         const data = await getEvents();
@@ -88,6 +120,7 @@ export const initNews = async () => {
             .filter((e) => e.event_type === "News")
             .sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
 
+        stopLoading(newsContainer);
         renderList(
             news,
             newsContainer,
@@ -96,6 +129,7 @@ export const initNews = async () => {
         );
     } catch (err) {
         console.error("News load error:", err);
+        stopLoading(newsContainer);
         newsContainer?.appendChild(
             makeMessage(
                 "news-error",
@@ -110,6 +144,7 @@ export const initNews = async () => {
 
 export const initEvents = async () => {
     const eventsContainer = document.getElementById("events-container");
+    startLoading(eventsContainer, 4);
 
     try {
         const data = await getEvents();
@@ -117,6 +152,7 @@ export const initEvents = async () => {
             .filter((e) => e.event_type === "Event")
             .sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
 
+        stopLoading(eventsContainer);
         renderList(
             events,
             eventsContainer,
@@ -125,6 +161,7 @@ export const initEvents = async () => {
         );
     } catch (err) {
         console.error("Events load error:", err);
+        stopLoading(eventsContainer);
         eventsContainer?.appendChild(
             makeMessage(
                 "news-error",
@@ -140,8 +177,7 @@ export const initEvents = async () => {
 /**
  * EVENT LISTENERS
  * The code that runs when a user interacts with the page
- * */
-// when the page fully loads
+ */
 document.addEventListener("DOMContentLoaded", async () => {
     initNavBar();
     initNews();

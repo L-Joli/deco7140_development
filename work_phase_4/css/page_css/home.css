@@ -28,3 +28,62 @@
         font-size: var(--font-size-md);
     }
 }
+
+/* --- Loading / Skeleton styles --- */
+.items-container[aria-busy="true"] {
+  position: relative;
+}
+
+.skeleton-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ececec;
+  min-height: 220px;
+}
+
+.skeleton-img {
+  display: block;
+  height: 160px;
+  background: #e6e6e6;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.skeleton-badge,
+.skeleton-line {
+  display: inline-block;
+  border-radius: 8px;
+  background: #e6e6e6;
+  height: 14px;
+}
+
+.skeleton-badge { width: 70px; height: 18px; margin-bottom: 10px; }
+.skeleton-line { width: 100%; height: 16px; margin: 8px 0; }
+.skeleton-line.w-80 { width: 80%; }
+.skeleton-line.w-60 { width: 60%; }
+.skeleton-line.w-40 { width: 40%; }
+
+.skeleton-card .news-overlay {
+  padding: 14px;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 1.4s infinite;
+  pointer-events: none;
+}
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-card::after { animation: none; display: none; }
+}
+
