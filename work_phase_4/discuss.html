@@ -214,18 +214,31 @@
                                 aria-required="true"
                             />
 
-                            <label for="post-content"
+                            <label for="description"
                                 >Content
                                 <span aria-label="required">*</span></label
                             >
                             <textarea
-                                id="post-content"
-                                name="post-content"
+                                id="description"
+                                name="description"
                                 required
                                 rows="6"
                                 placeholder="Share your thoughts..."
                                 aria-required="true"
                             ></textarea>
+
+                            <input
+                                type="hidden"
+                                name="author-name"
+                                id="author-name"
+                                value=""
+                            />
+                            <input
+                                type="hidden"
+                                name="date-posted"
+                                id="date-posted"
+                                value=""
+                            />
 
                             <label for="post-photos"
                                 >Upload up to 5 images (optional, max 10MB

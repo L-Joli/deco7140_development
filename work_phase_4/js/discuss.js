@@ -1,5 +1,7 @@
 import { initNavBar } from "./modules/nav_bar.js";
 import { getDiscussions } from "./modules/discuss/getDiscussions.js";
+import { postDiscussion } from "./modules/discuss/postDiscussion.js";
+import { getUser } from "./modules/user_info/getUser.js";
 
 const STORAGE_KEYS = {
     POSTS: "discuss_posts",
@@ -142,38 +144,38 @@ const buildPostCard = (post) => {
     card.dataset.postId = post.id;
 
     card.innerHTML = `
-        <h3 class="repo-title">${escapeHtml(post.title)}</h3>
-        <p class="repo-desc">${escapeHtml(
-            post.content.substring(0, 200) +
-                (post.content.length > 200 ? "..." : "")
-        )}</p>
-        <div class="repo-meta">
-            <span class="post-author">${escapeHtml(post.author)}</span>
-            <span class="post-date">
-                <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                <time datetime="${post.createdAt}">${formatDate(
+       <h3 class="repo-title">${escapeHtml(post.title)}</h3>
+       <p class="repo-desc">${escapeHtml(
+           post.content.substring(0, 200) +
+               (post.content.length > 200 ? "..." : "")
+       )}</p>
+       <div class="repo-meta">
+           <span class="post-author">${escapeHtml(post.author)}</span>
+           <span class="post-date">
+               <i class="fa-solid fa-clock" aria-hidden="true"></i>
+               <time datetime="${post.createdAt}">${formatDate(
         post.createdAt
     )}</time>
-            </span>
-            <span class="${getCategoryClass(post.category)}">${escapeHtml(
+           </span>
+           <span class="${getCategoryClass(post.category)}">${escapeHtml(
         post.category
     )}</span>
-            <div class="post-stats">
-                <button class="upvote ${hasVoted ? "is-active" : ""}" 
-                        type="button"
-                        data-id="${post.id}"
-                        aria-label="Upvote ${post.title}"
-                        aria-pressed="${hasVoted ? "true" : "false"}">
-                    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-                    <span class="upvote-count">${totalUpvotes}</span>
-                </button>
-                <span class="post-stat">
-                    <i class="fa-solid fa-comment" aria-hidden="true"></i>
-                    <span>${post.commentCount || 0}</span>
-                </span>
-            </div>
-        </div>
-    `;
+           <div class="post-stats">
+               <button class="upvote ${hasVoted ? "is-active" : ""}"
+                       type="button"
+                       data-id="${post.id}"
+                       aria-label="Upvote ${post.title}"
+                       aria-pressed="${hasVoted ? "true" : "false"}">
+                   <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+                   <span class="upvote-count">${totalUpvotes}</span>
+               </button>
+               <span class="post-stat">
+                   <i class="fa-solid fa-comment" aria-hidden="true"></i>
+                   <span>${post.commentCount || 0}</span>
+               </span>
+           </div>
+       </div>
+   `;
 
     const openPost = () => {
         showPostDetail(post.id);
@@ -282,49 +284,68 @@ const renderPostDetail = (post) => {
     const hasVoted = !!voted[post.id];
     const totalUpvotes = post.upvotes + localDelta;
 
+    // Build photos HTML if photos exist
+    let photosHTML = "";
+    if (post.photos && post.photos.length > 0) {
+        photosHTML = `
+           <div class="post-detail-photos">
+               ${post.photos
+                   .map(
+                       (photo, index) => `
+                   <img src="${escapeHtml(photo)}" alt="Post image ${
+                           index + 1
+                       }" class="post-detail-photo" />
+               `
+                   )
+                   .join("")}
+           </div>
+       `;
+    }
+
     const container = el("#post-detail");
     container.innerHTML = `
-        <div class="post-detail-header">
-            <div>
-                <h1 class="post-detail-title" id="post-detail-title">${escapeHtml(
-                    post.title
-                )}</h1>
-                <div class="post-detail-meta">
-                    <span class="post-detail-author">${escapeHtml(
-                        post.author
-                    )}</span>
-                    <span class="post-detail-date">
-                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                        <time datetime="${post.createdAt}">${formatDate(
+       <div class="post-detail-header">
+           <div>
+               <h1 class="post-detail-title" id="post-detail-title">${escapeHtml(
+                   post.title
+               )}</h1>
+               <div class="post-detail-meta">
+                   <span class="post-detail-author">${escapeHtml(
+                       post.author
+                   )}</span>
+                   <span class="post-detail-date">
+                       <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                       <time datetime="${post.createdAt}">${formatDate(
         post.createdAt
     )}</time>
-                    </span>
-                    <span class="${getCategoryClass(
-                        post.category
-                    )}">${escapeHtml(post.category)}</span>
-                </div>
-            </div>
-        </div>
-        <div class="post-detail-content">${escapeHtml(post.content)}</div>
-        <div class="post-detail-footer">
-            <div class="post-detail-actions">
-                <button class="upvote ${hasVoted ? "is-active" : ""}" 
-                        type="button"
-                        data-id="${post.id}"
-                        aria-label="Upvote this post"
-                        aria-pressed="${hasVoted ? "true" : "false"}">
-                    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-                    <span class="upvote-count">${totalUpvotes}</span>
-                </button>
-            </div>
-            <div class="post-detail-stats">
-                <span class="stat-item">
-                    <i class="fa-solid fa-comment" aria-hidden="true"></i>
-                    <span>${post.commentCount || 0} comments</span>
-                </span>
-            </div>
-        </div>
-    `;
+                   </span>
+                   <span class="${getCategoryClass(
+                       post.category
+                   )}">${escapeHtml(post.category)}</span>
+               </div>
+           </div>
+       </div>
+       <div class="post-detail-content">${escapeHtml(post.content)}</div>
+       ${photosHTML}
+       <div class="post-detail-footer">
+           <div class="post-detail-actions">
+               <button class="upvote ${hasVoted ? "is-active" : ""}"
+                       type="button"
+                       data-id="${post.id}"
+                       aria-label="Upvote this post"
+                       aria-pressed="${hasVoted ? "true" : "false"}">
+                   <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+                   <span class="upvote-count">${totalUpvotes}</span>
+               </button>
+           </div>
+           <div class="post-detail-stats">
+               <span class="stat-item">
+                   <i class="fa-solid fa-comment" aria-hidden="true"></i>
+                   <span>${post.commentCount || 0} comments</span>
+               </span>
+           </div>
+       </div>
+   `;
 
     const upvoteBtn = container.querySelector(".upvote");
     upvoteBtn.addEventListener("click", () => {
@@ -357,26 +378,24 @@ const renderComments = (comments) => {
 
         const card = make("article", "comment-card");
         card.innerHTML = `
-            <div class="comment-header">
-                <span class="comment-author">${escapeHtml(
-                    comment.author
-                )}</span>
-                <time class="comment-date" datetime="${
-                    comment.createdAt
-                }">${formatDate(comment.createdAt)}</time>
-            </div>
-            <p class="comment-content">${escapeHtml(comment.content)}</p>
-            <div class="comment-actions">
-                <button class="upvote ${hasVoted ? "is-active" : ""}" 
-                        type="button"
-                        data-id="${comment.id}"
-                        aria-label="Upvote comment"
-                        aria-pressed="${hasVoted ? "true" : "false"}">
-                    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-                    <span class="upvote-count">${totalUpvotes}</span>
-                </button>
-            </div>
-        `;
+           <div class="comment-header">
+               <span class="comment-author">${escapeHtml(comment.author)}</span>
+               <time class="comment-date" datetime="${
+                   comment.createdAt
+               }">${formatDate(comment.createdAt)}</time>
+           </div>
+           <p class="comment-content">${escapeHtml(comment.content)}</p>
+           <div class="comment-actions">
+               <button class="upvote ${hasVoted ? "is-active" : ""}"
+                       type="button"
+                       data-id="${comment.id}"
+                       aria-label="Upvote comment"
+                       aria-pressed="${hasVoted ? "true" : "false"}">
+                   <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+                   <span class="upvote-count">${totalUpvotes}</span>
+               </button>
+           </div>
+       `;
 
         const upvoteBtn = card.querySelector(".upvote");
         upvoteBtn.addEventListener("click", () => {
@@ -557,6 +576,14 @@ const init = async () => {
     container.setAttribute("aria-busy", "true");
     seedDummyComments();
 
+    // Fetch user info and store the author name
+    const user = await getUser();
+    console.log("user", user);
+
+    if (user && user.name) {
+        localStorage.setItem("current_user_name", user.name);
+    }
+
     try {
         const discussions = await getDiscussions();
 
@@ -681,51 +708,109 @@ const init = async () => {
         }
     });
 
-    form?.addEventListener("submit", (e) => {
+    form?.addEventListener("submit", async (e) => {
         e.preventDefault();
         const title = el("#post-title").value.trim();
-        const content = el("#post-content").value.trim();
-        const category = el("#post-category").value;
+        const content = el("#description").value.trim();
 
-        if (!title || !content || !category) {
+        if (!title || !content) {
             alert("Please fill in all required fields.");
             return;
         }
 
-        const newPost = {
-            id: `post-${Date.now()}`,
-            title,
-            content,
-            category,
-            author: "You",
-            createdAt: new Date().toISOString(),
-            upvotes: 0,
-            commentCount: 0,
-        };
+        // Get the current user's name from localStorage
+        const currentUserName =
+            localStorage.getItem("current_user_name") || "Anonymous";
 
-        ALL_POSTS.unshift(newPost);
-        setArrayStore(STORAGE_KEYS.POSTS, ALL_POSTS);
+        // Set hidden field values
+        el("#author-name").value = currentUserName;
+        el("#date-posted").value = new Date()
+            .toISOString()
+            .replace("T", " ")
+            .substring(0, 19);
 
-        modal.hidden = true;
-        form.reset();
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn?.textContent;
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Posting...";
+        }
 
-        handleFilters();
+        try {
+            // Post to the API using the form element
+            const response = await postDiscussion(form);
 
-        const msg = make("div", "success-message");
-        msg.textContent = "Discussion posted successfully!";
-        msg.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--color-success);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-        `;
-        document.body.appendChild(msg);
-        setTimeout(() => msg.remove(), 3000);
+            if (!response) {
+                throw new Error("Failed to post discussion");
+            }
+
+            // Create local post object
+            const newPost = {
+                id: `post-${response.id || Date.now()}`,
+                title,
+                content,
+                category: "general",
+                author: currentUserName,
+                createdAt: new Date().toISOString(),
+                upvotes: 0,
+                commentCount: 0,
+                photos: [
+                    response.photo1,
+                    response.photo2,
+                    response.photo3,
+                    response.photo4,
+                    response.photo5,
+                ].filter(Boolean), // Get photo URLs from response
+            };
+
+            ALL_POSTS.unshift(newPost);
+            setArrayStore(STORAGE_KEYS.POSTS, ALL_POSTS);
+
+            modal.hidden = true;
+            form.reset();
+
+            handleFilters();
+
+            const msg = make("div", "success-message");
+            msg.textContent = "Discussion posted successfully!";
+            msg.style.cssText = `
+               position: fixed;
+               top: 20px;
+               right: 20px;
+               background: var(--color-success);
+               color: white;
+               padding: 1rem 1.5rem;
+               border-radius: var(--radius-md);
+               box-shadow: var(--shadow-lg);
+               z-index: 1000;
+           `;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        } catch (error) {
+            console.error("Error posting discussion:", error);
+            const msg = make("div", "error-message");
+            msg.textContent = "Failed to post discussion. Please try again.";
+            msg.style.cssText = `
+               position: fixed;
+               top: 20px;
+               right: 20px;
+               background: var(--color-error, #e53e3e);
+               color: white;
+               padding: 1rem 1.5rem;
+               border-radius: var(--radius-md);
+               box-shadow: var(--shadow-lg);
+               z-index: 1000;
+           `;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        } finally {
+            // Reset button state
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        }
     });
 
     const commentForm = el("#new-comment-form");
@@ -737,11 +822,14 @@ const init = async () => {
             return;
         }
 
+        const currentUserName =
+            localStorage.getItem("current_user_name") || "Anonymous";
+
         const newComment = {
             id: `comment-${Date.now()}`,
             postId: state.currentPostId,
             content,
-            author: "You",
+            author: currentUserName,
             createdAt: new Date().toISOString(),
             upvotes: 0,
         };
@@ -767,16 +855,16 @@ const init = async () => {
         const msg = make("div", "success-message");
         msg.textContent = "Comment posted successfully!";
         msg.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--color-success);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-        `;
+           position: fixed;
+           top: 20px;
+           right: 20px;
+           background: var(--color-success);
+           color: white;
+           padding: 1rem 1.5rem;
+           border-radius: var(--radius-md);
+           box-shadow: var(--shadow-lg);
+           z-index: 1000;
+       `;
         document.body.appendChild(msg);
         setTimeout(() => msg.remove(), 3000);
     });
