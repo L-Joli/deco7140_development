@@ -2,7 +2,7 @@
     position: fixed;
     top: var(--spacing-3);
     right: var(--spacing-3);
-    z-index: 1000;
+    z-index: 100;
 }
 
 /* Profile button inherits circular-button dimensions */
