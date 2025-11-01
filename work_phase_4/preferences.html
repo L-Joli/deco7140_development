@@ -166,9 +166,7 @@
                     </h2>
 
                     <fieldset>
-                        <legend class="card-title">
-                            Personal information
-                        </legend>
+                        <legend class="card-title">Personal Information</legend>
 
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -184,9 +182,18 @@
                                 >Enter your full name</span
                             >
                         </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
+                        <div class="form-group email-field">
+                            <label for="email">
+                                Email
+                                <i
+                                    class="fa-solid fa-lock"
+                                    aria-hidden="true"
+                                    title="You cannot edit your email address."
+                                ></i>
+                            </label>
+                            <span id="email-hint" class="visually-hidden">
+                                The email field is read-only.
+                            </span>
                             <input
                                 type="email"
                                 id="email"
@@ -195,10 +202,11 @@
                                 aria-describedby="email-hint"
                                 autocomplete="email"
                                 required
+                                disabled
                             />
-                            <span id="email-hint" class="visually-hidden"
-                                >Enter a valid email address</span
-                            >
+                            <span id="email-hint" class="visually-hidden">
+                                This field is locked and cannot be edited
+                            </span>
                         </div>
 
                         <div class="form-group">
@@ -233,8 +241,15 @@
                     </fieldset>
 
                     <button type="submit" class="btn btn-primary">
-                        Update Preferences
+                        Update Personal Info
                     </button>
+                    <div
+                        id="user-form-feedback"
+                        class="form-feedback"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    ></div>
                 </form>
             </section>
 
@@ -248,26 +263,25 @@
                         id="subscription-status"
                         aria-live="polite"
                     >
-                        You've subscribed
+                        You are subscribed to the newsletter.
                     </p>
                     <button
                         type="button"
-                        class="btn btn-secondary"
+                        class="btn btn-outline-gray"
                         id="cancel-subscription"
                         aria-describedby="subscription-status"
                     >
                         Cancel Subscription
                     </button>
+                    <div
+                        id="newsletter-form-feedback"
+                        class="form-feedback"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    ></div>
                 </div>
             </section>
-
-            <div
-                id="form-feedback"
-                class="form-feedback"
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
-            ></div>
         </main>
 
         <script type="module" src="js/preferences.js"></script>

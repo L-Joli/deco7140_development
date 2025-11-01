@@ -1,28 +1,11 @@
 @import "../component_skeletons/nav_bar.css";
+@import "../component_skeletons/buttons/button.css";
 @import "../component_skeletons/buttons/primary_button.css";
+@import "../component_skeletons/buttons/gray_outline_button.css";
 @import "../component_skeletons/buttons/circular_button.css";
 @import "../component_skeletons/buttons/user_button.css";
 @import "../component_skeletons/form.css";
-
-.visually-hidden {
-    position: absolute !important;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    white-space: nowrap;
-    clip-path: inset(50%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-}
-
-.preferences-title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-5);
-}
+@import "../utilities.css";
 
 .preferences-form {
     background-color: var(--color-white);
@@ -32,12 +15,23 @@
     margin-bottom: var(--spacing-5);
 }
 
-.newsletter-section {
-    background-color: var(--color-white);
-    padding: var(--spacing-5);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    margin-bottom: var(--spacing-4);
+.preferences-form.loading {
+    position: relative;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.preferences-form.loading::after {
+    content: "Loading...";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    z-index: 10;
 }
 
 .card-title {
@@ -45,6 +39,14 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
     margin-bottom: var(--spacing-3);
+}
+
+.newsletter-section {
+    background-color: var(--color-white);
+    padding: var(--spacing-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-4);
 }
 
 .newsletter-status {
@@ -101,4 +103,22 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+input[disabled],
+textarea[disabled],
+select[disabled] {
+    background-color: var(--color-gray-200);
+    color: var(--color-text-secondary);
+    border-color: var(--color-gray-300);
+    cursor: not-allowed;
+}
+
+.email-field label i:hover {
+    color: var(--color-accent-orange);
+}
+
+.email-field label i {
+    cursor: help;
+    color: var(--color-text-secondary);
 }

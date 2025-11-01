@@ -58,7 +58,7 @@
     padding: var(--spacing-3);
     border-radius: var(--radius-md);
     font-weight: var(--font-weight-medium);
-    margin-top: var(--spacing-3);
+    margin-top: var(--spacing-5);
     border: 2px solid transparent;
 }
 
