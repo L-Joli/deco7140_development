@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- style Linking -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link
+            rel="stylesheet"
+            href="css/page_css/implementation_rationale.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>Implementation Rationale</title>
+    </head>
+    <body>
+        <main class="container journal-page">
+            <header class="page-header journal-header">
+                <h1>Implementation Rationale</h1>
+                <p>
+                    Assignment 4 – Website Implementation · Connected
+                    Communities Initiative (Tech and Innovation Communities)
+                </p>
+            </header>
+
+            <aside class="toc journal-toc" aria-label="On-page navigation">
+                <h2 id="toc-heading">Contents</h2>
+                <ol aria-labelledby="toc-heading">
+                    <li>
+                        <a href="#alignment"
+                            >1. Alignment with Client and User Needs</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#accessibility-ethics"
+                            >2. Accessibility and Ethical Considerations</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#variations"
+                            >3. Variations and Justifications</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#evaluation">4. Evaluation and Reflection</a>
+                    </li>
+                </ol>
+            </aside>
+
+            <section
+                id="alignment"
+                aria-labelledby="alignment-title"
+                class="journal-entry"
+                data-entry="01"
+            >
+                <header class="entry-head">
+                    <h2 id="alignment-title" class="entry-title">
+                        Alignment with Client and User Needs
+                    </h2>
+                    <p class="entry-meta" aria-label="Entry detail">
+                        <span class="entry-date" aria-hidden="true"
+                            >Entry 01</span
+                        >
+                        <span class="entry-sep" aria-hidden="true">·</span>
+                        <span class="entry-tag">Scope & Audiences</span>
+                    </p>
+                </header>
+
+                <p class="entry-lead">
+                    This implementation operationalises the research findings
+                    and user stories from the
+                    <strong>A2 Design Research findings</strong>. It delivers a
+                    <strong>centralised information hub</strong> for the
+                    <strong>Tech and Innovation Communities</strong>, aligning
+                    with CCI’s mission to foster social cohesion and equitable
+                    access to opportunities. The site brings three core journeys
+                    into one place: <em>staying informed</em> (news & events),
+                    <em>discovering resources</em> (repositories & guides), and
+                    <em>building connections</em> (profiles & messaging).
+                </p>
+
+                <h3>How the design maps to CCI values</h3>
+                <ul>
+                    <li>
+                        <strong>Social Cohesion:</strong> People can interact
+                        and connect through <em>Join Discussions</em> (<strong
+                            ><code>discuss.html</code></strong
+                        >) and <em>Connect with Your Community</em> (<strong
+                            ><code>connect.html</code></strong
+                        >). Staying up to date happens on <em>Home</em> (<strong
+                            ><code>index.html</code></strong
+                        >) and exploration happens on
+                        <em>Explore Repositories</em> (<strong
+                            ><code>explore.html</code></strong
+                        >), turning weak ties into strong ties through repeated
+                        touchpoints.
+                    </li>
+                    <li>
+                        <strong>Inclusivity:</strong> Everyone can participate
+                        in the discussion forum on
+                        <em>Join Discussions</em> (<strong
+                            ><code>discuss.html</code></strong
+                        >). The <em>Learn About Us</em> page (<strong
+                            ><code>about.html</code></strong
+                        >) communicates CCI’s mission and who this community is
+                        for, using neutral language and clear participation
+                        guidelines.
+                    </li>
+                    <li>
+                        <strong>Accessibility:</strong> Built to
+                        <strong>WCAG 2.2 Level AA</strong> with:
+                        <em>Perceivable</em> (content presented in ways users
+                        can perceive), <em>Operable</em> (all UI and navigation
+                        usable via keyboard and more),
+                        <em>Understandable</em> (plain language and predictable
+                        UI), and <em>Robust</em> (compatible with assistive
+                        tech). Responsive design adapts from mobile to desktop.
+                        More details are in Section 2:
+                        <em>Accessibility and Ethical Considerations</em>.
+                    </li>
+                </ul>
+
+                <div class="entry-columns">
+                    <div class="entry-column">
+                        <h3>User Needs Supported</h3>
+                        <ul>
+                            <li>
+                                <strong>Centralised Information Hub:</strong>
+                                From user interviews, participants expressed a
+                                strong need for an all-in-one hub combining
+                                GitHub-style resources, tech news, and
+                                professional connections. The
+                                <strong><code>index.html</code></strong
+                                >, <strong><code>connect.html</code></strong
+                                >, and
+                                <strong><code>explore.html</code></strong> pages
+                                collectively meet this need by integrating
+                                community updates, networking, and resource
+                                exploration.
+                            </li>
+                            <li>
+                                <strong>Resource Exploration:</strong> From user
+                                interviews, participants wanted personalised
+                                resource discovery. On
+                                <strong><code>explore.html</code></strong
+                                >, users can browse by topic, see trending
+                                repositories, filter by programming language,
+                                and search. Relevant items are easy to scan,
+                                then open for deeper reading. Key updates also
+                                appear on
+                                <strong><code>index.html</code></strong
+                                >.
+                            </li>
+                            <li>
+                                <strong>Professional Networking:</strong> From
+                                user interviews, participants also wanted a way
+                                to connect with others in similar fields. On
+                                <strong><code>connect.html</code></strong
+                                >, users can discover peers with shared
+                                backgrounds/interests and open private
+                                conversations.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>
+                    Addresses the Needs Identified in the A3 Design Proposal
+                </h3>
+                <p>
+                    <strong
+                        >This implementation follows the A3 site map and style
+                        guide</strong
+                    >
+                    to maintain both visual and functional consistency across
+                    pages.
+                    <strong
+                        >Each page adopts a clear and structured layout with a
+                        coherent colour palette</strong
+                    >
+                    to enhance clarity and reinforce the project’s visceral
+                    design goals.
+                    <strong
+                        >Interactive states—such as hover, active, and focus
+                        effects—provide behavioural feedback</strong
+                    >
+                    that makes the interface intuitive and responsive.
+                    <strong
+                        >Together, these design and structural choices
+                        strengthen reflective design</strong
+                    >
+                    by demonstrating how the website’s aesthetics, usability,
+                    and purpose align with both user needs and CCI’s values of
+                    inclusivity and connection.
+                </p>
+                <ul class="journal-checklist">
+                    <li>
+                        <strong><code>index.html</code></strong
+                        >: Uses <strong><code>genericproduct</code></strong> to
+                        populate the home feed and filters items via the
+                        <strong><code>event_type</code></strong> field
+                        <em>(news, event)</em> for accurate categorisation.
+                        Includes loading/empty/error states and an event-detail
+                        pattern so users can save items to their profile for
+                        later viewing.
+                    </li>
+                    <li>
+                        <strong><code>explore.html</code></strong
+                        >: Employs
+                        <strong><code>genericproduct</code></strong> API to
+                        render resource cards with topic and trending filters,
+                        and free-text search. The API was adapted to function as
+                        a repository browser, allowing users to explore or
+                        submit their own repositories to the community.
+                    </li>
+                    <li>
+                        <strong><code>discuss.html</code></strong
+                        >: Integrates
+                        <strong><code>multiphotopost</code></strong> API to
+                        enable post creation, replies, and moderation/reporting
+                        while also retrieving and displaying the discussion list
+                        for user interaction.
+                    </li>
+                    <li>
+                        <strong><code>connect.html</code></strong
+                        >: Combines
+                        <strong><code>genericuserprofile</code></strong> and
+                        <strong><code>genericchat</code></strong> APIs to
+                        support profile discovery and private messaging.
+                    </li>
+                    <li>
+                        <strong><code>about.html</code></strong
+                        >: Presents CCI’s mission, participation norms, and
+                        links to privacy & community guidelines.
+                    </li>
+                    <li>
+                        <strong><code>preferences.html</code></strong
+                        >: Intended for profile updates and newsletter
+                        subscription to support client goals around engagement.
+                        As no dedicated API is available, the planned approach
+                        is a lightweight email-based subscription workflow
+                        (pending client approval of the previous proposal).
+                    </li>
+                    <li>
+                        <strong><code>privacy.html</code></strong
+                        >: Communicates transparent data handling, consent, and
+                        opt-out options; documents what is stored and why,
+                        aligning with ethical standards.
+                    </li>
+                </ul>
+
+                <a
+                    class="back-to-top"
+                    href="#toc-heading"
+                    aria-label="Back to contents"
+                    >Back to contents</a
+                >
+            </section>
+
+            <section
+                id="accessibility-ethics"
+                aria-labelledby="accessibility-ethics-title"
+                class="journal-entry"
+                data-entry="02"
+            >
+                <header class="entry-head">
+                    <h2 id="accessibility-ethics-title" class="entry-title">
+                        Accessibility and Ethical Considerations
+                    </h2>
+                    <p class="entry-meta" aria-label="Entry detail">
+                        <span class="entry-date" aria-hidden="true"
+                            >Entry 02</span
+                        >
+                        <span class="entry-sep" aria-hidden="true">·</span>
+                        <span class="entry-tag">WCAG & Ethics</span>
+                    </p>
+                </header>
+
+                <p class="entry-lead">
+                    Accessibility and ethics were integral to the implementation
+                    process, aligning with CCI’s client values of
+                    <strong>Accessibility</strong> and
+                    <strong>Inclusivity</strong>. Each design choice ensures
+                    equitable access for all users, reflecting CCI’s commitment
+                    to building an inclusive digital community. The website
+                    follows <strong>WCAG 2.2 Level AA</strong> standards to
+                    ensure the interface is perceivable, operable,
+                    understandable, and robust for diverse audiences. These
+                    practices also align with the
+                    <strong>ACS Code of Ethics</strong> principles of
+                    <strong>Trustworthiness</strong>,
+                    <strong>Respect for Others</strong>, and
+                    <strong>Honesty</strong>, demonstrating professional
+                    integrity and user respect in digital design.
+                </p>
+
+                <div class="entry-columns">
+                    <div class="entry-column">
+                        <h3>Accessibility Implementation (WCAG 2.2 AA)</h3>
+                        <p>
+                            The implementation applies multiple WCAG 2.2 Level
+                            AA success criteria through semantic HTML, ARIA
+                            attributes, responsive layouts, and interaction
+                            design. These ensure that information is accessible
+                            and interactions are usable for people with
+                            different abilities and assistive technologies.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>1.1.1 Non-text Content:</strong> All
+                                meaningful images have descriptive
+                                <code>alt</code> attributes.
+                            </li>
+                            <li>
+                                <strong>1.3.1 Info and Relationships:</strong>
+                                Landmarks (<code>&lt;header&gt;</code>,
+                                <code>&lt;main&gt;</code>,
+                                <code>&lt;nav&gt;</code>) and headings convey
+                                hierarchy.
+                            </li>
+                            <li>
+                                <strong>1.3.5 Identify Input Purpose:</strong>
+                                Profile and newsletter fields include
+                                autocomplete attributes for clarity and
+                                efficiency.
+                            </li>
+                            <li>
+                                <strong
+                                    >1.4.10 Reflow & 1.4.11 Non-text
+                                    Contrast:</strong
+                                >
+                                Layouts adapt responsively with strong visual
+                                contrast and visible focus states.
+                            </li>
+                            <li>
+                                <strong>2.1.1 Keyboard Accessibility:</strong>
+                                All interactive elements are reachable and
+                                usable via keyboard; focus order follows reading
+                                flow.
+                            </li>
+                            <li>
+                                <strong
+                                    >2.4.1 Bypass Blocks & 2.4.3 Focus
+                                    Order:</strong
+                                >
+                                Clear landmarks allow quick navigation and
+                                maintain logical focus progression.
+                            </li>
+                            <li>
+                                <strong
+                                    >2.4.4 Link Purpose & 2.4.6 Headings and
+                                    Labels:</strong
+                                >
+                                Links and buttons use clear, descriptive text
+                                and labels.
+                            </li>
+                            <li>
+                                <strong>2.4.7 Focus Visible:</strong> Visible
+                                focus outlines appear across all pages and
+                                states.
+                            </li>
+                            <li>
+                                <strong>2.5.3 Label in Name:</strong> The
+                                accessible name matches the visible label text
+                                for clarity with assistive technologies.
+                            </li>
+                            <li>
+                                <strong>2.5.8 Target Size:</strong> All buttons
+                                and links meet minimum 24×24px touch target
+                                size.
+                            </li>
+                            <li>
+                                <strong>3.2.3 Consistent Navigation:</strong>
+                                The navigation bar is consistent across all
+                                pages.
+                            </li>
+                            <li>
+                                <strong
+                                    >3.3.1 Error Identification & 3.3.2 Labels
+                                    or Instructions:</strong
+                                >
+                                Forms include descriptive labels and inline
+                                error text.
+                            </li>
+                            <li>
+                                <strong>4.1.2 Name, Role, Value:</strong> ARIA
+                                roles and states ensure assistive technologies
+                                can interpret controls.
+                            </li>
+                            <li>
+                                <strong>4.1.3 Status Messages:</strong> Live
+                                regions announce dynamic updates politely
+                                without disrupting the user’s workflow.
+                            </li>
+                            <li>
+                                <strong>2.3.3 Reduced Motion:</strong>
+                                Animations respect user preferences through
+                                <code>prefers-reduced-motion</code> queries.
+                            </li>
+                        </ul>
+
+                        <p>
+                            These implementations uphold
+                            <strong>Trustworthiness</strong> by ensuring the
+                            website functions reliably across devices and
+                            assistive technologies, and demonstrate
+                            <strong>Respect for Others</strong> by providing
+                            equitable access to all users, regardless of
+                            ability.
+                        </p>
+                    </div>
+
+                    <div class="entry-column">
+                        <h3>Ethical Design</h3>
+                        <p>
+                            Ethical design decisions guided how user data,
+                            communication, and inclusivity were implemented.
+                            These choices align with CCI’s values of
+                            <strong>Inclusivity</strong> and
+                            <strong>Social Cohesion</strong>, while directly
+                            supporting the
+                            <strong>ACS Code of Ethics</strong> principles of
+                            <strong>Trustworthiness</strong>,
+                            <strong>Respect for Others</strong>, and
+                            <strong>Honesty</strong>.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Transparency (Honesty):</strong> The
+                                <strong><code>about.html</code></strong> and
+                                <strong><code>privacy.html</code></strong> pages
+                                communicate data use in plain language, ensuring
+                                users are truthfully informed about how their
+                                data and participation are managed.
+                            </li>
+                            <li>
+                                <strong
+                                    >Privacy and Consent
+                                    (Trustworthiness):</strong
+                                >
+                                Data collection is minimal, with no hidden
+                                tracking or analytics beyond necessary
+                                functionality. The
+                                <strong><code>privacy.html</code></strong> page
+                                explicitly explains consent and storage
+                                practices, helping users trust the system with
+                                informed decisions.
+                            </li>
+                            <li>
+                                <strong
+                                    >Newsletter Subscription (Honesty & Respect
+                                    for Others):</strong
+                                >
+                                On <strong><code>preferences.html</code></strong
+                                >, the newsletter is opt-in only. With no
+                                available API, the design uses a simple
+                                email-based workflow that respects user privacy
+                                and autonomy—upholding transparency and
+                                respecting users’ control over their personal
+                                information.
+                            </li>
+                            <li>
+                                <strong
+                                    >Representation and Inclusion (Respect for
+                                    Others):</strong
+                                >
+                                Neutral, inclusive language and imagery avoid
+                                stereotypes, fostering a welcoming space that
+                                represents diversity across the CCI community.
+                            </li>
+                        </ul>
+
+                        <blockquote
+                            class="journal-note"
+                            aria-label="Accessibility audit summary"
+                        >
+                            <p>
+                                <strong
+                                    >Audit Summary (IBM Equal Access):</strong
+                                >
+                                Verified compliance on contrast, label
+                                associations, and focus indicators. Low contrast
+                                issues and redundant roles were corrected,
+                                ensuring clean ARIA structure and full keyboard
+                                navigation. No critical violations remain.
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <h3>Evidence and Page Mapping</h3>
+                <ul>
+                    <li>
+                        <strong><code>index.html</code>:</strong> Dynamic
+                        updates announced with ARIA live regions;
+                        keyboard-friendly filters; responsive layout with
+                        visible focus outlines.
+                    </li>
+                    <li>
+                        <strong><code>explore.html</code>:</strong> Structured
+                        cards with descriptive headings and filters using real
+                        form elements.
+                    </li>
+                    <li>
+                        <strong><code>discuss.html</code>:</strong> Accessible
+                        post creation form, labeled input areas, and moderation
+                        controls.
+                    </li>
+                    <li>
+                        <strong><code>connect.html</code>:</strong> Profile
+                        cards use semantic headings and accessible buttons for
+                        messaging.
+                    </li>
+                    <li>
+                        <strong><code>preferences.html</code>:</strong> Forms
+                        use fieldsets and legends; newsletter subscription
+                        follows ethical opt-in and minimal data collection
+                        principles.
+                    </li>
+                </ul>
+
+                <a
+                    class="back-to-top"
+                    href="#toc-heading"
+                    aria-label="Back to contents"
+                    >Back to contents</a
+                >
+            </section>
+
+            <section
+                id="variations"
+                aria-labelledby="variations-title"
+                class="journal-entry"
+                data-entry="03"
+            >
+                <header class="entry-head">
+                    <h2 id="variations-title" class="entry-title">
+                        Variations and Justifications
+                    </h2>
+                    <p class="entry-meta" aria-label="Entry detail">
+                        <span class="entry-date" aria-hidden="true"
+                            >Entry 03</span
+                        >
+                        <span class="entry-sep" aria-hidden="true">·</span>
+                        <span class="entry-tag">Design refinements</span>
+                    </p>
+                </header>
+
+                <p class="entry-lead">
+                    Building on the A3 visual designs and site map, several
+                    design refinements were introduced during implementation to
+                    improve clarity, usability, and accessibility. Each
+                    variation below is justified at the design level with
+                    reference to relevant WCAG&nbsp;2.2 criteria where
+                    applicable.
+                </p>
+
+                <div class="entry-columns">
+                    <div class="entry-column">
+                        <h3>Design & Content</h3>
+                        <ul>
+                            <li>
+                                <strong>Navigation Bar:</strong> The logo and
+                                navigation links are separated to create a
+                                clearer visual hierarchy and more predictable
+                                keyboard focus order, aiding orientation for all
+                                users.
+                                <em
+                                    >(WCAG&nbsp;1.3.1 Info and Relationships;
+                                    2.4.3 Focus Order)</em
+                                >
+                            </li>
+                            <li>
+                                <strong
+                                    >Tooltips & Indicators on nav bar and key
+                                    elements:</strong
+                                >
+                                Added hover, focus, and active states with brief
+                                titles where helpful so interactions provide
+                                immediate visual/textual feedback and state
+                                clarity.
+                                <em
+                                    >(WCAG&nbsp;2.4.7 Focus Visible; 1.4.11
+                                    Non-text Contrast)</em
+                                >
+                            </li>
+                            <li>
+                                <strong>Page Titles (verb–noun format):</strong>
+                                Updated headings to action-oriented titles
+                                (e.g., “Join Discussions”, “Connect with Your
+                                Community”) to express purpose at a glance and
+                                support scanning and wayfinding.
+                                <em>(WCAG&nbsp;2.4.6 Headings and Labels)</em>
+                            </li>
+                            <li>
+                                <strong
+                                    >Cards with badges and richer
+                                    metadata:</strong
+                                >
+                                Card layouts now surface key attributes (e.g.,
+                                type/status badges) to improve information scent
+                                and reduce cognitive load while preserving clean
+                                hierarchy and reflow.
+                                <em
+                                    >(WCAG&nbsp;1.3.1 Info and Relationships;
+                                    1.4.10 Reflow)</em
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Outcome</h3>
+                <p>
+                    These variations strengthen visual clarity, reinforce
+                    consistent patterns, and make interactions easier to
+                    perceive and operate, especially for keyboard and
+                    assistive-technology users. Overall, the refinements keep
+                    fidelity with the A3 direction while elevating usability and
+                    alignment with WCAG&nbsp;2.2 Level AA.
+                </p>
+
+                <a
+                    class="back-to-top"
+                    href="#toc-heading"
+                    aria-label="Back to contents"
+                    >Back to contents</a
+                >
+            </section>
+
+            <section
+                id="challenges-strategies"
+                aria-labelledby="challenges-strategies-title"
+                class="journal-entry"
+                data-entry="04"
+            >
+                <header class="entry-head">
+                    <h2 id="challenges-strategies-title" class="entry-title">
+                        Challenges and Strategies
+                    </h2>
+                    <p class="entry-meta" aria-label="Entry detail">
+                        <span class="entry-date" aria-hidden="true"
+                            >Entry 04</span
+                        >
+                        <span class="entry-sep" aria-hidden="true">·</span>
+                        <span class="entry-tag">Implementation Reflection</span>
+                    </p>
+                </header>
+
+                <p class="entry-lead">
+                    During the implementation phase, several technical and
+                    design challenges emerged that required iterative
+                    problem-solving. This section reflects on those key
+                    challenges and the strategies employed to address them,
+                    demonstrating adaptive thinking and adherence to
+                    accessibility and usability principles.
+                </p>
+
+                <div class="entry-columns">
+                    <div class="entry-column">
+                        <h3>Challenge 1: API Limitations and Dynamic Data</h3>
+                        <p>
+                            Some APIs provided limited or placeholder data
+                            structures that constrained intended dynamic
+                            features. For example, the
+                            <strong><code>genericproduct</code></strong> and
+                            <strong><code>multiphotopost</code></strong>
+                            endpoints did not return full metadata or required
+                            authentication for certain operations.
+                        </p>
+                        <p>
+                            <strong>Strategy:</strong> Implemented mock and
+                            filtered data models using available fields (e.g.,
+                            <code>event_type</code> for news/events). This
+                            ensured consistent user experience while maintaining
+                            scalability for future integration. Loading
+                            indicators and error messages were added to
+                            communicate network or data issues, improving
+                            transparency and user trust.
+                        </p>
+                    </div>
+
+                    <div class="entry-column">
+                        <h3>
+                            Challenge 2: GenAI Prompting and Instruction Clarity
+                        </h3>
+                        <p>
+                            Working with generative AI tools introduced unique
+                            challenges, particularly in achieving the desired
+                            responses through a single prompt. Early iterations
+                            often resulted in incomplete or misaligned outputs
+                            due to insufficient contextual details provided at
+                            once.
+                        </p>
+                        <p>
+                            <strong>Strategy:</strong> Learned to provide
+                            comprehensive, structured instructions
+                            upfront—clearly outlining objectives, technical
+                            context, and design constraints. This approach
+                            reduced ambiguity, improved response accuracy, and
+                            streamlined collaboration efficiency with
+                            AI-assisted workflows.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="entry-columns">
+                    <div class="entry-column">
+                        <h3>
+                            Challenge 3: Responsive Design and Content Reflow
+                        </h3>
+                        <p>
+                            Creating a responsive interface for various screen
+                            sizes without compromising readability and
+                            interaction required significant layout testing.
+                        </p>
+                        <p>
+                            <strong>Strategy:</strong> Adopted a mobile-first
+                            approach with relative units and flexible grid
+                            layouts. Ensured reflow integrity for text and
+                            components under zoom and small viewport conditions,
+                            satisfying <strong>WCAG 1.4.10 Reflow</strong> and
+                            improving accessibility on mobile devices.
+                        </p>
+                    </div>
+                </div>
+
+                <h3>Reflection</h3>
+                <p>
+                    Overcoming these challenges reinforced the importance of
+                    iterative testing, user-centered design, and adaptive
+                    communication methods. Each obstacle informed stronger
+                    design and collaboration practices—ensuring that the final
+                    website was inclusive, responsive, and aligned with client
+                    and user needs. This process demonstrated professional
+                    problem-solving within realistic implementation constraints.
+                </p>
+
+                <a
+                    class="back-to-top"
+                    href="#toc-heading"
+                    aria-label="Back to contents"
+                    >Back to contents</a
+                >
+            </section>
+            <section
+                id="accessibility-audit"
+                aria-labelledby="accessibility-audit-title"
+                class="journal-entry"
+                data-entry="05"
+            >
+                <header class="entry-head">
+                    <h2 id="accessibility-audit-title" class="entry-title">
+                        Accessibility Audit
+                    </h2>
+                    <p class="entry-meta" aria-label="Entry detail">
+                        <span class="entry-date" aria-hidden="true"
+                            >Entry 05</span
+                        >
+                        <span class="entry-sep" aria-hidden="true">·</span>
+                        <span class="entry-tag">Audit & Reflection</span>
+                    </p>
+                </header>
+
+                <p class="entry-lead">
+                    This section presents the results of the Accessibility Audit
+                    performed using the IBM Equal Access Accessibility Checker.
+                    It will include a screenshot of the audit outcome and a
+                    short reflection on how the findings informed the final
+                    implementation.
+                </p>
+
+                <figure class="audit-screenshot">
+                    <img
+                        src="assets/audit_screenshot_placeholder.png"
+                        alt="Accessibility Audit Results Screenshot Placeholder"
+                    />
+                    <figcaption>
+                        Placeholder for IBM Equal Access Accessibility Checker
+                        results.
+                    </figcaption>
+                </figure>
+
+                <h3>Reflection</h3>
+                <p>
+                    A brief analysis of the audit outcomes will be provided
+                    here, explaining the key issues identified and the
+                    corrective actions implemented to improve accessibility
+                    compliance and user experience.
+                </p>
+
+                <a
+                    class="back-to-top"
+                    href="#toc-heading"
+                    aria-label="Back to contents"
+                    >Back to contents</a
+                >
+            </section>
+            <section
+                id="github-repository"
+                aria-labelledby="github-repository-title"
+                class="journal-entry"
+                data-entry="06"
+            >
+                <header class="entry-head">
+                    <h2 id="github-repository-title" class="entry-title">
+                        GitHub Repository
+                    </h2>
+                    <p class="entry-meta" aria-label="Entry detail">
+                        <span class="entry-date" aria-hidden="true"
+                            >Entry 06</span
+                        >
+                        <span class="entry-sep" aria-hidden="true">·</span>
+                        <span class="entry-tag">Submission Details</span>
+                    </p>
+                </header>
+
+                <p class="entry-lead">
+                    This section provides the link to the GitHub repository
+                    where the complete project codebase is hosted.
+                </p>
+
+                <h3>GitHub Repository Link</h3>
+                <p>
+                    The full source code and documentation for this project are
+                    available at:
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        >GitHub Repository (placeholder link)</a
+                    >.
+                </p>
+
+                <a
+                    class="back-to-top"
+                    href="#toc-heading"
+                    aria-label="Back to contents"
+                    >Back to contents</a
+                >
+            </section>
+        </main>
+    </body>
+</html>
