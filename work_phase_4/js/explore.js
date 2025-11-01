@@ -71,7 +71,7 @@ const normalizeApiRepo = (p, idx) => {
         ),
         upvotes: isNumeric ? Number(p.product_info3) : 0,
         website_code: p.website_code || "",
-        html_url: "#",
+        html_url: "https://github.com/",
     };
 };
 
