@@ -1,179 +1,198 @@
 import { initNavBar } from "./modules/nav_bar.js";
+import { getUser } from "./modules/user_info/getUser.js";
 
 const preferencesForm = document.getElementById("preferences-form");
 const cancelSubscriptionBtn = document.getElementById("cancel-subscription");
-const formFeedback = document.getElementById("form-feedback");
+const userFormFeedback = document.getElementById("user-form-feedback");
+const newsletterFeedback = document.getElementById("newsletter-form-feedback");
 const subscriptionStatus = document.getElementById("subscription-status");
+const updateBtn = preferencesForm.querySelector('button[type="submit"]');
 
-function loadPreferences() {
-    const savedName = localStorage.getItem("userName");
-    const savedEmail = localStorage.getItem("userEmail");
-    const savedGitHub = localStorage.getItem("userGitHub");
-    const savedBio = localStorage.getItem("userBio");
-    const isSubscribed = localStorage.getItem("isSubscribed") !== "false";
+let originalData = {};
+let userHasChanged = false;
 
-    if (savedName) document.getElementById("name").value = savedName;
-    if (savedEmail) document.getElementById("email").value = savedEmail;
-    if (savedGitHub) document.getElementById("github").value = savedGitHub;
-    if (savedBio) document.getElementById("bio").value = savedBio;
-
-    updateSubscriptionUI(isSubscribed);
+function toggleUpdateButton() {
+    updateBtn.disabled = !userHasChanged;
+    updateBtn.classList.toggle("is-disabled", !userHasChanged);
 }
 
-function updateSubscriptionUI(isSubscribed) {
-    if (isSubscribed) {
-        subscriptionStatus.textContent = "You've subscribed";
-        cancelSubscriptionBtn.textContent = "Cancel Subscription";
+function setLoadingState(isLoading) {
+    if (isLoading) {
+        preferencesForm.classList.add("loading");
+        preferencesForm.setAttribute("aria-busy", "true");
+        Array.from(preferencesForm.elements).forEach(
+            (el) => (el.disabled = true)
+        );
     } else {
-        subscriptionStatus.textContent = "You're not subscribed";
-        cancelSubscriptionBtn.textContent = "Subscribe";
+        preferencesForm.classList.remove("loading");
+        preferencesForm.removeAttribute("aria-busy");
+        Array.from(preferencesForm.elements).forEach((el) => {
+            if (el.id === "email") {
+                el.disabled = true;
+            } else {
+                el.disabled = false;
+            }
+        });
+        toggleUpdateButton();
     }
 }
 
-function showFeedback(message, type = "success") {
-    formFeedback.textContent = message;
-    formFeedback.className = `form-feedback ${type}`;
+function loadUserData(user) {
+    if (!user) return;
 
-    formFeedback.setAttribute("role", "status");
-    formFeedback.setAttribute(
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const githubInput = document.getElementById("github");
+    const bioInput = document.getElementById("bio");
+
+    nameInput.value = user.name || "";
+    emailInput.value = user.email || "";
+    githubInput.value = user.email || "";
+    bioInput.value = user.message || "";
+
+    emailInput.disabled = true;
+    emailInput.title = "You cannot edit your email address.";
+
+    originalData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        github: githubInput.value,
+        bio: bioInput.value,
+    };
+}
+
+function detectChanges() {
+    const current = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        github: document.getElementById("github").value.trim(),
+        bio: document.getElementById("bio").value.trim(),
+    };
+    userHasChanged = JSON.stringify(current) !== JSON.stringify(originalData);
+    toggleUpdateButton();
+}
+
+// 🔸 Feedback helper
+function showFeedback(container, message, type = "success") {
+    container.textContent = message;
+    container.className = `form-feedback ${type}`;
+    container.setAttribute("role", "status");
+    container.setAttribute(
         "aria-live",
         type === "error" ? "assertive" : "polite"
     );
 
-    if (type === "error") {
-        formFeedback.focus();
-    }
-
-    setTimeout(() => {
-        formFeedback.textContent = "";
-        formFeedback.className = "form-feedback";
-    }, 5000);
-}
-
-function clearError(input) {
-    input.removeAttribute("aria-invalid");
-    input.removeAttribute("aria-describedby");
-    const errorMsg = input.parentElement.querySelector(".error-message");
-    if (errorMsg) {
-        errorMsg.remove();
+    if (type !== "loading") {
+        setTimeout(() => {
+            container.textContent = "";
+            container.className = "form-feedback";
+        }, 5000);
     }
 }
 
-function setError(input, message) {
-    input.setAttribute("aria-invalid", "true");
+const DEFAULT_SUBSCRIBED = true;
 
-    let errorMsg = input.parentElement.querySelector(".error-message");
-    if (!errorMsg) {
-        errorMsg = document.createElement("span");
-        errorMsg.className = "error-message";
-        errorMsg.id = `${input.id}-error`;
-        input.parentElement.appendChild(errorMsg);
-    }
-    errorMsg.textContent = message;
-    input.setAttribute("aria-describedby", errorMsg.id);
+function getIsSubscribed() {
+    return localStorage.getItem("isSubscribed") === "true";
 }
+
+function setIsSubscribed(val) {
+    localStorage.setItem("isSubscribed", String(val));
+}
+
+function updateSubscriptionUI(isSubscribed) {
+    subscriptionStatus.textContent = isSubscribed
+        ? "You are subscribed to the newsletter."
+        : "You are not subscribed to the newsletter.";
+    cancelSubscriptionBtn.textContent = isSubscribed
+        ? "Cancel Subscription"
+        : "Subscribe";
+
+    cancelSubscriptionBtn.classList.remove("btn-primary", "btn-outline-gray");
+
+    cancelSubscriptionBtn.classList.add(
+        isSubscribed ? "btn-outline-gray" : "btn-primary"
+    );
+}
+
+function initSubscriptionUI() {
+    const stored = localStorage.getItem("isSubscribed");
+    const isSubscribed =
+        stored === null ? DEFAULT_SUBSCRIBED : stored === "true";
+    setIsSubscribed(isSubscribed);
+    updateSubscriptionUI(isSubscribed);
+}
+
+preferencesForm.addEventListener("input", detectChanges);
 
 preferencesForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const inputs = preferencesForm.querySelectorAll("input, textarea");
-    inputs.forEach((input) => clearError(input));
+    const bioInput = document.getElementById("bio");
+    if (bioInput.value.length > 500) {
+        showFeedback(
+            userFormFeedback,
+            "Bio must be 500 characters or less.",
+            "error"
+        );
+        bioInput.focus();
+        return;
+    }
 
-    const formData = {
+    originalData = {
         name: document.getElementById("name").value.trim(),
         email: document.getElementById("email").value.trim(),
         github: document.getElementById("github").value.trim(),
         bio: document.getElementById("bio").value.trim(),
     };
 
-    let hasErrors = false;
+    userHasChanged = false;
+    toggleUpdateButton();
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const emailInput = document.getElementById("email");
-
-    if (!formData.email) {
-        setError(emailInput, "Email is required");
-        hasErrors = true;
-    } else if (!emailRegex.test(formData.email)) {
-        setError(emailInput, "Please enter a valid email address");
-        hasErrors = true;
-    }
-
-    const bioInput = document.getElementById("bio");
-    if (formData.bio.length > 500) {
-        setError(bioInput, "Bio must be 500 characters or less");
-        hasErrors = true;
-    }
-
-    if (hasErrors) {
-        showFeedback("Please correct the errors in the form", "error");
-        const firstInvalid = preferencesForm.querySelector(
-            '[aria-invalid="true"]'
-        );
-        if (firstInvalid) {
-            firstInvalid.focus();
-        }
-        return;
-    }
-
-    try {
-        localStorage.setItem("userName", formData.name);
-        localStorage.setItem("userEmail", formData.email);
-        localStorage.setItem("userGitHub", formData.github);
-        localStorage.setItem("userBio", formData.bio);
-
-        showFeedback("Preferences updated successfully!", "success");
-    } catch (error) {
-        console.error("Error saving preferences:", error);
-        showFeedback(
-            "Failed to update preferences. Please try again.",
-            "error"
-        );
-    }
+    showFeedback(
+        userFormFeedback,
+        "Personal information updated successfully!",
+        "success"
+    );
 });
 
 cancelSubscriptionBtn.addEventListener("click", () => {
-    const currentStatus = localStorage.getItem("isSubscribed") !== "false";
-    const newStatus = !currentStatus;
-
-    localStorage.setItem("isSubscribed", newStatus);
+    const newStatus = !getIsSubscribed();
+    setIsSubscribed(newStatus);
     updateSubscriptionUI(newStatus);
 
-    if (newStatus) {
-        showFeedback("Successfully subscribed to newsletter!", "success");
-    } else {
-        showFeedback("Successfully unsubscribed from newsletter.", "success");
-    }
+    showFeedback(
+        newsletterFeedback,
+        newStatus
+            ? "Successfully subscribed to the newsletter."
+            : "Successfully unsubscribed from the newsletter.",
+        "success"
+    );
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+async function initPreferences() {
     initNavBar();
-    loadPreferences();
-});
+    toggleUpdateButton();
+    setLoadingState(true);
 
-window.addEventListener("scroll", () => {
-    const profile = document.querySelector(".user-profile");
-    if (!profile) return;
-
-    if (window.scrollY > 10) {
-        profile.classList.add("scrolled");
-    } else {
-        profile.classList.remove("scrolled");
+    try {
+        const user = await getUser();
+        if (!user) throw new Error("No user data found");
+        loadUserData(user);
+    } catch (err) {
+        console.error(err);
+        showFeedback(
+            userFormFeedback,
+            "Failed to load personal information.",
+            "error"
+        );
+    } finally {
+        setLoadingState(false);
+        userFormFeedback.textContent = "";
+        userFormFeedback.className = "form-feedback";
     }
-});
 
-let saveTimer;
-const autoSaveFields = ["name", "email", "github", "bio"];
+    initSubscriptionUI();
+}
 
-autoSaveFields.forEach((fieldId) => {
-    const field = document.getElementById(fieldId);
-    field.addEventListener("input", () => {
-        clearTimeout(saveTimer);
-        saveTimer = setTimeout(() => {
-            const key = `user${
-                fieldId.charAt(0).toUpperCase() + fieldId.slice(1)
-            }`;
-            localStorage.setItem(key, field.value);
-        }, 1000);
-    });
-});
+document.addEventListener("DOMContentLoaded", initPreferences);
