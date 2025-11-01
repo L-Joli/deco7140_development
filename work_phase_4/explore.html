@@ -29,7 +29,7 @@
             referrerpolicy="no-referrer"
         />
 
-        <title>Explore</title>
+        <title>Explore Repositories</title>
     </head>
     <body>
         <header>
@@ -107,13 +107,13 @@
             </nav>
 
             <!-- Desktop Sidebar -->
-            <aside class="nav-sidebar" aria-label="Primary">
-                <div class="nav-sidebar-brand" aria-label="Site initials">
-                    <a href="./index.html" aria-label="Home Logo">
+            <aside class="nav-sidebar" aria-label="Primary navigation">
+                <div class="nav-sidebar-brand">
+                    <a href="./index.html" aria-label="Home">
                         <span class="nav-initials" aria-hidden="true">TH</span>
                     </a>
                 </div>
-                <nav class="nav-rail" aria-label="Primary">
+                <nav class="nav-rail">
                     <ul role="list">
                         <li>
                             <a
@@ -130,9 +130,9 @@
                             <a
                                 class="nav-rail-link"
                                 href="./explore.html"
-                                aria-label="Explore"
-                                aria-current="page"
                                 title="Explore"
+                                aria-current="page"
+                                aria-label="Explore"
                             >
                                 <i class="fa-regular fa-folder-open"></i>
                                 <span class="nav-visually-hidden">Explore</span>
@@ -142,8 +142,8 @@
                             <a
                                 class="nav-rail-link"
                                 href="./discuss.html"
-                                aria-label="Discuss"
                                 title="Discuss"
+                                aria-label="Discuss"
                             >
                                 <i class="fa-regular fa-message"></i>
                                 <span class="nav-visually-hidden">Discuss</span>
@@ -153,8 +153,8 @@
                             <a
                                 class="nav-rail-link"
                                 href="./connect.html"
-                                aria-label="Connect"
                                 title="Connect"
+                                aria-label="Connect"
                             >
                                 <i class="fa-regular fa-face-smile"></i>
                                 <span class="nav-visually-hidden">Connect</span>
@@ -166,48 +166,61 @@
         </header>
 
         <main class="container">
-            <!-- Title only -->
+            <!-- Title -->
             <section>
                 <div class="section-header-inline">
-                    <h1>Explore Repositories</h1>
+                    <h1 id="page-title">Explore Repositories</h1>
                 </div>
             </section>
 
-            <!-- Group: Trending -->
+            <!-- Trending Section -->
             <section aria-labelledby="trending-title">
                 <h2 id="trending-title" class="group-title">Trending</h2>
                 <div
                     id="trendingContainer"
                     class="repo-grid"
                     aria-live="polite"
-                ></div>
+                    aria-busy="true"
+                >
+                    <p class="empty">Loading trending repositories…</p>
+                </div>
             </section>
 
-            <!-- Group: By Topic -->
+            <!-- Topics Section -->
             <section aria-labelledby="topics-title">
                 <h2 id="topics-title" class="group-title">By Topic</h2>
                 <div
                     id="topicsContainer"
                     class="topics-grid"
                     aria-live="polite"
-                ></div>
+                    aria-busy="true"
+                >
+                    <p class="empty">Loading topics…</p>
+                </div>
             </section>
 
-            <!-- Filters & Chips (moved here, below By Topic) -->
+            <!-- Filters Section -->
             <section aria-labelledby="filters-title">
                 <h2 id="filters-title" class="group-title">Search Results</h2>
-                <div
+                <form
                     class="explore-controls"
-                    role="region"
+                    role="search"
                     aria-label="Repository filters"
                 >
+                    <label for="searchInput" class="visually-hidden"
+                        >Search repositories</label
+                    >
                     <input
                         id="searchInput"
                         class="ctrl-input"
                         type="search"
                         placeholder="Search repositories or users…"
-                        aria-label="Search repositories"
+                        aria-describedby="filters-title"
                     />
+
+                    <label for="languageSelect" class="visually-hidden"
+                        >Filter by language</label
+                    >
                     <select
                         id="languageSelect"
                         class="ctrl-select"
@@ -215,28 +228,24 @@
                     >
                         <option value="">All languages</option>
                     </select>
+
+                    <label for="sortSelect" class="visually-hidden"
+                        >Sort results</label
+                    >
                     <select
                         id="sortSelect"
                         class="ctrl-select"
                         aria-label="Sort results"
                     >
                         <option value="recommended">Recommended</option>
-                        <option value="stars_desc">Stars ↓</option>
-                        <option value="stars_asc">Stars ↑</option>
+                        <option value="stars_desc">Most Upvoted</option>
+                        <option value="stars_asc">Least Upvoted</option>
                         <option value="updated_desc">Recently Updated</option>
                     </select>
-                </div>
-
-                <!-- Recommendation chips -->
-                <div
-                    id="recommendChips"
-                    class="recommend-chips"
-                    role="list"
-                    aria-label="Recommendations"
-                ></div>
+                </form>
             </section>
 
-            <!-- Group: All Results -->
+            <!-- Results Section -->
             <section aria-labelledby="results-title">
                 <div class="section-header-inline">
                     <h2 id="results-title" class="group-title">
@@ -249,12 +258,14 @@
                     ></span>
                 </div>
 
-                <!-- Loading / Results container -->
                 <div
                     id="resultsContainer"
                     class="repo-grid"
                     aria-live="polite"
-                ></div>
+                    aria-busy="true"
+                >
+                    <p class="empty">Loading repositories…</p>
+                </div>
             </section>
         </main>
 
@@ -263,9 +274,7 @@
         <footer class="site-footer" role="contentinfo">
             <nav class="footer-nav" aria-label="Footer navigation">
                 <ul class="footer-links" role="list">
-                    <li>
-                        <a href="./about.html" aria-label="About Us">About</a>
-                    </li>
+                    <li><a href="./about.html">About</a></li>
                     <li>
                         <a href="./genai_mt_acknowledgement.html"
                             >GenAI & MT Acknowledgement</a
