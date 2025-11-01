@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- style Linking -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link
+            rel="stylesheet"
+            href="css/page_css/genai_mt_acknowledgement.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>GenAI</title>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="back-button-container">
+                    <button
+                        id="back-button"
+                        class="btn-back"
+                        aria-label="Back to home page"
+                        onclick="window.location.href='./index.html'"
+                    >
+                        <i
+                            class="fa-solid fa-arrow-left"
+                            aria-hidden="true"
+                        ></i>
+                        <span>Back to Home</span>
+                    </button>
+                </div>
+                <header class="page-header">
+                    <h1>GenAI Reflective Acknowledgement</h1>
+                    <p class="lede">
+                        This page documents how I used Generative AI and Machine
+                        Translation (GenAI/MT) tools during Work Phase 4. I
+                        followed the course framework for responsible use and
+                        critically reviewed all outputs before inclusion.
+                    </p>
+                </header>
+
+                <section aria-labelledby="overview-heading">
+                    <h2 id="overview-heading">Overview of Usage</h2>
+                    <p>
+                        I used <strong>ChatGPT</strong> to explore alternatives,
+                        accelerate boilerplate, and refine copy. All outputs
+                        were evaluated for accuracy, accessibility, and fit with
+                        the CCI brief before adapting or rejecting.
+                    </p>
+                </section>
+
+                <section aria-labelledby="log-heading">
+                    <h2 id="log-heading">Usage Log (Key Interactions)</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Use or Purpose</th>
+                                <th>Prompt or Action (summary)</th>
+                                <th>Section Affected</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 15 Oct 2025 -->
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Generate reset.css baseline</td>
+                                <td>
+                                    “Create a minimal reset.css file to
+                                    normalise browser defaults and ensure
+                                    consistent base styling.”
+                                </td>
+                                <td><code>reset.css</code></td>
+                                <td>15 Oct 2025</td>
+                            </tr>
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Generate base.css foundational styles</td>
+                                <td>
+                                    “Write a base.css defining typography,
+                                    colour tokens, and spacing variables aligned
+                                    with modern web standards.”
+                                </td>
+                                <td><code>base.css</code></td>
+                                <td>15 Oct 2025</td>
+                            </tr>
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>
+                                    Generate layout.css for grid and
+                                    responsiveness
+                                </td>
+                                <td>
+                                    “Propose responsive grid and container
+                                    styles for layout.css; include mobile-first
+                                    breakpoints and spacing tokens.”
+                                </td>
+                                <td><code>layout.css</code></td>
+                                <td>15 Oct 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Ask for device breakpoints</td>
+                                <td>
+                                    “Recommend semantic CSS breakpoints for
+                                    mobile, tablet, desktop, and large desktop
+                                    using em/rem-based media queries.”
+                                </td>
+                                <td><code>layout.css</code></td>
+                                <td>15 Oct 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Mobile nav toggle baseline</td>
+                                <td>
+                                    “Provide a minimal JS pattern for a mobile
+                                    menu toggle with Escape to close and
+                                    <code>aria-expanded</code> states.”
+                                </td>
+                                <td><code>index.html</code></td>
+                                <td>15 Oct 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Proofread and suggest headings</td>
+                                <td>
+                                    “Proofread all page headings and propose
+                                    clear, scannable H1–H3 hierarchy with
+                                    consistent title case.”
+                                </td>
+                                <td>All headings (site-wide)</td>
+                                <td>21 Oct 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Make keyboard-tappable/tabbable nav</td>
+                                <td>
+                                    “Ensure the nav is fully keyboard navigable
+                                    with logical tab order, visible focus, and
+                                    semantic roles.”
+                                </td>
+                                <td>Nav bar</td>
+                                <td>31 Oct 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>
+                                    Draft concise, specific alt text for
+                                    elements
+                                </td>
+                                <td>
+                                    “Draft concise, descriptive alt text for key
+                                    images/icons; avoid redundancy with nearby
+                                    headings.”
+                                </td>
+                                <td>All pages</td>
+                                <td>31 Oct 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>
+                                    Professional tone for implementation
+                                    rationale
+                                </td>
+                                <td>
+                                    “Edit the implementation rationale to adopt
+                                    a clear, professional, and objective tone.”
+                                </td>
+                                <td>
+                                    <code>implementation_rationale.html</code>
+                                </td>
+                                <td>1 Nov 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Style the GenAI page</td>
+                                <td>
+                                    “Suggest layout and visual hierarchy
+                                    improvements for the GenAI acknowledgement
+                                    page to match the site style.”
+                                </td>
+                                <td>
+                                    <code>genai_mt_acknowledgement.html</code>
+                                </td>
+                                <td>2 Nov 2025</td>
+                            </tr>
+
+                            <tr>
+                                <td>ChatGPT</td>
+                                <td>Fix accessibility</td>
+                                <td>
+                                    “Identify and resolve accessibility
+                                    issues—contrast, heading order, label
+                                    associations, and focus visibility.”
+                                </td>
+                                <td>All pages</td>
+                                <td>2 Nov 2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- ================== Updated Critical Reflection ================== -->
+                <section aria-labelledby="reflection-heading">
+                    <h2 id="reflection-heading">Critical Reflection</h2>
+
+                    <h3>How ChatGPT supported WP4</h3>
+                    <p>
+                        ChatGPT acted as a structured thinking partner across
+                        design, content, and technical layers. It helped
+                        generate the initial CSS foundations
+                        (<code>reset.css</code>, <code>base.css</code>, and
+                        <code>layout.css</code>), establish responsive
+                        breakpoints, and improve accessibility. I also used it
+                        to refine copy tone and clarify page structure. These
+                        uses supported faster iteration and deeper understanding
+                        of web standards and layout systems.
+                    </p>
+
+                    <h3>Responsible and ethical use</h3>
+                    <p>
+                        Following the
+                        <em>Responsible Use of AI Tools Learning Document</em>,
+                        I treated ChatGPT as a tool for exploration and
+                        validation, not authorship. No sensitive data were
+                        entered into prompts, and all responses were manually
+                        reviewed for factual accuracy, inclusivity, and
+                        accessibility. I refined or rewrote AI suggestions to
+                        ensure the outcomes reflected my intent and design
+                        rationale, aligning with course expectations for
+                        responsible GenAI practice.
+                    </p>
+
+                    <h3>Challenges and how I addressed them</h3>
+                    <ul>
+                        <li>
+                            <strong>Over-generalised suggestions:</strong>
+                            ChatGPT sometimes returned generic or verbose CSS or
+                            layout code. I countered this by testing outputs
+                            directly in my environment and simplifying them for
+                            performance and maintainability.
+                        </li>
+                        <li>
+                            <strong>Voice and clarity:</strong> While AI edits
+                            improved grammar, they risked diluting my voice. I
+                            restored first-person and reflective phrasing to
+                            preserve authorship.
+                        </li>
+                        <li>
+                            <strong>Accessibility validation:</strong> AI output
+                            required human review to confirm semantic accuracy,
+                            ARIA usage, and logical tab flow; I tested these
+                            in-browser with screen readers and keyboard
+                            navigation.
+                        </li>
+                    </ul>
+
+                    <h3>Evaluation strategies</h3>
+                    <ul>
+                        <li>
+                            Planned each prompt with a clear goal — to clarify,
+                            test, or scaffold — before engaging ChatGPT.
+                        </li>
+                        <li>
+                            Applied critical review by verifying code validity,
+                            contrast ratios, and WCAG alignment before
+                            inclusion.
+                        </li>
+                        <li>
+                            Maintained transparency through dated logs
+                            describing where AI assisted.
+                        </li>
+                        <li>
+                            Reflected after each use to identify how the
+                            interaction contributed to efficiency, learning, and
+                            accessibility.
+                        </li>
+                    </ul>
+
+                    <h3>Looking forward</h3>
+                    <p>
+                        I will continue using GenAI tools for targeted support
+                        such as scaffolding, documentation drafting, and
+                        validation of accessibility logic, while prioritising
+                        human judgment and peer review. Maintaining a
+                        transparent workflow and documenting AI interactions
+                        will remain central to demonstrating responsible and
+                        reflective use.
+                    </p>
+                </section>
+
+                <section aria-labelledby="integrity-heading">
+                    <h2 id="integrity-heading">Integrity Statement</h2>
+                    <p>
+                        I used GenAI tools to support—<em>not replace</em>—my
+                        learning and development in WP4. I critically reviewed,
+                        adapted, or rejected outputs, and the final website,
+                        rationale, and this acknowledgement reflect my own
+                        understanding and decisions. I have been transparent
+                        about how these tools contributed and I followed the
+                        assessment’s expectations for responsible use and
+                        academic integrity.
+                    </p>
+                </section>
+            </div>
+        </main>
+        <footer class="site-footer" role="contentinfo">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul class="footer-links">
+                    <li><a href="./about.html">About</a></li>
+                    <li>
+                        <a href="./genai_mt_acknowledgement.html"
+                            >GenAI & MT Acknowledgement</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./implementation_rationale.html"
+                            >Implementation Rationale</a
+                        >
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Team CCI. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

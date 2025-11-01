@@ -1,0 +1,236 @@
+@import "../component_skeletons/footer.css";
+
+.page-header {
+    padding: var(--spacing-5) 0 var(--spacing-4);
+}
+
+.page-header h1 {
+    font-family: var(--font-family);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bolder);
+    color: var(--color-black);
+    margin: 0 0 var(--spacing-2);
+    line-height: 1.2;
+}
+
+.page-header .lede {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    max-width: 70ch;
+    margin: 0;
+}
+
+/* ---------- Sections ---------- */
+
+section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-4);
+}
+
+section + section {
+    margin-top: var(--spacing-5);
+}
+
+section > h2 {
+    font-family: var(--font-family);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin: 0 0 var(--spacing-3);
+    line-height: 1.25;
+}
+
+section p,
+section li {
+    color: var(--color-text-primary);
+}
+
+.note {
+    color: var(--color-text-secondary);
+    background: var(--color-gray-100);
+    border: 1px dashed var(--color-gray-300);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-2) var(--spacing-3);
+    margin: 0 0 var(--spacing-3);
+}
+
+/* ---------- Inline code ---------- */
+
+code {
+    font-family: var(--font-family);
+    font-size: 0.95em;
+    background: var(--color-gray-100);
+    color: var(--color-black);
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+}
+
+/* ---------- Table ---------- */
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+thead th {
+    background: var(--color-gray-200);
+    color: var(--color-black);
+    font-weight: var(--font-weight-semi-bold);
+    text-align: left;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em;
+}
+
+tbody td {
+    padding: var(--spacing-3);
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+}
+
+tbody tr:nth-child(odd) td {
+    background: var(--color-gray-100);
+}
+
+tbody tr:hover td {
+    background: var(--color-gray-200);
+    transition: background var(--transition-fast);
+}
+
+td:nth-child(3) {
+    max-width: 60ch;
+}
+
+@media (max-width: 48rem) {
+    .container {
+        margin: auto var(--spacing-3);
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    thead th,
+    tbody td {
+        padding: var(--spacing-2) var(--spacing-2);
+    }
+
+    td:nth-child(3) {
+        max-width: unset;
+    }
+}
+
+/* ---------- Lists ---------- */
+
+section ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+section li {
+    position: relative;
+    padding-left: 1rem;
+    margin-top: var(--spacing-2);
+}
+
+section li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--color-accent-teal);
+    border-radius: 2px;
+}
+
+/* ---------- Subheadings ---------- */
+
+section h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin: var(--spacing-3) 0 var(--spacing-2);
+    color: var(--color-black);
+}
+
+/* ---------- Integrity section ---------- */
+
+section[aria-labelledby="integrity-heading"] {
+    border-left: none;
+}
+
+section[aria-labelledby="integrity-heading"] p {
+    background: var(--color-gray-100);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+}
+
+/* ---------- Interactions ---------- */
+
+section:hover {
+    box-shadow: var(--shadow-md);
+    transition:
+        box-shadow var(--transition-medium),
+        transform var(--transition-medium);
+}
+
+section:active {
+    transform: translateY(1px);
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+    .page-header {
+        border-bottom: none;
+    }
+    section {
+        box-shadow: none;
+        border-color: var(--color-gray-300);
+    }
+    table {
+        box-shadow: none;
+    }
+}
+
+.back-button-container {
+    margin: var(--spacing-4) auto 0;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    padding: var(--spacing-2);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.btn-back:hover {
+    background: var(--color-gray-200);
+}
+
+.btn-back:focus {
+    outline: 2px solid var(--color-accent-teal);
+    outline-offset: 2px;
+}
