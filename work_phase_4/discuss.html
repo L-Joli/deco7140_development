@@ -227,24 +227,21 @@
                                 aria-required="true"
                             ></textarea>
 
-                            <label for="post-category">Category</label>
-                            <select
-                                id="post-category"
-                                name="post-category"
-                                required
-                                aria-required="true"
+                            <label for="post-photos"
+                                >Upload up to 5 images (optional, max 10MB
+                                each)</label
                             >
-                                <option value="">Select a category</option>
-                                <option value="general">
-                                    General Discussion
-                                </option>
-                                <option value="help">Help & Support</option>
-                                <option value="showcase">Showcase</option>
-                                <option value="feedback">Feedback</option>
-                                <option value="announcement">
-                                    Announcement
-                                </option>
-                            </select>
+                            <input
+                                type="file"
+                                id="post-photos"
+                                name="photos"
+                                accept="image/*"
+                                multiple
+                                aria-describedby="photo-limit-note"
+                            />
+                            <small id="photo-limit-note"
+                                >You can upload up to 5 images.</small
+                            >
 
                             <div class="modal-actions">
                                 <button type="submit" class="btn btn-primary">
