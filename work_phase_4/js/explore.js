@@ -227,31 +227,6 @@ const renderLanguages = (all) => {
     });
 };
 
-const renderChips = () => {
-    const box = el("#recommendChips");
-    box.innerHTML = "";
-    RECOMMEND_TAGS.forEach((tag) => {
-        const c = make("button", "chip");
-        c.type = "button";
-        c.setAttribute("role", "listitem");
-        c.textContent = `#${tag}`;
-        c.setAttribute(
-            "aria-pressed",
-            state.selectedTags.has(tag) ? "true" : "false"
-        );
-        c.addEventListener("click", () => {
-            if (state.selectedTags.has(tag)) state.selectedTags.delete(tag);
-            else state.selectedTags.add(tag);
-            c.setAttribute(
-                "aria-pressed",
-                state.selectedTags.has(tag) ? "true" : "false"
-            );
-            applyAndRender();
-        });
-        box.appendChild(c);
-    });
-};
-
 const applyFilters = (data) => {
     return data.filter((r) => {
         if (state.q) {
@@ -316,8 +291,6 @@ const initControls = () => {
 };
 
 export const initExplore = async () => {
-    renderChips();
-
     renderLoading(el("#trendingContainer"), "Loading trending repositories…");
     renderLoading(el("#topicsContainer"), "Loading repositories by topic…");
     renderLoading(el("#resultsContainer"), "Loading repositories…");
