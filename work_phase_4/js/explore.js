@@ -316,3 +316,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     initControls();
     initExplore();
 });
+
+// Modal behavior
+const shareButton = document.getElementById("shareButton");
+const shareModal = document.getElementById("shareModal");
+const closeModal = document.getElementById("closeModal");
+const shareForm = document.getElementById("shareForm");
+
+shareButton.addEventListener("click", () => {
+    shareModal.hidden = false;
+    document.body.style.overflow = "hidden";
+});
+
+closeModal.addEventListener("click", () => {
+    shareModal.hidden = true;
+    document.body.style.overflow = "";
+});
+
+// Close modal on Escape
+window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !shareModal.hidden) {
+        shareModal.hidden = true;
+        document.body.style.overflow = "";
+    }
+});
+
+// Dummy submit handler
+shareForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(shareForm));
+    console.log("Shared repo:", data);
+    alert(`Thanks for sharing ${data.repoName}!`);
+    shareModal.hidden = true;
+    document.body.style.overflow = "";
+    shareForm.reset();
+});

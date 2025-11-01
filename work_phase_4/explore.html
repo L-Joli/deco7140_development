@@ -168,7 +168,77 @@
 
         <main class="container">
             <!-- Title -->
-            <h1 id="page-title">Explore Repositories</h1>
+            <section>
+                <div class="section-header-inline">
+                    <h1>Explore Repositories</h1>
+                    <button
+                        id="shareButton"
+                        class="btn-outline-orange-inline"
+                        aria-haspopup="dialog"
+                        aria-controls="shareModal"
+                    >
+                        <span>Share Your Repo</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Share Modal -->
+            <div
+                id="shareModal"
+                class="modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="shareTitle"
+                hidden
+            >
+                <div class="modal-content">
+                    <h2 id="shareTitle">Share Your Repository</h2>
+                    <form id="shareForm" novalidate>
+                        <label for="repoName">Repository Name</label>
+                        <input
+                            id="repoName"
+                            name="repoName"
+                            type="text"
+                            required
+                            placeholder="e.g. Awesome Project"
+                        />
+
+                        <label for="repoDescription">Description</label>
+                        <textarea
+                            id="repoDescription"
+                            name="repoDescription"
+                            required
+                            placeholder="Brief description..."
+                        ></textarea>
+
+                        <label for="repoTopic">Topic</label>
+                        <select id="repoTopic" name="repoTopic" required>
+                            <option value="">Select a topic</option>
+                            <option value="devops">DevOps</option>
+                            <option value="design">Design</option>
+                            <option value="frontend">Frontend</option>
+                            <option value="backend">Backend</option>
+                            <option value="trending">Trending</option>
+                        </select>
+
+                        <div class="modal-actions">
+                            <button
+                                type="submit"
+                                class="btn-outline-orange-inline"
+                            >
+                                Submit
+                            </button>
+                            <button
+                                type="button"
+                                id="closeModal"
+                                class="btn-secondary"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
             <!-- Trending Section -->
             <section aria-labelledby="trending-title">
