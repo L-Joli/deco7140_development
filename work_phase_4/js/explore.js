@@ -19,7 +19,6 @@ let state = {
     q: "",
     lang: "",
     sort: "recommended",
-    minRating: 0,
     selectedTags: new Set(),
 };
 
@@ -40,6 +39,24 @@ const make = (tag, cls) => {
 const getStore = (k) => JSON.parse(localStorage.getItem(k) || "{}");
 const setStore = (k, v) => localStorage.setItem(k, JSON.stringify(v));
 
+const renderLoading = (container, text = "Loading…") => {
+    if (!container) return;
+    container.setAttribute("aria-busy", "true");
+    container.innerHTML = "";
+    const box = make("div", "empty");
+    box.textContent = text;
+    container.appendChild(box);
+};
+
+const renderEmpty = (container, msg) => {
+    if (!container) return;
+    container.removeAttribute("aria-busy");
+    container.innerHTML = "";
+    const box = make("div", "empty");
+    box.textContent = msg;
+    container.appendChild(box);
+};
+
 const normalizeApiRepo = (p, idx) => {
     const isNumeric = !isNaN(Number(p.product_info3));
     return {
@@ -54,7 +71,7 @@ const normalizeApiRepo = (p, idx) => {
         ),
         upvotes: isNumeric ? Number(p.product_info3) : 0,
         website_code: p.website_code || "",
-        html_url: "#", // placeholder link
+        html_url: "#",
     };
 };
 
@@ -62,12 +79,10 @@ const buildRepoCard = (repo) => {
     const upvotes = getStore(STORAGE_KEYS.UPVOTES);
     const voted = getStore(STORAGE_KEYS.VOTED);
 
-    // Initialize upvote count and status
     const localDelta = upvotes[repo.id] || 0;
     const hasVoted = !!voted[repo.id];
     const totalUpvotes = repo.upvotes + localDelta;
 
-    // Build badges
     const languageBadge = repo.language
         ? `<span class="badge">${repo.language}</span>`
         : "";
@@ -85,7 +100,6 @@ const buildRepoCard = (repo) => {
         <p class="repo-desc">${
             repo.description || "No description provided."
         }</p>
-
         <div class="repo-meta">
             <button class="upvote ${hasVoted ? "is-active" : ""}" 
                     type="button"
@@ -95,7 +109,6 @@ const buildRepoCard = (repo) => {
                 <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
                 <span class="upvote-count">${totalUpvotes}</span>
             </button>
-
             <div class="meta-badges">
                 ${languageBadge}
                 ${topicBadges}
@@ -103,7 +116,6 @@ const buildRepoCard = (repo) => {
         </div>
     `;
 
-    // Card click opens repo (placeholder for now)
     const openCard = () => {
         if (card.dataset.href && card.dataset.href !== "#") {
             window.open(card.dataset.href, "_blank", "noopener");
@@ -117,7 +129,6 @@ const buildRepoCard = (repo) => {
         }
     });
 
-    // Upvote toggle (add or remove)
     const upvoteBtn = card.querySelector(".upvote");
     upvoteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -144,7 +155,6 @@ const buildRepoCard = (repo) => {
         setStore(STORAGE_KEYS.UPVOTES, uStore);
         setStore(STORAGE_KEYS.VOTED, vStore);
 
-        // Update visible count
         const countEl = upvoteBtn.querySelector(".upvote-count");
         countEl.textContent = repo.upvotes + delta;
     });
@@ -152,14 +162,8 @@ const buildRepoCard = (repo) => {
     return card;
 };
 
-const renderEmpty = (container, msg) => {
-    container.innerHTML = "";
-    const box = make("div", "empty");
-    box.textContent = msg;
-    container.appendChild(box);
-};
-
 const renderGrid = (container, items) => {
+    container.removeAttribute("aria-busy");
     container.innerHTML = "";
     if (!items.length)
         return renderEmpty(container, "No repositories match your filters.");
@@ -167,15 +171,20 @@ const renderGrid = (container, items) => {
 };
 
 const renderTrending = (all) => {
+    const c = el("#trendingContainer");
     const up = getStore(STORAGE_KEYS.UPVOTES);
     const sorted = [...all]
         .map((r) => ({ ...r, _up: r.upvotes + (up[r.id] || 0) }))
         .sort((a, b) => b._up - a._up)
-        .slice(0, 4);
-    renderGrid(el("#trendingContainer"), sorted);
+        .slice(0, 6);
+    renderGrid(c, sorted);
 };
 
 const renderTopics = (all) => {
+    const wrap = el("#topicsContainer");
+    wrap.removeAttribute("aria-busy");
+    wrap.innerHTML = "";
+
     const byTopic = new Map();
     all.forEach((r) =>
         (r.topics || []).forEach((t) => {
@@ -184,11 +193,14 @@ const renderTopics = (all) => {
         })
     );
 
-    const wrap = el("#topicsContainer");
-    wrap.innerHTML = "";
     const topEntries = [...byTopic.entries()]
         .sort((a, b) => b[1].length - a[1].length)
         .slice(0, 3);
+
+    if (!topEntries.length) {
+        return renderEmpty(wrap, "No topics to display.");
+    }
+
     topEntries.forEach(([topic, repos]) => {
         const group = make("div", "topic-group");
         const h = make("h3");
@@ -267,11 +279,11 @@ const applySort = (data) => {
 
     switch (state.sort) {
         case "stars_desc":
-        case "stars_asc":
             return withUp.sort((a, b) => b._up - a._up);
+        case "stars_asc":
+            return withUp.sort((a, b) => a._up - b._up);
         case "updated_desc":
             return withUp.sort((a, b) => b._idx - a._idx);
-        case "recommended":
         default:
             return withUp.sort((a, b) => b._up - a._up);
     }
@@ -280,12 +292,10 @@ const applySort = (data) => {
 const applyAndRender = () => {
     const filtered = applyFilters(ALL_REPOS);
     const sorted = applySort(filtered);
-
     el("#resultsCount").textContent = `${sorted.length} result${
         sorted.length !== 1 ? "s" : ""
     }`;
     renderGrid(el("#resultsContainer"), sorted);
-
     renderTrending(ALL_REPOS);
     renderTopics(ALL_REPOS);
 };
@@ -308,8 +318,14 @@ const initControls = () => {
 export const initExplore = async () => {
     renderChips();
 
+    renderLoading(el("#trendingContainer"), "Loading trending repositories…");
+    renderLoading(el("#topicsContainer"), "Loading repositories by topic…");
+    renderLoading(el("#resultsContainer"), "Loading repositories…");
+
     const data = await getRepos();
     if (!data) {
+        renderEmpty(el("#trendingContainer"), "Failed to load trending.");
+        renderEmpty(el("#topicsContainer"), "Failed to load topics.");
         return renderEmpty(
             el("#resultsContainer"),
             "Failed to load repositories."
