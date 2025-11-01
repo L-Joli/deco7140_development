@@ -11,7 +11,7 @@ export const getUser = async () => {
         return data[0];
 
     } catch (error) {
-        console.error("Error in getRepos:", error);
+        console.error("Error in getUser:", error);
         return null;
     }
 };
