@@ -11,3 +11,13 @@
 }
 
 [aria-busy="true"] { opacity: 0.6; }
+
+.section-header-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-3);
+}
+.section-header-inline h1 {
+    margin: 0;
+}
