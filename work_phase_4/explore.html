@@ -159,6 +159,104 @@
                 </nav>
             </aside>
         </header>
+        <main class="container">
+            <section>
+                <div class="section-header-inline">
+                    <h1>Explore Repositories</h1>
+                    <div
+                        class="explore-controls"
+                        role="region"
+                        aria-label="Repository filters"
+                    >
+                        <input
+                            id="searchInput"
+                            class="ctrl-input"
+                            type="search"
+                            placeholder="Search repositories or users…"
+                            aria-label="Search repositories"
+                        />
+                        <select
+                            id="languageSelect"
+                            class="ctrl-select"
+                            aria-label="Filter by language"
+                        >
+                            <option value="">All languages</option>
+                        </select>
+                        <select
+                            id="sortSelect"
+                            class="ctrl-select"
+                            aria-label="Sort results"
+                        >
+                            <option value="recommended">Recommended</option>
+                            <option value="stars_desc">Stars ↓</option>
+                            <option value="stars_asc">Stars ↑</option>
+                            <option value="updated_desc">
+                                Recently Updated
+                            </option>
+                        </select>
+                        <label class="ctrl-rating" aria-label="Minimum rating">
+                            <span>Min rating</span>
+                            <input
+                                id="ratingRange"
+                                type="range"
+                                min="0"
+                                max="5"
+                                step="1"
+                                value="0"
+                            />
+                            <output id="ratingOut" for="ratingRange">0★</output>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Recommendation chips -->
+                <div
+                    id="recommendChips"
+                    class="recommend-chips"
+                    role="list"
+                    aria-label="Recommendations"
+                ></div>
+            </section>
+
+            <!-- Group: Trending -->
+            <section aria-labelledby="trending-title">
+                <h2 id="trending-title" class="group-title">Trending</h2>
+                <div
+                    id="trendingContainer"
+                    class="repo-grid"
+                    aria-live="polite"
+                ></div>
+            </section>
+
+            <!-- Group: By Topic -->
+            <section aria-labelledby="topics-title">
+                <h2 id="topics-title" class="group-title">By Topic</h2>
+                <div
+                    id="topicsContainer"
+                    class="topics-grid"
+                    aria-live="polite"
+                ></div>
+            </section>
+
+            <!-- Group: All Results -->
+            <section aria-labelledby="results-title">
+                <div class="section-header-inline">
+                    <h2 id="results-title" class="group-title">
+                        All Repositories
+                    </h2>
+                    <span
+                        id="resultsCount"
+                        class="results-count"
+                        aria-live="polite"
+                    ></span>
+                </div>
+                <div
+                    id="resultsContainer"
+                    class="repo-grid"
+                    aria-live="polite"
+                ></div>
+            </section>
+        </main>
 
         <script type="module" src="js/explore.js"></script>
 
