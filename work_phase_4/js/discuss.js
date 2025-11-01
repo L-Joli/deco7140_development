@@ -21,8 +21,6 @@ let state = {
 
 let ALL_POSTS = [];
 
-initNavBar();
-
 window.addEventListener("scroll", () => {
     const profile = document.querySelector(".user-profile");
     if (!profile) return;
@@ -870,4 +868,9 @@ const init = async () => {
     });
 };
 
-init();
+
+document.addEventListener("DOMContentLoaded", async () => {
+    initNavBar();
+    init();
+});
+
