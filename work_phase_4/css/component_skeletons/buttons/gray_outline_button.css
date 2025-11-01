@@ -1,0 +1,18 @@
+.btn-outline-gray {
+    border-color: var(--color-gray-400);
+}
+
+.btn-outline-gray:hover,
+.btn-outline-gray:focus {
+    background-color: var(--color-gray-200);
+    border-color: var(--color-gray-500);
+    color: var(--color-text-primary);
+    outline: none;
+    text-decoration: none;
+}
+
+.btn-outline-gray:focus-visible {
+    outline: 2px solid var(--color-accent-teal-light);
+    outline-offset: 3px;
+    border-radius: var(--radius-md);
+}
