@@ -39,7 +39,7 @@
                     href="./preferences.html"
                     class="circular-button profile-button"
                     aria-label="Go to user preferences"
-                    title="Manage Preferences"
+                    title="Preferences"
                 >
                     <img
                         src="assets/user_default_icon.png"
@@ -121,7 +121,7 @@
                                 class="nav-rail-link"
                                 href="./index.html"
                                 aria-label="News"
-                                title="Browse News and Events"
+                                title="News"
                             >
                                 <i class="fa-regular fa-newspaper"></i>
                                 <span class="nav-visually-hidden">News</span>
@@ -131,7 +131,7 @@
                             <a
                                 class="nav-rail-link"
                                 href="./explore.html"
-                                title="Explore Repositories"
+                                title="Explore"
                                 aria-current="page"
                                 aria-label="Explore"
                             >
@@ -143,7 +143,7 @@
                             <a
                                 class="nav-rail-link"
                                 href="./discuss.html"
-                                title="Join Discussions"
+                                title="Discuss"
                                 aria-label="Discuss"
                             >
                                 <i class="fa-regular fa-message"></i>
@@ -154,7 +154,7 @@
                             <a
                                 class="nav-rail-link"
                                 href="./connect.html"
-                                title="Connect with Your Community"
+                                title="Connect"
                                 aria-label="Connect"
                             >
                                 <i class="fa-regular fa-face-smile"></i>
@@ -194,38 +194,94 @@
                 <div class="modal-content">
                     <h2 id="shareTitle">Share Your Repository</h2>
                     <form id="shareForm" novalidate>
-                        <label for="repoName">Repository Name</label>
+                        <label for="product-name"
+                            >Repository Name
+                            <span aria-label="required">*</span></label
+                        >
                         <input
-                            id="repoName"
-                            name="repoName"
+                            id="product-name"
+                            name="product-name"
                             type="text"
                             required
                             placeholder="e.g. Awesome Project"
+                            aria-required="true"
                         />
 
-                        <label for="repoDescription">Description</label>
+                        <label for="product-description"
+                            >Description
+                            <span aria-label="required">*</span></label
+                        >
                         <textarea
-                            id="repoDescription"
-                            name="repoDescription"
+                            id="product-description"
+                            name="product-description"
                             required
+                            rows="4"
                             placeholder="Brief description..."
+                            aria-required="true"
                         ></textarea>
 
-                        <label for="repoTopic">Topic</label>
-                        <select id="repoTopic" name="repoTopic" required>
+                        <label for="product-info1"
+                            >Programming Language
+                            <span aria-label="required">*</span></label
+                        >
+                        <input
+                            id="product-info1"
+                            name="product-info1"
+                            type="text"
+                            required
+                            placeholder="e.g. JavaScript, Python, Go"
+                            aria-required="true"
+                        />
+
+                        <label for="product-info2"
+                            >Primary Topic
+                            <span aria-label="required">*</span></label
+                        >
+                        <select
+                            id="product-info2"
+                            name="product-info2"
+                            required
+                            aria-required="true"
+                        >
                             <option value="">Select a topic</option>
                             <option value="devops">DevOps</option>
                             <option value="design">Design</option>
                             <option value="frontend">Frontend</option>
                             <option value="backend">Backend</option>
-                            <option value="trending">Trending</option>
+                            <option value="ai">AI</option>
+                            <option value="cli">CLI</option>
+                            <option value="productivity">Productivity</option>
                         </select>
 
+                        <label for="product-info3"
+                            >Secondary Topic (optional)</label
+                        >
+                        <input
+                            id="product-info3"
+                            name="product-info3"
+                            type="text"
+                            placeholder="e.g. automation, testing"
+                        />
+
+                        <label for="website-code"
+                            >Repository URL (optional)</label
+                        >
+                        <input
+                            id="website-code"
+                            name="website-code"
+                            type="url"
+                            placeholder="https://github.com/username/repo"
+                        />
+
+                        <input
+                            type="hidden"
+                            name="product-owner"
+                            id="product-owner"
+                            value="Community User"
+                        />
+
                         <div class="modal-actions">
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                            >
+                            <button type="submit" class="btn btn-primary">
                                 Submit
                             </button>
                             <button

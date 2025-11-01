@@ -1,5 +1,6 @@
 import { initNavBar } from "./modules/nav_bar.js";
 import { getRepos } from "./modules/repo/getRepos.js";
+import { postRepo } from "./modules/repo/postRepo.js";
 
 const STORAGE_KEYS = {
     UPVOTES: "explore_upvotes",
@@ -341,13 +342,43 @@ window.addEventListener("keydown", (e) => {
     }
 });
 
-// Dummy submit handler
-shareForm.addEventListener("submit", (e) => {
+shareForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(shareForm));
-    console.log("Shared repo:", data);
-    alert(`Thanks for sharing ${data.repoName}!`);
-    shareModal.hidden = true;
-    document.body.style.overflow = "";
-    shareForm.reset();
+
+    const submitBtn = shareForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    try {
+        const result = await postRepo(shareForm);
+
+        if (result) {
+            console.log("Repository shared successfully:", result);
+
+            const repoName = shareForm.querySelector(
+                '[name="product-name"]'
+            ).value;
+            alert(
+                `Thanks for sharing "${repoName}"! Your repository has been added.`
+            );
+
+            shareModal.hidden = true;
+            document.body.style.overflow = "";
+            shareForm.reset();
+
+            await initExplore();
+        } else {
+            throw new Error("Failed to submit repository");
+        }
+    } catch (error) {
+        console.error("Error sharing repository:", error);
+        alert(
+            "Sorry, there was an error sharing your repository. Please try again."
+        );
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
 });
