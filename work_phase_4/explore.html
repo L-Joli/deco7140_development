@@ -5,17 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- style Linking -->
+
+        <!-- Styles -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/page_css/explore.css" />
+
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet"
         />
+
+        <!-- Icons -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -159,63 +164,13 @@
                 </nav>
             </aside>
         </header>
+
         <main class="container">
+            <!-- Title only -->
             <section>
                 <div class="section-header-inline">
                     <h1>Explore Repositories</h1>
-                    <div
-                        class="explore-controls"
-                        role="region"
-                        aria-label="Repository filters"
-                    >
-                        <input
-                            id="searchInput"
-                            class="ctrl-input"
-                            type="search"
-                            placeholder="Search repositories or users…"
-                            aria-label="Search repositories"
-                        />
-                        <select
-                            id="languageSelect"
-                            class="ctrl-select"
-                            aria-label="Filter by language"
-                        >
-                            <option value="">All languages</option>
-                        </select>
-                        <select
-                            id="sortSelect"
-                            class="ctrl-select"
-                            aria-label="Sort results"
-                        >
-                            <option value="recommended">Recommended</option>
-                            <option value="stars_desc">Stars ↓</option>
-                            <option value="stars_asc">Stars ↑</option>
-                            <option value="updated_desc">
-                                Recently Updated
-                            </option>
-                        </select>
-                        <label class="ctrl-rating" aria-label="Minimum rating">
-                            <span>Min rating</span>
-                            <input
-                                id="ratingRange"
-                                type="range"
-                                min="0"
-                                max="5"
-                                step="1"
-                                value="0"
-                            />
-                            <output id="ratingOut" for="ratingRange">0★</output>
-                        </label>
-                    </div>
                 </div>
-
-                <!-- Recommendation chips -->
-                <div
-                    id="recommendChips"
-                    class="recommend-chips"
-                    role="list"
-                    aria-label="Recommendations"
-                ></div>
             </section>
 
             <!-- Group: Trending -->
@@ -238,6 +193,49 @@
                 ></div>
             </section>
 
+            <!-- Filters & Chips (moved here, below By Topic) -->
+            <section aria-labelledby="filters-title">
+                <h2 id="filters-title" class="group-title">Search Results</h2>
+                <div
+                    class="explore-controls"
+                    role="region"
+                    aria-label="Repository filters"
+                >
+                    <input
+                        id="searchInput"
+                        class="ctrl-input"
+                        type="search"
+                        placeholder="Search repositories or users…"
+                        aria-label="Search repositories"
+                    />
+                    <select
+                        id="languageSelect"
+                        class="ctrl-select"
+                        aria-label="Filter by language"
+                    >
+                        <option value="">All languages</option>
+                    </select>
+                    <select
+                        id="sortSelect"
+                        class="ctrl-select"
+                        aria-label="Sort results"
+                    >
+                        <option value="recommended">Recommended</option>
+                        <option value="stars_desc">Stars ↓</option>
+                        <option value="stars_asc">Stars ↑</option>
+                        <option value="updated_desc">Recently Updated</option>
+                    </select>
+                </div>
+
+                <!-- Recommendation chips -->
+                <div
+                    id="recommendChips"
+                    class="recommend-chips"
+                    role="list"
+                    aria-label="Recommendations"
+                ></div>
+            </section>
+
             <!-- Group: All Results -->
             <section aria-labelledby="results-title">
                 <div class="section-header-inline">
@@ -250,6 +248,8 @@
                         aria-live="polite"
                     ></span>
                 </div>
+
+                <!-- Loading / Results container -->
                 <div
                     id="resultsContainer"
                     class="repo-grid"
@@ -267,34 +267,18 @@
                         <a href="./about.html" aria-label="About Us">About</a>
                     </li>
                     <li>
-                        <a
-                            href="./genai_mt_acknowledgement.html"
-                            aria-label="GenAI & MT Acknowledgement"
+                        <a href="./genai_mt_acknowledgement.html"
                             >GenAI & MT Acknowledgement</a
                         >
                     </li>
                     <li>
-                        <a
-                            href="./implementation_rationale.html"
-                            aria-label="Implementation Rationale"
+                        <a href="./implementation_rationale.html"
                             >Implementation Rationale</a
                         >
                     </li>
-                    <li>
-                        <a href="./contact.html" aria-label="Contact Us"
-                            >Contact</a
-                        >
-                    </li>
-                    <li>
-                        <a href="./privacy.html" aria-label="Privacy Policy"
-                            >Privacy Policy</a
-                        >
-                    </li>
-                    <li>
-                        <a href="./terms.html" aria-label="Terms of Use"
-                            >Terms of Use</a
-                        >
-                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./terms.html">Terms of Use</a></li>
                 </ul>
             </nav>
 
