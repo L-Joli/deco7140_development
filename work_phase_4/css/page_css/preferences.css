@@ -1,0 +1,110 @@
+@import "../component_skeletons/nav_bar.css";
+@import "../component_skeletons/buttons/primary_button.css";
+@import "../component_skeletons/buttons/circular_button.css";
+@import "../component_skeletons/buttons/user_button.css";
+@import "../component_skeletons/form.css";
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    white-space: nowrap;
+    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.preferences-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-5);
+}
+
+.preferences-form {
+    background-color: var(--color-white);
+    padding: var(--spacing-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-5);
+}
+
+.fieldset-legend {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--spacing-3) 0;
+}
+
+.newsletter-section {
+    background-color: var(--color-white);
+    padding: var(--spacing-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-4);
+}
+
+.newsletter-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-3);
+}
+
+.newsletter-status {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-4);
+}
+
+@media (max-width: 48rem) {
+    .preferences-form,
+    .newsletter-section {
+        padding: var(--spacing-4);
+    }
+
+    .preferences-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .newsletter-title {
+        font-size: var(--font-size-lg);
+    }
+}
+
+*:focus {
+    outline: 2px solid var(--color-accent-orange);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-accent-orange);
+    outline-offset: 2px;
+}
+
+@media (prefers-contrast: more) {
+    .form-group input,
+    .form-group textarea {
+        border-width: 2px;
+    }
+
+    .btn {
+        border-width: 3px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

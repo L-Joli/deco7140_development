@@ -1,0 +1,93 @@
+.form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.form-group:last-of-type {
+    margin-bottom: var(--spacing-5);
+}
+
+.form-group label {
+    display: block;
+    font-weight: var(--font-weight-semi-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-md);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 2px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-gray-500);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent-orange);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-accent-orange-light);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-hint {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-1);
+}
+
+.form-feedback {
+    text-align: center;
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--spacing-3);
+    border: 2px solid transparent;
+}
+
+.form-feedback:empty {
+    display: none;
+}
+
+.form-feedback.success {
+    background-color: var(--color-success-light);
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.form-feedback.error {
+    background-color: var(--color-error-light);
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: var(--color-error);
+    background-color: var(--color-error-light);
+}
+
+.form-group .error-message {
+    display: block;
+    color: var(--color-error);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-1);
+    font-weight: var(--font-weight-medium);
+}

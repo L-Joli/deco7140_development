@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/page_css/preferences.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>User Preferences - TechHub</title>
+    </head>
+    <body>
+        <header>
+            <div class="user-profile">
+                <a
+                    href="./preferences.html"
+                    class="circular-button profile-button"
+                    aria-label="Go to user preferences"
+                    title="User preferences"
+                >
+                    <img
+                        src="assets/user_default_icon.png"
+                        alt="User profile photo"
+                        class="profile-photo"
+                    />
+                </a>
+            </div>
+
+            <div class="nav-header nav-hide-desktop">
+                <button
+                    id="navToggle"
+                    class="circular-button nav-hamburger"
+                    aria-label="Open menu"
+                    aria-controls="mobileNav"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <nav
+                id="mobileNav"
+                class="nav-mobile nav-hide-desktop"
+                aria-label="Primary"
+                hidden
+            >
+                <ul class="nav-cards">
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./index.html"
+                            aria-label="Go to news page"
+                            ><span class="nav-card-text">News</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./explore.html"
+                            aria-label="Go to explore page"
+                            ><span class="nav-card-text">Explore</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./discuss.html"
+                            aria-label="Go to discuss page"
+                            ><span class="nav-card-text">Discuss</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./connect.html"
+                            aria-label="Go to connect page"
+                            ><span class="nav-card-text">Connect</span></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <nav class="nav-sidebar" aria-label="Primary">
+                <div class="nav-sidebar-brand">
+                    <a href="./index.html">
+                        <span class="visually-hidden">TechHub Home (TH)</span>
+                        <span class="nav-initials" aria-hidden="true">TH</span>
+                    </a>
+                </div>
+                <div class="nav-rail">
+                    <ul>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./index.html"
+                                aria-label="News"
+                                title="News"
+                            >
+                                <i class="fa-regular fa-newspaper"></i>
+                                <span class="nav-visually-hidden">News</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./explore.html"
+                                aria-label="Explore"
+                                title="Explore"
+                            >
+                                <i class="fa-regular fa-folder-open"></i>
+                                <span class="nav-visually-hidden">Explore</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./discuss.html"
+                                aria-label="Discuss"
+                                title="Discuss"
+                            >
+                                <i class="fa-regular fa-message"></i>
+                                <span class="nav-visually-hidden">Discuss</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./connect.html"
+                                aria-label="Connect"
+                                title="Connect"
+                            >
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span class="nav-visually-hidden">Connect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="container">
+            <section>
+                <h1 class="preferences-title">Preferences</h1>
+
+                <form
+                    id="preferences-form"
+                    class="preferences-form"
+                    aria-labelledby="preferences-form-heading"
+                >
+                    <h2 id="preferences-form-heading" class="visually-hidden">
+                        Edit Preferences Information
+                    </h2>
+
+                    <fieldset>
+                        <legend class="fieldset-legend">
+                            Personal information
+                        </legend>
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                aria-describedby="name-hint"
+                                autocomplete="name"
+                            />
+                            <span id="name-hint" class="visually-hidden"
+                                >Enter your full name</span
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                aria-describedby="email-hint"
+                                autocomplete="email"
+                                required
+                            />
+                            <span id="email-hint" class="visually-hidden"
+                                >Enter a valid email address</span
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="github">GitHub</label>
+                            <input
+                                type="text"
+                                id="github"
+                                name="github"
+                                placeholder="Enter your GitHub username"
+                                aria-describedby="github-hint"
+                                autocomplete="username"
+                            />
+                            <span id="github-hint" class="visually-hidden"
+                                >Enter your GitHub username or profile URL</span
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea
+                                id="bio"
+                                name="bio"
+                                rows="5"
+                                placeholder="Tell us about yourself"
+                                aria-describedby="bio-hint"
+                                maxlength="500"
+                            ></textarea>
+                            <span id="bio-hint" class="form-hint"
+                                >Maximum 500 characters</span
+                            >
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary">
+                        Update Preferences
+                    </button>
+                </form>
+            </section>
+
+            <section aria-labelledby="newsletter-heading">
+                <div class="newsletter-section">
+                    <h2 id="newsletter-heading" class="newsletter-title">
+                        Newsletter Subscription
+                    </h2>
+                    <p
+                        class="newsletter-status"
+                        id="subscription-status"
+                        aria-live="polite"
+                    >
+                        You've subscribed
+                    </p>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="cancel-subscription"
+                        aria-describedby="subscription-status"
+                    >
+                        Cancel Subscription
+                    </button>
+                </div>
+            </section>
+
+            <div
+                id="form-feedback"
+                class="form-feedback"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+            ></div>
+        </main>
+
+        <script type="module" src="js/preferences.js"></script>
+    </body>
+</html>
