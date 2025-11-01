@@ -91,7 +91,7 @@ const buildRepoCard = (repo) => {
         .map((t) => `<span class="badge">${t}</span>`)
         .join("");
 
-    const card = make("article", "repo-card");
+    const card = make("article", "info-card");
     card.setAttribute("tabindex", "0");
     card.dataset.href = repo.html_url || "#";
 

@@ -211,7 +211,7 @@ const buildPostCard = (post) => {
     const hasVoted = !!voted[post.id];
     const totalUpvotes = post.upvotes + localDelta;
 
-    const card = make("article", "repo-card");
+    const card = make("article", "info-card");
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
     card.setAttribute("aria-label", `View discussion: ${post.title}`);

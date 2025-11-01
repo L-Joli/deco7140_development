@@ -5,7 +5,7 @@
 }
 
 /* Full-width, flat border card */
-.repo-card {
+.info-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-left: 0;
@@ -16,15 +16,15 @@
     transition: background var(--transition-fast);
     cursor: pointer;
 }
-.repo-card:hover,
-.repo-card:active {
+.info-card:hover,
+.info-card:active {
     background: var(--color-gray-200);
 }
-.repo-card:focus {
+.info-card:focus {
     outline: 2px solid var(--color-accent-teal);
     z-index: 1;
 }
-.repo-card + .repo-card {
+.info-card + .info-card {
     border-top: none;
 }
 
