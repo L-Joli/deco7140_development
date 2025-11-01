@@ -109,6 +109,7 @@
 
 .entry-lead {
     margin-top: 0;
+    margin-bottom: var(--spacing-4);
 }
 
 h3 {
@@ -196,4 +197,12 @@ section {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+.audit-screenshot {
+    margin-bottom: var(--spacing-3);
+}
+
+figcaption {
+    margin-top: var(--spacing-1);
 }

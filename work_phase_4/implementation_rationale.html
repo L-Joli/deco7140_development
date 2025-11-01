@@ -803,36 +803,90 @@
                 <p class="entry-lead">
                     This section presents the results of the Accessibility Audit
                     performed using the IBM Equal Access Accessibility Checker.
-                    It will include a screenshot of the audit outcome and a
-                    short reflection on how the findings informed the final
+                    It includes screenshots of the audit outcomes and a concise
+                    reflection on how the findings informed the final
                     implementation.
                 </p>
 
                 <figure class="audit-screenshot">
                     <img
-                        src="assets/audit_screenshot_placeholder.png"
-                        alt="Accessibility Audit Results Screenshot Placeholder"
+                        src="assets/accessibility_home.png"
+                        alt="Accessibility Check Results For Home Page"
+                    />
+                    <figcaption>Accessibility Check – Home page</figcaption>
+                </figure>
+                <figure class="audit-screenshot">
+                    <img
+                        src="assets/accessibility_repos.png"
+                        alt="Accessibility Check Results For Explore Repositories Page"
                     />
                     <figcaption>
-                        Placeholder for IBM Equal Access Accessibility Checker
-                        results.
+                        Accessibility Check – Explore Repositories page
+                    </figcaption>
+                </figure>
+                <figure class="audit-screenshot">
+                    <img
+                        src="assets/accessibility_connect.png"
+                        alt="Accessibility Check Results For Connect with Your Community Page"
+                    />
+                    <figcaption>
+                        Accessibility Check – Connect with Your Community page
                     </figcaption>
                 </figure>
 
+                <h3>Findings and Insights</h3>
+                <p>
+                    Across all pages, the most frequent issues related to
+                    <strong>color contrast</strong>,
+                    <strong>ARIA role redundancy</strong>, and
+                    <strong>focus visibility</strong>.
+                </p>
+                <p>
+                    <strong>Color contrast</strong> warnings appeared where teal
+                    buttons and teal text on light backgrounds did not meet the
+                    minimum contrast ratio. This highlights the importance of
+                    ensuring that color is not used as the sole means of
+                    conveying information, as outlined in <em>WCAG 1.4.1</em>.
+                </p>
+                <p>
+                    <strong>ARIA redundancy</strong> was flagged when implicit
+                    roles (e.g., <code>&lt;ul&gt;</code> → list,
+                    <code>&lt;footer&gt;</code> → contentinfo) were explicitly
+                    reassigned through ARIA attributes. While not directly
+                    harmful, redundant ARIA markup can confuse screen readers;
+                    removing unnecessary role declarations improves semantic
+                    clarity.
+                </p>
+                <p>
+                    <strong>Focus management</strong> issues were detected in
+                    interactive elements such as links and buttons. These
+                    elements require clear, consistent focus indicators that
+                    remain visible even in Windows High Contrast Mode to satisfy
+                    <em>WCAG 2.4.7 (Focus Visible)</em>.
+                </p>
+
                 <h3>Reflection</h3>
                 <p>
-                    A brief analysis of the audit outcomes will be provided
-                    here, explaining the key issues identified and the
-                    corrective actions implemented to improve accessibility
-                    compliance and user experience.
+                    Conducting the audit deepened my understanding of
+                    <strong
+                        >accessibility as a holistic design
+                        responsibility</strong
+                    >, not merely a technical task. It revealed how subtle
+                    visual or structural decisions—such as button color or
+                    redundant markup—can unintentionally create barriers for
+                    users. Moving forward, I will continue to critically review
+                    all GenAI-generated code for accessibility compliance before
+                    integration, ensuring that design and development decisions
+                    uphold inclusive, ethical, and user-centered standards.
                 </p>
 
                 <a
                     class="back-to-top"
                     href="#toc-heading"
                     aria-label="Back to contents"
-                    >Back to contents</a
                 >
+                    Back to contents
+                </a>
             </section>
             <section
                 id="github-repository"
