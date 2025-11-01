@@ -3,20 +3,11 @@
 @import "../component_skeletons/footer.css";
 @import "../component_skeletons/buttons/user_button.css";
 @import "../component_skeletons/buttons/secondary_button.css";
+@import "../utilities.css";
 
 .items-container {
     display: grid;
     gap: var(--spacing-5);
-}
-
-.section-header-inline {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-6);
-    margin-bottom: var(--spacing-3);
-}
-.section-header-inline h1 {
-    margin: 0;
 }
 
 
