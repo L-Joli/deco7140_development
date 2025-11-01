@@ -1,4 +1,5 @@
 import { initNavBar } from "./modules/nav_bar.js";
+import { getDiscussions } from "./modules/discuss/getDiscussions.js";
 
 const STORAGE_KEYS = {
     POSTS: "discuss_posts",
@@ -63,84 +64,7 @@ const getCategoryClass = (category) => {
     return classes[category] || "badge";
 };
 
-const generateSamplePosts = () => {
-    const samples = [
-        {
-            id: "post-1",
-            title: "Welcome to the Community!",
-            content:
-                "Hey everyone! We're excited to launch this discussion forum. Feel free to share your projects, ask questions, and connect with fellow developers. Let's build an amazing community together!",
-            author: "Team CCI",
-            category: "announcement",
-            createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-            upvotes: 42,
-            commentCount: 15,
-        },
-        {
-            id: "post-2",
-            title: "Best practices for accessible web design?",
-            content:
-                "I'm working on making my website more accessible and would love to hear your recommendations. What are the most important WCAG guidelines to focus on? Any tools or resources you'd recommend?",
-            author: "DevUser123",
-            category: "help",
-            createdAt: new Date(Date.now() - 3600000 * 5).toISOString(),
-            upvotes: 28,
-            commentCount: 12,
-        },
-        {
-            id: "post-3",
-            title: "Just launched my portfolio site!",
-            content:
-                "After weeks of work, I finally finished my portfolio website. It features a clean design, smooth animations, and is fully responsive. Would love to get your feedback! Check it out and let me know what you think.",
-            author: "CreativeCoder",
-            category: "showcase",
-            createdAt: new Date(Date.now() - 3600000 * 12).toISOString(),
-            upvotes: 56,
-            commentCount: 23,
-        },
-        {
-            id: "post-4",
-            title: "How to optimize React performance?",
-            content:
-                "My React app is getting slower as it grows. I'm looking for tips on optimization - should I use React.memo, useMemo, or are there other strategies? Any advice would be appreciated!",
-            author: "ReactDev",
-            category: "help",
-            createdAt: new Date(Date.now() - 3600000 * 8).toISOString(),
-            upvotes: 34,
-            commentCount: 18,
-        },
-        {
-            id: "post-5",
-            title: "Thoughts on the new CSS features?",
-            content:
-                "CSS has evolved so much recently with container queries, cascade layers, and new color functions. What features are you most excited about? How are you using them in your projects?",
-            author: "CSSEnthusiast",
-            category: "general",
-            createdAt: new Date(Date.now() - 3600000 * 3).toISOString(),
-            upvotes: 21,
-            commentCount: 9,
-        },
-        {
-            id: "post-6",
-            title: "Feature request: Dark mode toggle",
-            content:
-                "It would be great to have a dark mode option for the platform. Many users prefer it for late-night coding sessions. Is this something that could be implemented?",
-            author: "NightOwl",
-            category: "feedback",
-            createdAt: new Date(Date.now() - 3600000 * 24).toISOString(),
-            upvotes: 67,
-            commentCount: 31,
-        },
-    ];
-
-    const stored = getArrayStore(STORAGE_KEYS.POSTS);
-    if (stored.length === 0) {
-        setArrayStore(STORAGE_KEYS.POSTS, samples);
-        return samples;
-    }
-    return stored;
-};
-
+// Only used in detail for first-load demo comments if store is empty
 const generateSampleComments = (postId) => {
     const allComments = {
         "post-1": [
@@ -333,7 +257,6 @@ const showPostDetail = (postId) => {
     state.currentPostId = postId;
     const posts = getArrayStore(STORAGE_KEYS.POSTS);
     const post = posts.find((p) => p.id === postId);
-
     if (!post) return;
 
     window.history.pushState({ postId }, "", `?post=${postId}`);
@@ -348,7 +271,6 @@ const showPostDetail = (postId) => {
     renderComments(comments);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
-
     document.title = `${post.title} - Discuss`;
 };
 
@@ -567,18 +489,137 @@ const handleFilters = () => {
     updateResultsCount(filtered.length);
 };
 
-const init = () => {
-    ALL_POSTS = generateSamplePosts();
+// ✨ Helper to read the latest comment count for a given post key
+const getCommentCountForPost = (postKey) => {
+    const store = getStore(STORAGE_KEYS.COMMENTS) || {};
+    return store[postKey]?.length || 0;
+};
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get("post");
+function seedDummyComments() {
+    const existing = JSON.parse(
+        localStorage.getItem("discuss_comments") || "{}"
+    );
+    if (Object.keys(existing).length) return; // Don’t overwrite existing user data
 
-    if (postId) {
-        showPostDetail(postId);
-    } else {
-        const filtered = filterAndSortPosts();
-        renderPosts(filtered);
-        updateResultsCount(filtered.length);
+    const dummy = {
+        "post-1": [
+            {
+                id: "comment-1-1",
+                author: "DevGuru",
+                content: "Great discussion on Rust CLI design patterns!",
+                createdAt: new Date(
+                    Date.now() - 1000 * 60 * 60 * 5
+                ).toISOString(),
+                upvotes: 3,
+            },
+            {
+                id: "comment-1-2",
+                author: "GoFan",
+                content: "Personally I prefer Go for smaller binaries.",
+                createdAt: new Date(
+                    Date.now() - 1000 * 60 * 60 * 3
+                ).toISOString(),
+                upvotes: 5,
+            },
+        ],
+        "post-2": [
+            {
+                id: "comment-2-1",
+                author: "ReactDev",
+                content:
+                    "We ran into hydration issues with RSCs but solved them with streaming.",
+                createdAt: new Date(
+                    Date.now() - 1000 * 60 * 60 * 6
+                ).toISOString(),
+                upvotes: 2,
+            },
+        ],
+        "post-3": [
+            {
+                id: "comment-3-1",
+                author: "AI_Engineer",
+                content:
+                    "DiskANN indexing was surprisingly efficient for 100M+ embeddings.",
+                createdAt: new Date(
+                    Date.now() - 1000 * 60 * 60 * 8
+                ).toISOString(),
+                upvotes: 4,
+            },
+        ],
+    };
+
+    localStorage.setItem("discuss_comments", JSON.stringify(dummy));
+}
+
+const init = async () => {
+    const container = el("#posts-container");
+    container.innerHTML = `<p class="empty">Loading discussions…</p>`;
+    container.setAttribute("aria-busy", "true");
+    seedDummyComments();
+
+    try {
+        const discussions = await getDiscussions();
+
+        if (!discussions || discussions.length === 0) {
+            container.innerHTML = `<p class="empty">No discussions available.</p>`;
+            container.removeAttribute("aria-busy");
+            return;
+        }
+
+        const storedVotes = getStore("postUpvotes") || {};
+
+        ALL_POSTS = discussions.map((item) => {
+            const postId = `post-${item.id}`;
+
+            // ✅ comment count must use the same *key* used when storing comments
+            const commentCount = getCommentCountForPost(postId);
+
+            const upvotes =
+                storedVotes[postId] ?? Math.floor(Math.random() * 491) + 10;
+            storedVotes[postId] = upvotes;
+
+            // Ensure a stable ISO date
+            const createdISO = new Date(
+                (item.date_posted || "").replace(" ", "T")
+            ).toISOString();
+
+            return {
+                id: postId,
+                title: item.post_title,
+                content: item.description,
+                author: item.author_name,
+                category: "general",
+                createdAt: createdISO,
+                upvotes,
+                commentCount,
+                photos: [
+                    item.photo1,
+                    item.photo2,
+                    item.photo3,
+                    item.photo4,
+                    item.photo5,
+                ].filter(Boolean),
+            };
+        });
+
+        setStore("postUpvotes", storedVotes);
+        setArrayStore(STORAGE_KEYS.POSTS, ALL_POSTS);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get("post");
+
+        if (postId) {
+            showPostDetail(postId);
+        } else {
+            const filtered = filterAndSortPosts();
+            renderPosts(filtered);
+            updateResultsCount(filtered.length);
+        }
+    } catch (error) {
+        console.error("Failed to load discussions:", error);
+        container.innerHTML = `<p class="empty">Failed to load discussions. Please try again later.</p>`;
+    } finally {
+        container.removeAttribute("aria-busy");
     }
 
     const searchInput = el("#search-input");
@@ -642,7 +683,6 @@ const init = () => {
 
     form?.addEventListener("submit", (e) => {
         e.preventDefault();
-
         const title = el("#post-title").value.trim();
         const content = el("#post-content").value.trim();
         const category = el("#post-category").value;
@@ -691,7 +731,6 @@ const init = () => {
     const commentForm = el("#new-comment-form");
     commentForm?.addEventListener("submit", (e) => {
         e.preventDefault();
-
         const content = el("#comment-content").value.trim();
         if (!content) {
             alert("Please enter a comment.");
