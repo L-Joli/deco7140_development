@@ -6,6 +6,7 @@
 @import "../component_skeletons/buttons/user_button.css";
 @import "../component_skeletons/form.css";
 @import "../utilities.css";
+@import "../component_skeletons/footer.css";
 
 .preferences-form {
     background-color: var(--color-white);
