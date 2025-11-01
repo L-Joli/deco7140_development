@@ -92,9 +92,10 @@ const buildRepoCard = (repo) => {
         .map((t) => `<span class="badge">${t}</span>`)
         .join("");
 
-    const card = make("article", "info-card");
-    card.setAttribute("tabindex", "0");
-    card.dataset.href = repo.html_url || "#";
+    const card = make("a", "info-card");
+    card.href = repo.html_url || "#";
+    card.target = "_blank";
+    card.rel = "noopener";
 
     card.innerHTML = `
         <h3 class="repo-title">${repo.full_name}</h3>
@@ -105,7 +106,6 @@ const buildRepoCard = (repo) => {
             <button class="upvote ${hasVoted ? "is-active" : ""}" 
                     type="button"
                     data-id="${repo.id}"
-                    aria-label="Upvote ${repo.full_name}"
                     aria-pressed="${hasVoted ? "true" : "false"}">
                 <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
                 <span class="upvote-count">${totalUpvotes}</span>
@@ -131,6 +131,17 @@ const buildRepoCard = (repo) => {
     });
 
     const upvoteBtn = card.querySelector(".upvote");
+    const countEl = upvoteBtn.querySelector(".upvote-count");
+
+    const setUpvoteAriaLabel = (count, isPressed) => {
+        const verb = isPressed ? "Remove upvote from" : "Upvote";
+        upvoteBtn.setAttribute(
+            "aria-label",
+            `${count} upvotes — ${verb} ${repo.full_name}`
+        );
+    };
+    setUpvoteAriaLabel(totalUpvotes, hasVoted);
+
     upvoteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
 
@@ -156,8 +167,11 @@ const buildRepoCard = (repo) => {
         setStore(STORAGE_KEYS.UPVOTES, uStore);
         setStore(STORAGE_KEYS.VOTED, vStore);
 
-        const countEl = upvoteBtn.querySelector(".upvote-count");
-        countEl.textContent = repo.upvotes + delta;
+        const newCount = repo.upvotes + delta;
+        countEl.textContent = newCount;
+
+        // Keep accessible name in sync and starting with the visible number
+        setUpvoteAriaLabel(newCount, !alreadyVoted);
     });
 
     return card;

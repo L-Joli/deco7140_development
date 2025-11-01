@@ -109,7 +109,7 @@
 
             <aside class="nav-sidebar" aria-label="Primary navigation">
                 <div class="nav-sidebar-brand">
-                    <a href="./index.html" aria-label="Home">
+                    <a href="./index.html" aria-label="TechHub Home (TH)">
                         <span class="nav-initials" aria-hidden="true">TH</span>
                     </a>
                 </div>
@@ -172,22 +172,34 @@
                 </div>
             </section>
             <section aria-labelledby="search-title">
+                <h2 id="search-title">Search people</h2>
+
                 <form
                     class="connect-controls"
                     role="search"
-                    aria-label="Search people"
+                    aria-labelledby="search-title"
                 >
-                    <label for="search-input" class="visually-hidden"
-                        >Search people</label
+                    <label
+                        id="search-label"
+                        for="search-input"
+                        class="visually-hidden"
                     >
+                        Search people
+                    </label>
+
+                    <p id="search-help" class="visually-hidden">
+                        Search by name or title
+                    </p>
+
                     <input
                         id="search-input"
                         type="search"
                         placeholder="Search by name or title"
-                        aria-describedby="search-title"
+                        aria-describedby="search-help"
                     />
                 </form>
             </section>
+
             <section aria-labelledby="people-title">
                 <div class="section-header-inline">
                     <h2 id="people-title">

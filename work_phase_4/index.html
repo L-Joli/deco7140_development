@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/page_css/home.css" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -33,7 +34,7 @@
                 <a
                     href="./preferences.html"
                     class="circular-button profile-button"
-                    aria-label="Go to user preferences"
+                    aria-label="Manage preferences"
                     title="Manage Preferences"
                 >
                     <img
@@ -56,6 +57,7 @@
                     <span aria-hidden="true"></span>
                 </button>
             </div>
+
             <!-- Mobile Menu -->
             <nav
                 id="mobileNav"
@@ -65,36 +67,24 @@
             >
                 <ul class="nav-cards" role="list">
                     <li>
-                        <a
-                            class="nav-card-link"
-                            href="./index.html"
-                            aria-label="Go to news page"
-                            ><span class="nav-card-text">News</span></a
-                        >
+                        <a class="nav-card-link" href="./index.html">
+                            <span class="nav-card-text">News</span>
+                        </a>
                     </li>
                     <li>
-                        <a
-                            class="nav-card-link"
-                            href="./explore.html"
-                            aria-label="Go to explore page"
-                            ><span class="nav-card-text">Explore</span></a
-                        >
+                        <a class="nav-card-link" href="./explore.html">
+                            <span class="nav-card-text">Explore</span>
+                        </a>
                     </li>
                     <li>
-                        <a
-                            class="nav-card-link"
-                            href="./discuss.html"
-                            aria-label="Go to discuss page"
-                            ><span class="nav-card-text">Discuss</span></a
-                        >
+                        <a class="nav-card-link" href="./discuss.html">
+                            <span class="nav-card-text">Discuss</span>
+                        </a>
                     </li>
                     <li>
-                        <a
-                            class="nav-card-link"
-                            href="./connect.html"
-                            aria-label="Go to connect page"
-                            ><span class="nav-card-text">Connect</span></a
-                        >
+                        <a class="nav-card-link" href="./connect.html">
+                            <span class="nav-card-text">Connect</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -102,7 +92,7 @@
             <!-- Desktop Sidebar -->
             <nav class="nav-sidebar" aria-label="Primary">
                 <div class="nav-sidebar-brand">
-                    <a href="./index.html">
+                    <a href="./index.html" aria-label="TechHub Home (TH)">
                         <span class="nav-visually-hidden"
                             >TechHub Home (TH)</span
                         >
@@ -115,11 +105,13 @@
                             <a
                                 class="nav-rail-link"
                                 href="./index.html"
-                                aria-label="News"
                                 aria-current="page"
                                 title="Browse News and Events"
                             >
-                                <i class="fa-regular fa-newspaper"></i>
+                                <i
+                                    class="fa-regular fa-newspaper"
+                                    aria-hidden="true"
+                                ></i>
                                 <span class="nav-visually-hidden">News</span>
                             </a>
                         </li>
@@ -127,10 +119,12 @@
                             <a
                                 class="nav-rail-link"
                                 href="./explore.html"
-                                aria-label="Explore"
                                 title="Explore Repositories"
                             >
-                                <i class="fa-regular fa-folder-open"></i>
+                                <i
+                                    class="fa-regular fa-folder-open"
+                                    aria-hidden="true"
+                                ></i>
                                 <span class="nav-visually-hidden">Explore</span>
                             </a>
                         </li>
@@ -138,10 +132,12 @@
                             <a
                                 class="nav-rail-link"
                                 href="./discuss.html"
-                                aria-label="Discuss"
                                 title="Join Discussions"
                             >
-                                <i class="fa-regular fa-message"></i>
+                                <i
+                                    class="fa-regular fa-message"
+                                    aria-hidden="true"
+                                ></i>
                                 <span class="nav-visually-hidden">Discuss</span>
                             </a>
                         </li>
@@ -149,10 +145,12 @@
                             <a
                                 class="nav-rail-link"
                                 href="./connect.html"
-                                aria-label="Connect"
                                 title="Connect with Your Community"
                             >
-                                <i class="fa-regular fa-face-smile"></i>
+                                <i
+                                    class="fa-regular fa-face-smile"
+                                    aria-hidden="true"
+                                ></i>
                                 <span class="nav-visually-hidden">Connect</span>
                             </a>
                         </li>
@@ -160,66 +158,63 @@
                 </div>
             </nav>
         </header>
+
         <main class="container">
             <section>
                 <div class="section-header-inline">
                     <h1>Latest News</h1>
-                    <a
-                        href="#"
-                        class="btn btn-secondary"
-                        aria-label="View more news"
-                        >View all news</a
-                    >
+                    <!-- Match visible text or remove aria-label to satisfy 2.5.3 -->
+                    <a href="#" class="btn btn-secondary">View all news</a>
                 </div>
 
-                <div id="news-container" class="items-container">
-                    <!-- 
-                    News Card Template
-                    <article class="news-card">
-                        <img
-                            src="images/periodic-labs.jpg"
-                            alt="Researchers at Periodic Labs"
-                            class="news-image"
-                        />
-                        <div class="news-overlay">
-                            <span class="news-category">Venture</span>
-                            <h2 class="news-title">
-                                Top OpenAI, Google Brain researchers set off a
-                                $300M VC frenzy for their startup Periodic Labs
-                            </h2>
-                            <p class="news-author">Julie Bort · 8 hours ago</p>
-                        </div>
-                    </article> -->
+                <div
+                    id="news-container"
+                    class="items-container"
+                    aria-live="polite"
+                >
+                    <!--
+          News Card Template (ensure cards are NOT tabbable; the link inside is)
+          <article class="news-card">
+            <a class="news-card-link" href="news-detail.html">
+              <img
+                src="images/periodic-labs.jpg"
+                alt="Researchers at Periodic Labs"
+                class="news-image"
+              />
+              <div class="news-overlay">
+                <span class="news-category">Venture</span>
+                <h2 class="news-title">
+                  Top OpenAI, Google Brain researchers set off a
+                  $300M VC frenzy for their startup Periodic Labs
+                </h2>
+                <p class="news-author">Julie Bort · 8 hours ago</p>
+              </div>
+            </a>
+          </article>
+          -->
                 </div>
             </section>
+
             <section>
                 <div class="section-header-inline">
                     <h1>Recent Events</h1>
-                    <a
-                        href="#"
-                        class="btn btn-secondary"
-                        aria-label="View more events"
-                        >View all events</a
-                    >
+                    <!-- Match visible text or remove aria-label to satisfy 2.5.3 -->
+                    <a href="#" class="btn btn-secondary">View all events</a>
                 </div>
-                <div id="events-container" class="items-container">
-                    <!-- 
-                    News Card Template
-                    <article class="news-card">
-                        <img
-                            src="images/periodic-labs.jpg"
-                            alt="Researchers at Periodic Labs"
-                            class="news-image"
-                        />
-                        <div class="news-overlay">
-                            <span class="news-category">Venture</span>
-                            <h2 class="news-title">
-                                Top OpenAI, Google Brain researchers set off a
-                                $300M VC frenzy for their startup Periodic Labs
-                            </h2>
-                            <p class="news-author">Julie Bort · 8 hours ago</p>
-                        </div>
-                    </article> -->
+
+                <div
+                    id="events-container"
+                    class="items-container"
+                    aria-live="polite"
+                >
+                    <!--
+          Event Card Template (same pattern as news)
+          <article class="news-card">
+            <a class="news-card-link" href="event-detail.html">
+              ...
+            </a>
+          </article>
+          -->
                 </div>
             </section>
         </main>
@@ -229,38 +224,20 @@
         <footer class="site-footer" role="contentinfo">
             <nav class="footer-nav" aria-label="Footer navigation">
                 <ul class="footer-links">
+                    <li><a href="./about.html">About</a></li>
                     <li>
-                        <a href="./about.html" aria-label="About Us">About</a>
-                    </li>
-                    <li>
-                        <a
-                            href="./genai_mt_acknowledgement.html"
-                            aria-label="GenAI & MT Acknowledgement"
+                        <a href="./genai_mt_acknowledgement.html"
                             >GenAI & MT Acknowledgement</a
                         >
                     </li>
                     <li>
-                        <a
-                            href="./implementation_rationale.html"
-                            aria-label="Implementation Rationale"
+                        <a href="./implementation_rationale.html"
                             >Implementation Rationale</a
                         >
                     </li>
-                    <li>
-                        <a href="./contact.html" aria-label="Contact Us"
-                            >Contact</a
-                        >
-                    </li>
-                    <li>
-                        <a href="./privacy.html" aria-label="Privacy Policy"
-                            >Privacy Policy</a
-                        >
-                    </li>
-                    <li>
-                        <a href="./terms.html" aria-label="Terms of Use"
-                            >Terms of Use</a
-                        >
-                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./terms.html">Terms of Use</a></li>
                 </ul>
             </nav>
 

@@ -36,8 +36,8 @@ const formatDate = (iso) =>
 const makeMessage = (cls, title, body, ariaRole, live) => {
     const box = document.createElement("div");
     box.className = cls;
-    box.setAttribute("role", ariaRole);
-    box.setAttribute("aria-live", live);
+    if (ariaRole) box.setAttribute("role", ariaRole);
+    if (live) box.setAttribute("aria-live", live);
     box.innerHTML = `<p><strong>${title}</strong></p><p>${body}</p>`;
     return box;
 };
@@ -45,29 +45,37 @@ const makeMessage = (cls, title, body, ariaRole, live) => {
 const makeCard = (item) => {
     const card = document.createElement("article");
     card.className = "news-card";
-    card.setAttribute("tabindex", "0");
 
     const imageUrl = item.genericevent_photo || "images/placeholder.jpg";
     const formattedDate = item.date_time ? formatDate(item.date_time) : "";
+    const titleText = item.event_name || "Untitled";
+    const category = item.event_type || "Update";
+    const byline = `${item.organiser || "—"}${
+        formattedDate ? " · " + formattedDate : ""
+    }`;
 
-    card.innerHTML = `
-    <img src="${imageUrl}" alt="${
-        item.event_name || "Event image"
-    }" class="news-image" />
+    const href = item.event_url || item.url || item.link || "#";
+
+    const link = document.createElement("a");
+    link.className = "news-card-link";
+    link.href = href;
+
+    link.innerHTML = `
+    <img src="${imageUrl}" alt="${titleText}" class="news-image" />
     <div class="news-overlay">
-      <span class="news-category">${item.event_type || "Update"}</span>
-      <h2 class="news-title">${item.event_name || "Untitled"}</h2>
-      <span class="news-author">${
-          item.organiser || "—"
-      } · ${formattedDate}</span>
+      <span class="news-category">${category}</span>
+      <h2 class="news-title">${titleText}</h2>
+      <span class="news-author">${byline}</span>
     </div>
   `;
+
+    card.appendChild(link);
     return card;
 };
 
 const renderList = (items, container, emptyTitle, emptyBody) => {
     if (!container) return;
-    container.innerHTML = ""; // Clear existing content
+    container.innerHTML = "";
 
     if (!items || items.length === 0) {
         container.appendChild(
@@ -97,7 +105,7 @@ const buildSkeletonCard = () => {
 
 const startLoading = (container, count = 4) => {
     if (!container) return;
-    container.setAttribute("aria-busy", "true"); // a11y: mark region busy
+    container.setAttribute("aria-busy", "true");
     container.setAttribute("aria-live", "polite");
     container.innerHTML = "";
     for (let i = 0; i < count; i++) container.appendChild(buildSkeletonCard());
@@ -106,7 +114,7 @@ const startLoading = (container, count = 4) => {
 const stopLoading = (container) => {
     if (!container) return;
     container.removeAttribute("aria-busy");
-    // renderList() will clear content on success; in error paths, clear skeletons explicitly
+
     container.querySelectorAll(".skeleton-card").forEach((el) => el.remove());
 };
 
@@ -116,8 +124,8 @@ export const initNews = async () => {
 
     try {
         const data = await getEvents();
-        const news = data
-            .filter((e) => e.event_type === "News")
+        const news = (data || [])
+            .filter((e) => String(e.event_type).toLowerCase() === "news")
             .sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
 
         stopLoading(newsContainer);
@@ -148,8 +156,8 @@ export const initEvents = async () => {
 
     try {
         const data = await getEvents();
-        const events = data
-            .filter((e) => e.event_type === "Event")
+        const events = (data || [])
+            .filter((e) => String(e.event_type).toLowerCase() === "event")
             .sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
 
         stopLoading(eventsContainer);

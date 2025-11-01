@@ -1,29 +1,51 @@
+:root {
+  --upvote-fg: #12836d;
+  --upvote-fg-hover: #107a65;
+  --upvote-bg-tint: var(--color-accent-teal-light);
+}
+
 .upvote {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-weight: var(--font-weight-medium);
   font: inherit;
-  border: 1px solid var(--color-accent-teal);
+  font-weight: var(--font-weight-semi-bold);
+  border: 1px solid var(--upvote-fg);
   border-radius: var(--radius-sm);
   background: transparent;
-  color: var(--color-accent-teal);
+  color: var(--upvote-fg);
   padding: 0.25rem 0.6rem;
   cursor: pointer;
-  transition: background var(--transition-fast), color var(--transition-fast),
-              transform var(--transition-fast), border var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    border var(--transition-fast);
 }
+
 .upvote:hover {
-  background: var(--color-accent-teal-light);
-  color: var(--color-accent-teal-hover);
+  background: var(--upvote-bg-tint);
+  color: var(--upvote-fg-hover);
+  border-color: var(--upvote-fg-hover);
   transform: translateY(-1px);
 }
+
 .upvote.is-active,
 .upvote[aria-pressed="true"] {
-  background: var(--color-accent-teal-light);
-  color: var(--color-accent-teal);
-  border-color: var(--color-accent-teal);
+  background: var(--upvote-bg-tint);
+  color: var(--upvote-fg);
+  border-color: var(--upvote-fg);
 }
-.upvote:focus-visible { outline: 3px solid var(--color-accent-teal-light); }
-.upvote i { font-size: 1rem; }
-.upvote-count { font-weight: var(--font-weight-semi-bold); }
+
+.upvote:focus-visible {
+  outline: 3px solid var(--upvote-fg-hover);
+  outline-offset: 2px;
+}
+
+.upvote i {
+  font-size: 1rem;
+}
+
+.upvote-count {
+  font-weight: var(--font-weight-semi-bold);
+}
