@@ -1,6 +1,35 @@
 @import "../component_skeletons/nav_bar.css";
 @import "../component_skeletons/footer.css";
 
+.back-button-container {
+    margin: var(--spacing-4) auto 0;
+    padding: 0 var(--spacing-3) 0 calc(3rem + var(--spacing-3));
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    padding: var(--spacing-2);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.btn-back:hover {
+    background: var(--color-gray-200);
+}
+
+.btn-back:focus {
+    outline: 2px solid var(--color-accent-teal);
+    outline-offset: 2px;
+}
+
 .journal-page {
     background:
         linear-gradient(90deg, transparent 0 3rem, var(--color-accent-orange-light) 3rem 3.1rem, transparent 3.1rem),
@@ -149,6 +178,16 @@ section {
     outline: 3px solid var(--color-accent-orange);
     outline-offset: 3px;
     border-radius: 2px;
+}
+
+.github-link {
+    color: var(--color-accent-orange);
+    cursor: pointer;
+}
+
+.github-link:hover {
+    color: var(--color-accent-orange-hover);
+    text-decoration: underline;
 }
 
 @media (prefers-reduced-motion: reduce) {

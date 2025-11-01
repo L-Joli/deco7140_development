@@ -31,6 +31,18 @@
     </head>
     <body>
         <main class="container journal-page">
+            <div class="back-button-container">
+                <button
+                    id="back-button"
+                    class="btn-back"
+                    aria-label="Back to home page"
+                    onclick="window.location.href='./index.html'"
+                >
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    <span>Back to Home</span>
+                </button>
+            </div>
+
             <header class="page-header journal-header">
                 <h1>Implementation Rationale</h1>
                 <p>
@@ -58,7 +70,17 @@
                         >
                     </li>
                     <li>
-                        <a href="#evaluation">4. Evaluation and Reflection</a>
+                        <a href="#challenges-strategies"
+                            >4. Challenges and Strategies</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#accessibility-audit"
+                            >5. Accessibility Audit</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#github-repository">6. GitHub Repository</a>
                     </li>
                 </ol>
             </aside>
@@ -137,7 +159,7 @@
                 </ul>
 
                 <div class="entry-columns">
-                    <div class="entry-column">
+                    <div class="">
                         <h3>User Needs Supported</h3>
                         <ul>
                             <li>
@@ -840,8 +862,12 @@
                 <p>
                     The full source code and documentation for this project are
                     available at:
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        >GitHub Repository (placeholder link)</a
+                    <a
+                        class="github-link"
+                        href="https://github.com/L-Joli/deco7140_development"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >https://github.com/L-Joli/deco7140_development</a
                     >.
                 </p>
 
