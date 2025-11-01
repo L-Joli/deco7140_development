@@ -1,0 +1,264 @@
+@import "../component_skeletons/nav_bar.css";
+@import "../component_skeletons/footer.css";
+@import "../component_skeletons/buttons/user_button.css";
+@import "../utilities.css";
+@import "../component_skeletons/form_controls.css";
+@import "../component_skeletons/empty_state.css";
+@import "../component_skeletons/badges.css";
+@import "../component_skeletons/buttons/upvote_button.css";
+@import "../component_skeletons/repo_card.css";
+@import "../component_skeletons/filter_bar.css";
+@import "../component_skeletons/buttons/button.css";
+@import "../component_skeletons/buttons/primary_button.css";
+@import "../component_skeletons/buttons/secondary_button.css";
+@import "../component_skeletons/buttons/gray_outline_button.css";
+@import "../component_skeletons/modal.css";
+
+.back-button-container {
+    margin-bottom: var(--spacing-4);
+}
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    padding: var(--spacing-2);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+.btn-back:hover {
+    background: var(--color-gray-200);
+}
+.btn-back:focus {
+    outline: 2px solid var(--color-accent-teal);
+    outline-offset: 2px;
+}
+
+.post-detail {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: var(--spacing-5);
+}
+
+.post-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-4);
+    gap: var(--spacing-3);
+}
+
+.post-detail-title {
+    margin: 0 0 var(--spacing-2);
+    font-weight: var(--font-weight-bolder);
+    font-size: var(--font-size-2xl);
+    color: var(--color-text-primary);
+    word-break: break-word;
+    flex: 1;
+}
+
+.post-detail-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-3);
+}
+
+.post-detail-author {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.post-detail-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.post-detail-content {
+    margin: var(--spacing-4) 0;
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    font-size: var(--font-size-md);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.post-detail-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+    padding-top: var(--spacing-3);
+    border-top: 1px solid var(--color-border);
+}
+
+.post-detail-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.post-detail-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+/* Comment Styles */
+.comment-form {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: var(--spacing-4);
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font: inherit;
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+    resize: vertical;
+    margin-bottom: var(--spacing-2);
+}
+
+.comment-form textarea:focus {
+    outline: 2px solid var(--color-accent-teal);
+    outline-offset: 2px;
+}
+
+.comment-form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comments-list {
+    margin-top: var(--spacing-4);
+}
+
+.comment-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1.25rem 1.5rem;
+    transition: background var(--transition-fast);
+}
+
+.comment-card + .comment-card {
+    margin-top: var(--spacing-3);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-2);
+    gap: var(--spacing-2);
+}
+
+.comment-author {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+}
+
+.comment-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.comment-content {
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-2);
+}
+
+.post-author {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.post-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.post-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.post-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+@media (max-width: 768px) {
+    .post-detail {
+        padding: 1.5rem;
+    }
+
+    .post-detail-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .post-detail-header {
+        flex-direction: column;
+    }
+
+    .post-detail-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .comment-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.repo-card:focus-visible,
+.comment-card:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--color-accent-teal);
+    outline-offset: 2px;
+}

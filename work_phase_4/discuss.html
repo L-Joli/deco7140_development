@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/page_css/discuss.css" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>Discuss - Community Forum</title>
+    </head>
+    <body>
+        <header>
+            <div class="user-profile">
+                <a
+                    href="./preferences.html"
+                    class="circular-button profile-button"
+                    aria-label="Go to user preferences"
+                    title="User preferences"
+                >
+                    <img
+                        src="assets/user_default_icon.png"
+                        alt="User profile photo"
+                        class="profile-photo"
+                    />
+                </a>
+            </div>
+            <div class="nav-header nav-hide-desktop">
+                <button
+                    id="nav-toggle"
+                    class="circular-button nav-hamburger"
+                    aria-label="Open menu"
+                    aria-controls="mobile-nav"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <nav
+                id="mobile-nav"
+                class="nav-mobile nav-hide-desktop"
+                aria-label="Primary"
+                hidden
+            >
+                <ul class="nav-cards" role="list">
+                    <li>
+                        <a
+                            href="./news.html"
+                            class="nav-card-link"
+                            aria-label="Go to news page"
+                        >
+                            <span class="nav-card-text">News</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="./explore.html"
+                            class="nav-card-link"
+                            aria-label="Go to explore page"
+                            ><span class="nav-card-text">Explore</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="./discuss.html"
+                            class="nav-card-link nav-active"
+                            aria-label="Go to discuss page"
+                            aria-current="page"
+                            ><span class="nav-card-text">Discuss</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="./connect.html"
+                            class="nav-card-link"
+                            aria-label="Go to connect page"
+                            ><span class="nav-card-text">Connect</span></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <aside class="nav-sidebar" aria-label="Primary navigation">
+                <div class="nav-sidebar-brand">
+                    <a href="./index.html" aria-label="Home">
+                        <span class="nav-initials" aria-hidden="true">TH</span>
+                    </a>
+                </div>
+                <nav class="nav-rail">
+                    <ul role="list">
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./news.html"
+                                aria-label="News"
+                                title="News"
+                            >
+                                <i class="fa-regular fa-newspaper"></i>
+                                <span class="nav-visually-hidden">News</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./explore.html"
+                                title="Explore"
+                                aria-label="Explore"
+                            >
+                                <i class="fa-regular fa-folder-open"></i>
+                                <span class="nav-visually-hidden">Explore</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./discuss.html"
+                                title="Discuss"
+                                aria-current="page"
+                                aria-label="Discuss"
+                            >
+                                <i class="fa-regular fa-message"></i>
+                                <span class="nav-visually-hidden">Discuss</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./connect.html"
+                                title="Connect"
+                                aria-label="Connect"
+                            >
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span class="nav-visually-hidden">Connect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </header>
+
+        <main class="container" id="main-content">
+            <div
+                id="back-button-container"
+                class="back-button-container"
+                hidden
+            >
+                <button
+                    id="back-button"
+                    class="btn-back"
+                    aria-label="Back to discussions list"
+                >
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    <span>Back to Discussions</span>
+                </button>
+            </div>
+
+            <div id="list-view">
+                <section>
+                    <div class="section-header-inline">
+                        <h1>Community Discussions</h1>
+                        <button
+                            id="new-post-button"
+                            class="btn btn-secondary"
+                            aria-haspopup="dialog"
+                            aria-controls="new-post-modal"
+                        >
+                            <span>New Discussion</span>
+                        </button>
+                    </div>
+                </section>
+                <div
+                    id="new-post-modal"
+                    class="modal"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="new-post-title"
+                    hidden
+                >
+                    <div class="modal-content">
+                        <h2 id="new-post-title">Start a New Discussion</h2>
+                        <form id="new-post-form" novalidate>
+                            <label for="post-title"
+                                >Title
+                                <span aria-label="required">*</span></label
+                            >
+                            <input
+                                id="post-title"
+                                name="post-title"
+                                type="text"
+                                required
+                                maxlength="200"
+                                placeholder="What's on your mind?"
+                                aria-required="true"
+                            />
+
+                            <label for="post-content"
+                                >Content
+                                <span aria-label="required">*</span></label
+                            >
+                            <textarea
+                                id="post-content"
+                                name="post-content"
+                                required
+                                rows="6"
+                                placeholder="Share your thoughts..."
+                                aria-required="true"
+                            ></textarea>
+
+                            <label for="post-category">Category</label>
+                            <select
+                                id="post-category"
+                                name="post-category"
+                                required
+                                aria-required="true"
+                            >
+                                <option value="">Select a category</option>
+                                <option value="general">
+                                    General Discussion
+                                </option>
+                                <option value="help">Help & Support</option>
+                                <option value="showcase">Showcase</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="announcement">
+                                    Announcement
+                                </option>
+                            </select>
+
+                            <div class="modal-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Post Discussion
+                                </button>
+                                <button
+                                    type="button"
+                                    id="cancel-post-button"
+                                    class="btn btn-outline-gray"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <section aria-labelledby="filters-title">
+                    <h2 id="filters-title" class="visually-hidden">
+                        Filter Discussions
+                    </h2>
+                    <form
+                        class="explore-controls"
+                        role="search"
+                        aria-label="Discussion filters"
+                    >
+                        <label for="search-input" class="visually-hidden"
+                            >Search discussions</label
+                        >
+                        <input
+                            id="search-input"
+                            class="ctrl-input"
+                            type="search"
+                            placeholder="Search discussions…"
+                            aria-describedby="filters-title"
+                        />
+
+                        <label for="category-select" class="visually-hidden"
+                            >Filter by category</label
+                        >
+                        <select
+                            id="category-select"
+                            class="ctrl-select"
+                            aria-label="Filter by category"
+                        >
+                            <option value="">All categories</option>
+                            <option value="general">General Discussion</option>
+                            <option value="help">Help & Support</option>
+                            <option value="showcase">Showcase</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="announcement">Announcement</option>
+                        </select>
+
+                        <label for="sort-select" class="visually-hidden"
+                            >Sort results</label
+                        >
+                        <select
+                            id="sort-select"
+                            class="ctrl-select"
+                            aria-label="Sort results"
+                        >
+                            <option value="recent">Most Recent</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="comments">Most Commented</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </form>
+                </section>
+                <section aria-labelledby="results-title">
+                    <div class="section-header-inline">
+                        <h2 id="results-title">All Discussions</h2>
+                        <span
+                            id="results-count"
+                            class="results-count"
+                            aria-live="polite"
+                        ></span>
+                    </div>
+
+                    <div
+                        id="posts-container"
+                        class="repo-grid"
+                        aria-live="polite"
+                        aria-busy="true"
+                    >
+                        <p class="empty">Loading discussions…</p>
+                    </div>
+                </section>
+            </div>
+            <div id="detail-view" hidden>
+                <section aria-labelledby="post-detail-title">
+                    <article id="post-detail" class="post-detail">
+                        <!-- Post detail will be dynamically inserted here -->
+                    </article>
+                </section>
+                <section aria-labelledby="comments-title">
+                    <div class="section-header-inline">
+                        <h2 id="comments-title">Comments</h2>
+                        <span
+                            id="comments-count"
+                            class="results-count"
+                            aria-live="polite"
+                        ></span>
+                    </div>
+                    <form id="new-comment-form" class="comment-form" novalidate>
+                        <label for="comment-content" class="visually-hidden"
+                            >Add a comment</label
+                        >
+                        <textarea
+                            id="comment-content"
+                            name="comment-content"
+                            required
+                            rows="3"
+                            placeholder="Share your thoughts..."
+                            aria-required="true"
+                            aria-label="Comment content"
+                        ></textarea>
+                        <div class="comment-form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Post Comment
+                            </button>
+                        </div>
+                    </form>
+                    <div
+                        id="comments-container"
+                        class="repo-grid comments-list"
+                        aria-live="polite"
+                        aria-busy="false"
+                    >
+                        <p class="empty">
+                            No comments yet. Be the first to comment!
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script type="module" src="js/discuss.js"></script>
+
+        <footer class="site-footer" role="contentinfo">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul class="footer-links" role="list">
+                    <li><a href="./about.html">About</a></li>
+                    <li>
+                        <a href="./genai_mt_acknowledgement.html"
+                            >GenAI Acknowledgement</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./implementation_rationale.html"
+                            >Implementation Rationale</a
+                        >
+                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./terms.html">Terms of Use</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Team CCI. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
