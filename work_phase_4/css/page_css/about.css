@@ -1,0 +1,124 @@
+@import "../component_skeletons/nav_bar.css";
+@import "../component_skeletons/footer.css";
+@import "../component_skeletons/buttons/user_button.css";
+@import "../component_skeletons/info_card.css";
+@import "../component_skeletons/buttons/button.css";
+@import "../component_skeletons/buttons/primary_button.css";
+@import "../component_skeletons/buttons/secondary_button.css";
+@import "../component_skeletons/buttons/gray_outline_button.css";
+@import "../utilities.css";
+
+.hero-section {
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    padding: var(--spacing-6);
+    margin-bottom: var(--spacing-6);
+    text-align: center;
+}
+
+.hero-section h1 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-3);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semi-bold);
+    margin-bottom: var(--spacing-4);
+}
+
+.hero-description {
+    font-size: var(--font-size-md);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-intro {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-4);
+    line-height: 1.6;
+}
+
+.card-icon {
+    display: none;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-content p {
+    margin-bottom: var(--spacing-4);
+}
+
+.about-content strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.cta-section {
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    padding: var(--spacing-6);
+    border: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-3);
+}
+
+.cta-description {
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-5);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-3);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.info-card {
+    cursor: default;
+}
+
+.info-card:hover {
+    background: var(--color-surface);
+}
+
+@media (max-width: 48rem) {
+    .hero-section {
+        padding: var(--spacing-5);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .cta-section {
+        padding: var(--spacing-5);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

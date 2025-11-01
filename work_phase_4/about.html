@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/page_css/about.css" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>About - Tech Hub</title>
+    </head>
+    <body>
+        <header>
+            <div class="user-profile">
+                <a
+                    href="./preferences.html"
+                    class="circular-button profile-button"
+                    aria-label="Go to user preferences"
+                    title="User preferences"
+                >
+                    <img
+                        src="assets/user_default_icon.png"
+                        alt="User profile photo"
+                        class="profile-photo"
+                    />
+                </a>
+            </div>
+            <div class="nav-header nav-hide-desktop">
+                <button
+                    id="nav-toggle"
+                    class="circular-button nav-hamburger"
+                    aria-label="Open menu"
+                    aria-controls="mobile-nav"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <nav
+                id="mobile-nav"
+                class="nav-mobile nav-hide-desktop"
+                aria-label="Primary"
+                hidden
+            >
+                <ul class="nav-cards" role="list">
+                    <li>
+                        <a
+                            href="./index.html"
+                            class="nav-card-link"
+                            aria-label="Go to news page"
+                        >
+                            <span class="nav-card-text">News</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="./explore.html"
+                            class="nav-card-link"
+                            aria-label="Go to explore page"
+                            ><span class="nav-card-text">Explore</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="./discuss.html"
+                            class="nav-card-link"
+                            aria-label="Go to discuss page"
+                            ><span class="nav-card-text">Discuss</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="./connect.html"
+                            class="nav-card-link"
+                            aria-label="Go to connect page"
+                            ><span class="nav-card-text">Connect</span></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <aside class="nav-sidebar" aria-label="Primary navigation">
+                <div class="nav-sidebar-brand">
+                    <a href="./index.html" aria-label="Home">
+                        <span class="nav-initials" aria-hidden="true">TH</span>
+                    </a>
+                </div>
+                <nav class="nav-rail">
+                    <ul role="list">
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./index.html"
+                                aria-label="News"
+                                title="News"
+                            >
+                                <i class="fa-regular fa-newspaper"></i>
+                                <span class="nav-visually-hidden">News</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./explore.html"
+                                title="Explore"
+                                aria-label="Explore"
+                            >
+                                <i class="fa-regular fa-folder-open"></i>
+                                <span class="nav-visually-hidden">Explore</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./discuss.html"
+                                title="Discuss"
+                                aria-label="Discuss"
+                            >
+                                <i class="fa-regular fa-message"></i>
+                                <span class="nav-visually-hidden">Discuss</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./connect.html"
+                                title="Connect"
+                                aria-label="Connect"
+                            >
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span class="nav-visually-hidden">Connect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </header>
+
+        <main class="container" id="main-content">
+            <section>
+                <h1>About</h1>
+            </section>
+
+            <section aria-labelledby="hero-title">
+                <div class="hero-section">
+                    <h2 id="hero-title">Welcome to Tech Hub</h2>
+                    <p class="hero-subtitle">
+                        Connecting Innovators and Enthusiasts
+                    </p>
+                    <p class="hero-description">
+                        Welcome to Tech Hub, a dynamic and user-friendly website
+                        dedicated to Australia's Tech and Innovation Community.
+                        Our platform is designed to be a central hub where tech
+                        enthusiasts, creators, and innovators can connect, share
+                        knowledge, highlight events, and foster meaningful
+                        connections.
+                    </p>
+                </div>
+            </section>
+
+            <!-- What We Offer -->
+            <section aria-labelledby="offer-title">
+                <h2 id="offer-title">What We Offer</h2>
+                <div class="repo-grid">
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i
+                                class="fa-solid fa-newspaper"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                        <h3 class="repo-title">Stay Informed</h3>
+                        <p class="repo-desc">
+                            Keep up to date with the latest tech news, trends,
+                            and innovations from Australia and around the world.
+                        </p>
+                    </div>
+
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i
+                                class="fa-solid fa-calendar-days"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                        <h3 class="repo-title">Explore Repositories</h3>
+                        <p class="repo-desc">
+                            Discover hackathons, meetups, conferences, and
+                            workshops happening in your area and beyond.
+                        </p>
+                    </div>
+
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i
+                                class="fa-solid fa-comments"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                        <h3 class="repo-title">Join Discussions</h3>
+                        <p class="repo-desc">
+                            Engage in meaningful conversations about AI,
+                            robotics, programming, or the next big idea. Whether
+                            your passion is AI, robotics, programming, or the
+                            next big idea, this is your space to share and grow.
+                        </p>
+                    </div>
+
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i
+                                class="fa-solid fa-user-group"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                        <h3 class="repo-title">Build Connections</h3>
+                        <p class="repo-desc">
+                            Network with fellow tech enthusiasts, professionals,
+                            and innovators who share your interests and
+                            ambitions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="mission-title">
+                <h2 id="mission-title">Our Mission and Values</h2>
+                <p class="section-intro">
+                    Our mission is to build a platform that supports and
+                    celebrates the unique identity of the tech community. We are
+                    guided by core principles of ethical, inclusive, and
+                    culturally sensitive design.
+                </p>
+
+                <div class="repo-grid">
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-users" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="repo-title">Inclusivity</h3>
+                        <p class="repo-desc">
+                            Recognizing and representing the rich diversity
+                            within our community, not relying on stereotypes. We
+                            celebrate all backgrounds, experiences, and
+                            perspectives.
+                        </p>
+                    </div>
+
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i
+                                class="fa-solid fa-universal-access"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                        <h3 class="repo-title">Accessibility</h3>
+                        <p class="repo-desc">
+                            Ensuring our website is accessible to all users,
+                            including those relying on assistive technologies,
+                            by adhering to WCAG 2.2 Level AA standards.
+                        </p>
+                    </div>
+
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="repo-title">Community Focus</h3>
+                        <p class="repo-desc">
+                            Providing a non-commercial space dedicated to
+                            sharing resources and fostering connections. This
+                            platform is free from advertising or product
+                            selling.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Who We Are -->
+            <section aria-labelledby="org-title">
+                <h2 id="org-title">Who We Are</h2>
+                <div class="about-content">
+                    <p>
+                        Tech Hub is a proud project of the
+                        <strong>Connected Communities Initiative (CCI)</strong>.
+                        CCI is a non-profit organisation dedicated to fostering
+                        social cohesion and strengthening societal bonds.
+                    </p>
+                    <p>
+                        We do this by creating platforms that empower diverse
+                        communities to share their stories, access resources,
+                        and connect with others. Our commitment is to build
+                        bridges between communities and promote understanding,
+                        collaboration, and innovation.
+                    </p>
+                </div>
+            </section>
+
+            <section aria-labelledby="audience-title">
+                <h2 id="audience-title">Who This Platform Is For</h2>
+                <p class="section-intro">
+                    This website is built to serve two key audiences:
+                </p>
+
+                <div class="repo-grid">
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="repo-title">Community Members</h3>
+                        <p class="repo-desc">
+                            Individuals within the tech and innovation community
+                            who are seeking representation, resources, and
+                            connection. Whether you're a developer, designer,
+                            entrepreneur, or student, this is your platform.
+                        </p>
+                    </div>
+
+                    <div class="info-card" tabindex="0" role="article">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="repo-title">General Audience</h3>
+                        <p class="repo-desc">
+                            Anyone from the broader society who wishes to learn
+                            about the tech community and its valuable
+                            contributions. Discover how technology is shaping
+                            our world and how you can get involved.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="cta-title">
+                <div class="cta-section">
+                    <h2 id="cta-title">Join Our Community Today</h2>
+                    <p class="cta-description">
+                        We invite you to explore our resources, share your
+                        events, and engage in meaningful interaction with your
+                        peers. Together, we can build a stronger, more connected
+                        tech community.
+                    </p>
+                    <div class="cta-buttons">
+                        <a
+                            href="./explore.html"
+                            class="btn btn-outline-gray"
+                            aria-label="Explore repositories"
+                        >
+                            <i
+                                class="fa-solid fa-compass"
+                                aria-hidden="true"
+                            ></i>
+                            Explore Repositories
+                        </a>
+                        <a
+                            href="./discuss.html"
+                            class="btn btn-outline-gray"
+                            aria-label="Start a discussion"
+                        >
+                            <i
+                                class="fa-solid fa-message"
+                                aria-hidden="true"
+                            ></i>
+                            Join Discussions
+                        </a>
+                        <a
+                            href="./connect.html"
+                            class="btn btn-outline-gray"
+                            aria-label="Connect with community members"
+                        >
+                            <i
+                                class="fa-solid fa-user-plus"
+                                aria-hidden="true"
+                            ></i>
+                            Connect with Others
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script type="module" src="js/main.js"></script>
+
+        <footer class="site-footer" role="contentinfo">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul class="footer-links" role="list">
+                    <li><a href="./about.html">About</a></li>
+                    <li>
+                        <a href="./genai_mt_acknowledgement.html"
+                            >GenAI Acknowledgement</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./implementation_rationale.html"
+                            >Implementation Rationale</a
+                        >
+                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./terms.html">Terms of Use</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Team CCI. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
