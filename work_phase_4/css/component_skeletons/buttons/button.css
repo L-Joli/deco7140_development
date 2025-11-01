@@ -8,7 +8,7 @@
     font-size: var(--font-size-md);
     text-decoration: none;
     line-height: 1;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     cursor: pointer;
     transition: all var(--transition-fast);
     border: 3px solid var(--color-accent-orange);
@@ -17,4 +17,12 @@
 .btn:disabled {
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+.btn-disabled,
+.btn:disabled {
+    background-color: var(--color-gray-300);
+    color: var(--color-gray-500);
+    border-color: var(--color-gray-300);
+    cursor: not-allowed;
 }
