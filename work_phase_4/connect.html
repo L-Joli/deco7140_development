@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/page_css/connect.css" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>Connect</title>
+    </head>
+    <body>
+        <header>
+            <!-- User Profile Button -->
+            <div class="user-profile">
+                <a
+                    href="./preferences.html"
+                    class="circular-button profile-button"
+                    aria-label="Go to user preferences"
+                    title="Preferences"
+                >
+                    <img
+                        src="assets/user_default_icon.png"
+                        alt="User profile photo"
+                        class="profile-photo"
+                    />
+                </a>
+            </div>
+
+            <!-- Mobile Header -->
+            <div class="nav-header nav-hide-desktop">
+                <button
+                    id="nav-toggle"
+                    class="circular-button nav-hamburger"
+                    aria-label="Open menu"
+                    aria-controls="mobile-nav"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <nav
+                id="mobile-nav"
+                class="nav-mobile nav-hide-desktop"
+                aria-label="Primary"
+                hidden
+            >
+                <ul class="nav-cards" role="list">
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./index.html"
+                            aria-label="Go to news page"
+                        >
+                            <span class="nav-card-text">News</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./explore.html"
+                            aria-label="Go to explore page"
+                            ><span class="nav-card-text">Explore</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link"
+                            href="./discuss.html"
+                            aria-label="Go to discuss page"
+                            ><span class="nav-card-text">Discuss</span></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="nav-card-link active"
+                            href="./connect.html"
+                            aria-label="Go to connect page"
+                            aria-current="page"
+                            ><span class="nav-card-text">Connect</span></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <aside class="nav-sidebar" aria-label="Primary navigation">
+                <div class="nav-sidebar-brand">
+                    <a href="./index.html" aria-label="Home">
+                        <span class="nav-initials" aria-hidden="true">TH</span>
+                    </a>
+                </div>
+                <nav class="nav-rail">
+                    <ul role="list">
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./index.html"
+                                aria-label="News"
+                                title="News"
+                            >
+                                <i class="fa-regular fa-newspaper"></i>
+                                <span class="nav-visually-hidden">News</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./explore.html"
+                                title="Explore"
+                                aria-label="Explore"
+                            >
+                                <i class="fa-regular fa-folder-open"></i>
+                                <span class="nav-visually-hidden">Explore</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./discuss.html"
+                                title="Discuss"
+                                aria-label="Discuss"
+                            >
+                                <i class="fa-regular fa-message"></i>
+                                <span class="nav-visually-hidden">Discuss</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="nav-rail-link"
+                                href="./connect.html"
+                                title="Connect"
+                                aria-label="Connect"
+                                aria-current="page"
+                            >
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span class="nav-visually-hidden">Connect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </header>
+
+        <main class="container">
+            <section>
+                <div class="section-header-inline">
+                    <h1>Connect with Professionals</h1>
+                </div>
+            </section>
+            <section aria-labelledby="search-title">
+                <form
+                    class="connect-controls"
+                    role="search"
+                    aria-label="Search people"
+                >
+                    <label for="search-input" class="visually-hidden"
+                        >Search people</label
+                    >
+                    <input
+                        id="search-input"
+                        type="search"
+                        placeholder="Search by name or title"
+                        aria-describedby="search-title"
+                    />
+                </form>
+            </section>
+            <section aria-labelledby="people-title">
+                <div class="section-header-inline">
+                    <h2 id="people-title">
+                        People You Want to Connect in Tech Hub
+                    </h2>
+                    <span
+                        id="people-count"
+                        class="results-count"
+                        aria-live="polite"
+                    ></span>
+                </div>
+
+                <div
+                    id="people-container"
+                    class="people-grid"
+                    aria-live="polite"
+                    aria-busy="true"
+                >
+                    <p class="empty">Loading people…</p>
+                </div>
+            </section>
+            <div
+                id="connect-modal"
+                class="modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="connect-title"
+                hidden
+            >
+                <div class="modal-content">
+                    <h2 id="connect-title">Add a Note</h2>
+                    <form id="connect-form" novalidate>
+                        <p
+                            id="connect-person-name"
+                            class="connect-person-name"
+                        ></p>
+
+                        <label for="connect-note"
+                            >Include a personalized message (optional)</label
+                        >
+                        <textarea
+                            id="connect-note"
+                            name="connectNote"
+                            placeholder="Hi [Name], I'd like to connect with you..."
+                            rows="4"
+                        ></textarea>
+
+                        <div class="modal-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Send Request
+                            </button>
+                            <button
+                                type="button"
+                                id="close-connect-modal"
+                                class="btn btn-outline-gray"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div
+                id="chat-modal"
+                class="modal chat-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="chat-title"
+                hidden
+            >
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="chat-header-info">
+                            <img
+                                id="chat-person-avatar"
+                                src="assets/user_default_icon.png"
+                                alt="User avatar"
+                                class="chat-avatar"
+                            />
+                            <div class="chat-header-text">
+                                <h2
+                                    id="chat-title"
+                                    class="chat-person-name"
+                                ></h2>
+                                <p class="chat-person-status">Active now</p>
+                            </div>
+                        </div>
+                        <div class="chat-header-actions">
+                            <button
+                                type="button"
+                                id="close-chat-modal"
+                                class="circular-button chat-close"
+                                aria-label="Close chat"
+                            >
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="chat-date-divider">
+                            <span>Today</span>
+                        </div>
+                        <!-- Messages will be appended here -->
+                    </div>
+                    <div class="chat-input-container">
+                        <form id="chat-form" class="chat-form">
+                            <div class="chat-input-wrapper">
+                                <button
+                                    type="button"
+                                    class="chat-icon-button"
+                                    aria-label="Add attachment"
+                                >
+                                    <i class="fa-solid fa-paperclip"></i>
+                                </button>
+                                <input
+                                    id="chat-input"
+                                    type="text"
+                                    placeholder="Write a message..."
+                                    aria-label="Message input"
+                                />
+                                <button
+                                    type="button"
+                                    class="chat-icon-button"
+                                    aria-label="Add GIF"
+                                >
+                                    <i class="fa-solid fa-image"></i>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="chat-icon-button"
+                                    aria-label="Add emoji"
+                                >
+                                    <i class="fa-solid fa-face-smile"></i>
+                                </button>
+                            </div>
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                aria-label="Send message"
+                            >
+                                <span>Send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script type="module" src="js/connect.js"></script>
+
+        <footer class="site-footer" role="contentinfo">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul class="footer-links" role="list">
+                    <li><a href="./about.html">About</a></li>
+                    <li>
+                        <a href="./genai_mt_acknowledgement.html"
+                            >GenAI Acknowledgement</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./implementation_rationale.html"
+                            >Implementation Rationale</a
+                        >
+                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./terms.html">Terms of Use</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Team CCI. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
