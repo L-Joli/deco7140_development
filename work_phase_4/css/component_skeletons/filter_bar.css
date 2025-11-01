@@ -1,0 +1,13 @@
+.explore-controls {
+    display: grid;
+    gap: var(--spacing-2);
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin-top: var(--spacing-2);
+}
+
+@media (min-width: 48rem) {
+    .explore-controls {
+        grid-template-columns: 50% auto auto;
+    }
+}

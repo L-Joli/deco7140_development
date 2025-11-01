@@ -1,0 +1,58 @@
+/* Card container */
+.repo-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Full-width, flat border card */
+.repo-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1.25rem 1.5rem;
+    transition: background var(--transition-fast);
+    cursor: pointer;
+}
+.repo-card:hover,
+.repo-card:active {
+    background: var(--color-gray-200);
+}
+.repo-card:focus {
+    outline: 2px solid var(--color-accent-teal);
+    z-index: 1;
+}
+.repo-card + .repo-card {
+    border-top: none;
+}
+
+.repo-title {
+    margin: 0 0 0.4rem;
+    font-weight: var(--font-weight-bolder);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+    word-break: break-word;
+}
+.repo-desc {
+    margin: 0 0 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.45;
+}
+
+/* Meta row */
+.repo-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+.meta-badges {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    margin-left: var(--spacing-4);
+}
